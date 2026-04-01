@@ -65,10 +65,12 @@ export default function HeroSection() {
             <Button
               size="lg"
               className="bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold text-base px-8 h-13 shadow-xl shadow-[#48D597]/25 transition-all hover:shadow-2xl hover:shadow-[#48D597]/30 hover:-translate-y-0.5"
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              asChild
             >
-              Book a Free Visit
-              <ArrowRight className="w-5 h-5 ml-1" />
+              <a href="https://metromutts.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" target="_blank" rel="noopener noreferrer">
+                Book a Free Visit
+                <ArrowRight className="w-5 h-5 ml-1" />
+              </a>
             </Button>
             <Button
               size="lg"

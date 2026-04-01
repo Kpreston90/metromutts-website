@@ -20,10 +20,7 @@ export default function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thank you! We'll be in touch within 24 hours.", {
-      description: "Check your email for a confirmation.",
-    });
-    setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+    window.open("https://metromutts.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=", "_blank");
   };
 
   return (

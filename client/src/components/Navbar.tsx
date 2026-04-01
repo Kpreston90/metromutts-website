@@ -123,9 +123,11 @@ export default function Navbar() {
             </Button>
             <Button
               className="bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold shadow-lg shadow-[#48D597]/20"
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              asChild
             >
-              Book a Visit
+              <a href="https://metromutts.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" target="_blank" rel="noopener noreferrer">
+                Book a Visit
+              </a>
             </Button>
           </div>
 
@@ -170,12 +172,11 @@ export default function Navbar() {
               <div className="pt-4 flex flex-col gap-2">
                 <Button
                   className="w-full bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold"
-                  onClick={() => {
-                    setMobileOpen(false);
-                    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                  }}
+                  asChild
                 >
-                  Book a Visit
+                  <a href="https://metromutts.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
+                    Book a Visit
+                  </a>
                 </Button>
                 <a href="tel:5398673841" className="flex items-center justify-center gap-2 py-2 text-sm font-medium text-[#345460]/70">
                   <Phone className="w-4 h-4" /> 539-867-3841

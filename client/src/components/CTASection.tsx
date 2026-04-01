@@ -52,10 +52,12 @@ export default function CTASection() {
               <Button
                 size="lg"
                 className="bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold text-base px-8 h-13 shadow-xl shadow-black/15 transition-all hover:-translate-y-0.5"
-                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                asChild
               >
-                Schedule a Free Tour
-                <ArrowRight className="w-5 h-5 ml-1" />
+                <a href="https://metromutts.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" target="_blank" rel="noopener noreferrer">
+                  Schedule a Free Tour
+                  <ArrowRight className="w-5 h-5 ml-1" />
+                </a>
               </Button>
               <Button
                 size="lg"
