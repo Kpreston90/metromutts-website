@@ -1,25 +1,35 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
-
-/**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
+/*
+ * Metro Mutts Home Page
+ * Design: Vibrant Contemporary — "Pawsitive Energy"
+ * Teal (#0891B2) primary, Amber (#F59E0B) accent, Navy text
+ * Plus Jakarta Sans typography, wave dividers, animated sections
  */
-export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import WhyChooseSection from "@/components/WhyChooseSection";
+import ServicesSection from "@/components/ServicesSection";
+import StatsSection from "@/components/StatsSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import AboutSection from "@/components/AboutSection";
+import CTASection from "@/components/CTASection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 
+export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
+      <Navbar />
       <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
+        <HeroSection />
+        <WhyChooseSection />
+        <ServicesSection />
+        <StatsSection />
+        <TestimonialsSection />
+        <AboutSection />
+        <CTASection />
+        <ContactSection />
       </main>
+      <Footer />
     </div>
   );
 }
