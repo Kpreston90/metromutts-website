@@ -1,34 +1,33 @@
 /*
- * Metro Mutts Home Page — Dogtopia-style section order
- * Navbar → Hero → Intro → ServiceCards → StatsBar → TestimonialsBar
- * → FacilitySection → AboutSection → GallerySection → MissionBar → Footer
+ * Metro Mutts Home Page
+ * Design: Vibrant Contemporary — "Pawsitive Energy"
+ * Teal (#0891B2) primary, Amber (#F59E0B) accent, Navy text
+ * Plus Jakarta Sans typography, wave dividers, animated sections
  */
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import IntroSection from "@/components/IntroSection";
-import ServiceCards from "@/components/ServiceCards";
-import StatsBar from "@/components/StatsBar";
-import TestimonialsBar from "@/components/TestimonialsBar";
-import FacilitySection from "@/components/FacilitySection";
+import WhyChooseSection from "@/components/WhyChooseSection";
+import ServicesSection from "@/components/ServicesSection";
+import StatsSection from "@/components/StatsSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import AboutSection from "@/components/AboutSection";
-import GallerySection from "@/components/GallerySection";
-import MissionBar from "@/components/MissionBar";
+import CTASection from "@/components/CTASection";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col">
       <Navbar />
       <main>
         <HeroSection />
-        <IntroSection />
-        <ServiceCards />
-        <StatsBar />
-        <TestimonialsBar />
-        <FacilitySection />
+        <WhyChooseSection />
+        <ServicesSection />
+        <StatsSection />
+        <TestimonialsSection />
         <AboutSection />
-        <GallerySection />
-        <MissionBar />
+        <CTASection />
+        <ContactSection />
       </main>
       <Footer />
     </div>
