@@ -5,6 +5,7 @@
  */
 import { Facebook, Instagram } from "lucide-react";
 import { toast } from "sonner";
+import { Link } from "wouter";
 
 const LOGO_WHITE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/mm-logo-white_a0eef0bd.png";
 
@@ -14,6 +15,7 @@ const footerLinks = {
     { label: "Overnight Boarding", href: "#boarding" },
     { label: "Grooming & Spa", href: "#grooming" },
     { label: "Dog Training", href: "#training" },
+    { label: "Pricing", href: "/pricing" },
   ],
   Company: [
     { label: "About Us", href: "#about" },
@@ -36,13 +38,13 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 lg:gap-12">
           {/* Brand column */}
           <div className="col-span-2 md:col-span-4 lg:col-span-2">
-            <a href="#" className="inline-block mb-5">
+            <Link href="/" className="inline-block mb-5">
               <img
                 src={LOGO_WHITE}
                 alt="Metro Mutts"
                 className="h-14 w-auto"
               />
-            </a>
+            </Link>
             <p className="text-white/60 text-sm leading-relaxed max-w-sm mb-6">
               Tulsa's most trusted dog care provider. Award-winning daycare, luxury boarding, and professional grooming — all under one roof.
             </p>
@@ -73,12 +75,21 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-white/60 hover:text-[#48D597] transition-colors"
-                    >
-                      {link.label}
-                    </a>
+                    {link.href.startsWith("/") ? (
+                      <Link
+                        href={link.href}
+                        className="text-sm text-white/60 hover:text-[#48D597] transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className="text-sm text-white/60 hover:text-[#48D597] transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
