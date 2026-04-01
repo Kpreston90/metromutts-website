@@ -9,8 +9,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 
-const HERO_VIDEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/hero-video-v4_e8fd22e2.mp4";
-const HERO_POSTER = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/hero-video-v4-frame_0c41bd3b.jpg";
+const HERO_VIDEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/hero-video-drone_bba10680.mp4";
+const HERO_POSTER = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/drone-keyframe-outdoor-dfLta5U8h6DrVsgtdhHrNX.png";
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
