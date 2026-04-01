@@ -1,25 +1,69 @@
 /*
- * Metro Mutts Hero Section
+ * Metro Mutts Hero Section — Video Background
  * Brand: Green #48D597, Dark #345460
- * Full-width hero with overlay, animated text, wave SVG divider
+ * Full-width video hero with dark overlay, animated text, wave SVG divider
+ * Similar to 9th Street Barking Lot / Dogtopia hero style
  */
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
+import { useRef, useEffect, useState } from "react";
 
-const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/mm-dogs-group-daycare_55f83d1f.jpeg";
+const HERO_VIDEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/hero-video_4d4f70fd.mp4";
+const HERO_POSTER = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/hero-video-frame_b2f35d39.jpg";
 
 export default function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    
+    // Ensure video plays on load
+    const playVideo = () => {
+      video.play().catch(() => {
+        // Autoplay blocked — poster image will show as fallback
+      });
+    };
+
+    if (video.readyState >= 3) {
+      setVideoLoaded(true);
+      playVideo();
+    } else {
+      video.addEventListener("canplay", () => {
+        setVideoLoaded(true);
+        playVideo();
+      }, { once: true });
+    }
+  }, []);
+
   return (
-    <section className="relative overflow-hidden">
-      {/* Background image with overlay */}
+    <section className="relative overflow-hidden min-h-[85vh] flex items-center">
+      {/* Video background */}
       <div className="absolute inset-0">
-        <img
-          src={HERO_IMAGE}
-          alt="Happy dogs playing at Metro Mutts daycare in Tulsa"
-          className="w-full h-full object-cover"
+        <video
+          ref={videoRef}
+          src={HERO_VIDEO}
+          poster={HERO_POSTER}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className={`w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#345460]/90 via-[#345460]/70 to-[#345460]/40" />
+        {/* Poster fallback while video loads */}
+        <img
+          src={HERO_POSTER}
+          alt=""
+          aria-hidden="true"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? "opacity-0" : "opacity-100"}`}
+        />
+        {/* Dark gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1a2e38]/90 via-[#345460]/75 to-[#345460]/50" />
+        {/* Extra bottom fade for wave transition */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#345460]/60 to-transparent" />
       </div>
 
       {/* Content */}
@@ -30,14 +74,14 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#48D597]/20 text-[#48D597] text-sm font-semibold mb-6 border border-[#48D597]/30">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#48D597]/20 text-[#48D597] text-sm font-semibold mb-6 border border-[#48D597]/30 backdrop-blur-sm">
               <Play className="w-3.5 h-3.5 fill-current" />
               Tulsa's Favorite Dog Care
             </span>
           </motion.div>
 
           <motion.h1
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-[1.08] tracking-tight mb-6"
+            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-[1.08] tracking-tight mb-6 drop-shadow-lg"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
@@ -48,7 +92,7 @@ export default function HeroSection() {
           </motion.h1>
 
           <motion.p
-            className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-xl"
+            className="text-lg sm:text-xl text-white/85 leading-relaxed mb-8 max-w-xl drop-shadow-md"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
@@ -75,7 +119,7 @@ export default function HeroSection() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white/30 text-white hover:bg-white/10 font-semibold text-base px-8 h-13 bg-transparent"
+              className="border-white/30 text-white hover:bg-white/10 font-semibold text-base px-8 h-13 bg-transparent backdrop-blur-sm"
               onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
             >
               Explore Services
@@ -84,7 +128,7 @@ export default function HeroSection() {
 
           {/* Trust badges */}
           <motion.div
-            className="flex flex-wrap items-center gap-6 mt-10 pt-8 border-t border-white/10"
+            className="flex flex-wrap items-center gap-6 mt-10 pt-8 border-t border-white/15"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.7 }}
@@ -97,7 +141,7 @@ export default function HeroSection() {
                   </div>
                 ))}
               </div>
-              <span className="text-white/70 text-sm font-medium">4,000+ sq ft of play space</span>
+              <span className="text-white/75 text-sm font-medium">4,000+ sq ft of play space</span>
             </div>
             <div className="flex items-center gap-1.5">
               <div className="flex gap-0.5">
@@ -107,7 +151,7 @@ export default function HeroSection() {
                   </svg>
                 ))}
               </div>
-              <span className="text-white/70 text-sm font-medium">5-star rated</span>
+              <span className="text-white/75 text-sm font-medium">5-star rated</span>
             </div>
           </motion.div>
         </div>
