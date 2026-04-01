@@ -1,15 +1,19 @@
 /*
  * Metro Mutts Contact Section
  * Brand: Green #48D597, Dark #345460
- * Two-column layout with contact form and single Tulsa location
+ * Two-column layout with contact form, location info, and interactive Google Map
  */
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, Clock, ArrowRight } from "lucide-react";
-import { useState } from "react";
-import { toast } from "sonner";
+import { MapPin, Phone, Mail, Clock, ArrowRight, Navigation } from "lucide-react";
+import { useState, useRef, useCallback } from "react";
+import { MapView } from "@/components/Map";
+
+// Metro Mutts exact location: 1219 E 13th St, Tulsa, OK 74120
+const METRO_MUTTS_LOCATION = { lat: 36.1444, lng: -95.9794 };
 
 export default function ContactSection() {
+  const mapRef = useRef<google.maps.Map | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -21,6 +25,35 @@ export default function ContactSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     window.open("https://metromutts.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=", "_blank");
+  };
+
+  const handleMapReady = useCallback((map: google.maps.Map) => {
+    mapRef.current = map;
+
+    // Add a custom styled marker for Metro Mutts
+    const markerContent = document.createElement("div");
+    markerContent.innerHTML = `
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <div style="background:#48D597;color:#345460;padding:8px 14px;border-radius:12px;font-weight:700;font-size:13px;box-shadow:0 4px 12px rgba(0,0,0,0.15);white-space:nowrap;font-family:system-ui,-apple-system,sans-serif;">
+          🐾 Metro Mutts
+        </div>
+        <div style="width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid #48D597;margin-top:-1px;"></div>
+      </div>
+    `;
+
+    new google.maps.marker.AdvancedMarkerElement({
+      map,
+      position: METRO_MUTTS_LOCATION,
+      title: "Metro Mutts - 1219 E 13th St, Tulsa, OK 74120",
+      content: markerContent,
+    });
+  }, []);
+
+  const handleGetDirections = () => {
+    window.open(
+      `https://www.google.com/maps/dir/?api=1&destination=1219+E+13th+St+Tulsa+OK+74120`,
+      "_blank"
+    );
   };
 
   return (
@@ -156,7 +189,7 @@ export default function ContactSection() {
               <div className="space-y-3">
                 <div className="flex items-start gap-2.5 text-sm text-[#345460]/70">
                   <MapPin className="w-4 h-4 text-[#48D597] mt-0.5 flex-shrink-0" />
-                  Tulsa, Oklahoma
+                  1219 E 13th St, Tulsa, OK 74120
                 </div>
                 <div className="flex items-center gap-2.5 text-sm text-[#345460]/70">
                   <Phone className="w-4 h-4 text-[#48D597] flex-shrink-0" />
@@ -179,31 +212,24 @@ export default function ContactSection() {
                   </div>
                 </div>
               </div>
+              {/* Get Directions button */}
+              <button
+                onClick={handleGetDirections}
+                className="mt-4 w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#345460] text-white text-sm font-semibold hover:bg-[#2a4550] transition-colors"
+              >
+                <Navigation className="w-4 h-4" />
+                Get Directions
+              </button>
             </div>
 
-            {/* Facility highlights */}
-            <div className="bg-white rounded-2xl p-6 shadow-lg shadow-black/5 border border-black/5">
-              <h4 className="font-extrabold text-lg text-[#345460] mb-4">
-                Our Facility
-              </h4>
-              <ul className="space-y-2.5">
-                {[
-                  "2,000 sq ft indoor play area",
-                  "2,000 sq ft outdoor play area",
-                  "Spacious boarding suites",
-                  "Professional grooming salon",
-                  "Climate-controlled environment",
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-2.5 text-sm text-[#345460]/70">
-                    <div className="w-5 h-5 rounded-full bg-[#48D597]/10 flex items-center justify-center flex-shrink-0">
-                      <svg className="w-3 h-3 text-[#48D597]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            {/* Interactive Google Map */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg shadow-black/5 border border-black/5">
+              <MapView
+                className="w-full h-[250px]"
+                initialCenter={METRO_MUTTS_LOCATION}
+                initialZoom={15}
+                onMapReady={handleMapReady}
+              />
             </div>
 
             {/* General contact */}
