@@ -1,16 +1,19 @@
 /*
  * Metro Mutts About Section
- * Design: Two-column with image collage and company story
- * Values grid with icons, teal/amber palette
+ * Brand: Green #48D597, Dark #345460
+ * Two-column with real aerial photo and company values
  */
 import { motion } from "framer-motion";
 import { Shield, Heart, Sparkles, Users } from "lucide-react";
+
+const ABOUT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/mm-aerial-building-tulsa_db8a7bcb.jpeg";
+const STAFF_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/mm-staff-with-dogs_2c5ab082.jpeg";
 
 const values = [
   {
     icon: Shield,
     title: "Safety First",
-    description: "Every facility is designed with your dog's safety as the top priority. From secure play areas to trained staff, we leave nothing to chance.",
+    description: "Every area is designed with your dog's safety as the top priority. From secure play areas to trained staff, we leave nothing to chance.",
   },
   {
     icon: Heart,
@@ -25,7 +28,7 @@ const values = [
   {
     icon: Users,
     title: "Community",
-    description: "We're more than a business — we're a community of dog lovers dedicated to making life better for dogs and their families.",
+    description: "We're more than a business — we're a community of Tulsa dog lovers dedicated to making life better for dogs and their families.",
   },
 ];
 
@@ -46,28 +49,36 @@ export default function AboutSection() {
               {/* Main image */}
               <div className="rounded-3xl overflow-hidden shadow-2xl shadow-black/10">
                 <img
-                  src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&q=80"
-                  alt="Happy dogs running together"
+                  src={ABOUT_IMAGE}
+                  alt="Aerial view of Metro Mutts facility in Tulsa"
                   className="w-full aspect-[4/3] object-cover"
                 />
               </div>
               {/* Floating accent card */}
               <div className="absolute -bottom-6 -right-4 lg:-right-8 bg-white rounded-2xl p-5 shadow-xl shadow-black/10 border border-black/5">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-[oklch(0.97_0.02_195)] flex items-center justify-center">
-                    <Heart className="w-6 h-6 text-[oklch(0.55_0.14_195)]" fill="currentColor" />
+                  <div className="w-12 h-12 rounded-xl bg-[#48D597]/10 flex items-center justify-center">
+                    <Heart className="w-6 h-6 text-[#48D597]" fill="currentColor" />
                   </div>
                   <div>
-                    <div className="text-2xl font-extrabold text-[oklch(0.20_0.02_260)]">15+</div>
-                    <div className="text-sm text-[oklch(0.50_0.02_260)] font-medium">Years of Love</div>
+                    <div className="text-2xl font-extrabold text-[#345460]">4,000+</div>
+                    <div className="text-sm text-[#345460]/60 font-medium">Sq Ft of Play Space</div>
                   </div>
                 </div>
+              </div>
+              {/* Secondary image */}
+              <div className="hidden lg:block absolute -top-6 -left-6 w-28 h-28 rounded-2xl overflow-hidden shadow-lg border-4 border-white">
+                <img
+                  src={STAFF_IMAGE}
+                  alt="Metro Mutts staff with dogs"
+                  className="w-full h-full object-cover"
+                />
               </div>
               {/* Decorative dots */}
               <div className="absolute -top-4 -left-4 w-24 h-24 opacity-20">
                 <div className="grid grid-cols-4 gap-2">
                   {Array.from({ length: 16 }).map((_, i) => (
-                    <div key={i} className="w-2 h-2 rounded-full bg-[oklch(0.55_0.14_195)]" />
+                    <div key={i} className="w-2 h-2 rounded-full bg-[#48D597]" />
                   ))}
                 </div>
               </div>
@@ -81,18 +92,18 @@ export default function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[oklch(0.97_0.02_195)] text-[oklch(0.55_0.14_195)] text-sm font-bold mb-4 tracking-wide uppercase">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#48D597]/10 text-[#48D597] text-sm font-bold mb-4 tracking-wide uppercase">
               About Metro Mutts
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[oklch(0.20_0.02_260)] tracking-tight mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#345460] tracking-tight mb-6 leading-tight">
               Born From a Love{" "}
-              <span className="text-[oklch(0.55_0.14_195)]">of Dogs</span>
+              <span className="text-[#48D597]">of Dogs</span>
             </h2>
-            <p className="text-[oklch(0.45_0.02_260)] text-lg leading-relaxed mb-5">
-              Metro Mutts was founded in 2011 with a simple mission: to create the kind of dog care we'd want for our own pups. What started as a single daycare facility has grown into the metro area's most trusted name in dog care.
+            <p className="text-[#345460]/70 text-lg leading-relaxed mb-5">
+              Metro Mutts was founded in Tulsa, Oklahoma with a simple mission: to create the kind of dog care we'd want for our own pups. Our state-of-the-art facility features 2,000 sq ft of indoor play area, 2,000 sq ft of outdoor play area, and spacious overnight boarding suites.
             </p>
-            <p className="text-[oklch(0.45_0.02_260)] text-base leading-relaxed mb-8">
-              Every decision we make — from the products we use to the staff we hire — is guided by one question: "Is this what's best for the dogs?" That commitment to excellence is why thousands of families trust us with their furry family members every day.
+            <p className="text-[#345460]/70 text-base leading-relaxed mb-8">
+              Every decision we make — from the products we use to the staff we hire — is guided by one question: "Is this what's best for the dogs?" That commitment to excellence is why Tulsa families trust us with their furry family members every day.
             </p>
 
             {/* Values grid */}
@@ -108,12 +119,12 @@ export default function AboutSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
                   >
-                    <div className="w-10 h-10 rounded-xl bg-[oklch(0.97_0.02_195)] flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-5 h-5 text-[oklch(0.55_0.14_195)]" />
+                    <div className="w-10 h-10 rounded-xl bg-[#48D597]/10 flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-5 h-5 text-[#48D597]" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-[oklch(0.20_0.02_260)] mb-1">{value.title}</h4>
-                      <p className="text-sm text-[oklch(0.50_0.02_260)] leading-relaxed">{value.description}</p>
+                      <h4 className="font-bold text-[#345460] mb-1">{value.title}</h4>
+                      <p className="text-sm text-[#345460]/60 leading-relaxed">{value.description}</p>
                     </div>
                   </motion.div>
                 );

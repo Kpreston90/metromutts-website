@@ -1,13 +1,13 @@
 /*
  * Metro Mutts Hero Section
- * Design: Full-width hero with overlay, animated text, wave SVG divider
- * Teal + amber palette, Plus Jakarta Sans 800 for heading
+ * Brand: Green #48D597, Dark #345460
+ * Full-width hero with overlay, animated text, wave SVG divider
  */
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 
-const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/hero-dogs-playing-WhNjeKqRt7taus9vUJRgtp.webp";
+const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/mm-dogs-group-daycare_55f83d1f.jpeg";
 
 export default function HeroSection() {
   return (
@@ -16,10 +16,10 @@ export default function HeroSection() {
       <div className="absolute inset-0">
         <img
           src={HERO_IMAGE}
-          alt="Happy dogs playing at Metro Mutts daycare"
+          alt="Happy dogs playing at Metro Mutts daycare in Tulsa"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.15_0.02_260)]/90 via-[oklch(0.15_0.02_260)]/70 to-[oklch(0.15_0.02_260)]/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#345460]/90 via-[#345460]/70 to-[#345460]/40" />
       </div>
 
       {/* Content */}
@@ -30,9 +30,9 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[oklch(0.77_0.17_75)]/20 text-[oklch(0.90_0.10_85)] text-sm font-semibold mb-6 border border-[oklch(0.77_0.17_75)]/30">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#48D597]/20 text-[#48D597] text-sm font-semibold mb-6 border border-[#48D597]/30">
               <Play className="w-3.5 h-3.5 fill-current" />
-              The City's Favorite Dog Care
+              Tulsa's Favorite Dog Care
             </span>
           </motion.div>
 
@@ -43,7 +43,7 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.15 }}
           >
             Where Every Dog{" "}
-            <span className="text-[oklch(0.77_0.17_75)]">Lives Their</span>{" "}
+            <span className="text-[#48D597]">Lives Their</span>{" "}
             Best Life
           </motion.h1>
 
@@ -53,7 +53,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            Award-winning daycare, luxury boarding, professional grooming, and expert training — all under one roof. Your pup deserves the best, and we deliver it every single day.
+            Award-winning daycare, luxury boarding, and professional grooming — all under one roof in Tulsa. Your pup deserves the best, and we deliver it every single day.
           </motion.p>
 
           <motion.div
@@ -64,7 +64,7 @@ export default function HeroSection() {
           >
             <Button
               size="lg"
-              className="bg-[oklch(0.77_0.17_75)] hover:bg-[oklch(0.72_0.17_75)] text-[oklch(0.20_0.02_260)] font-bold text-base px-8 h-13 shadow-xl shadow-amber-500/25 transition-all hover:shadow-2xl hover:shadow-amber-500/30 hover:-translate-y-0.5"
+              className="bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold text-base px-8 h-13 shadow-xl shadow-[#48D597]/25 transition-all hover:shadow-2xl hover:shadow-[#48D597]/30 hover:-translate-y-0.5"
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
             >
               Book a Free Visit
@@ -90,22 +90,22 @@ export default function HeroSection() {
             <div className="flex items-center gap-2">
               <div className="flex -space-x-2">
                 {[1,2,3,4].map((i) => (
-                  <div key={i} className="w-8 h-8 rounded-full bg-[oklch(0.55_0.14_195)] border-2 border-[oklch(0.15_0.02_260)] flex items-center justify-center text-white text-xs font-bold">
+                  <div key={i} className="w-8 h-8 rounded-full bg-[#48D597] border-2 border-[#345460] flex items-center justify-center text-white text-xs font-bold">
                     {["🐕","🐩","🐶","🐾"][i-1]}
                   </div>
                 ))}
               </div>
-              <span className="text-white/70 text-sm font-medium">10,000+ happy pups</span>
+              <span className="text-white/70 text-sm font-medium">4,000+ sq ft of play space</span>
             </div>
             <div className="flex items-center gap-1.5">
               <div className="flex gap-0.5">
                 {[1,2,3,4,5].map((i) => (
-                  <svg key={i} className="w-4 h-4 text-[oklch(0.77_0.17_75)]" fill="currentColor" viewBox="0 0 20 20">
+                  <svg key={i} className="w-4 h-4 text-[#48D597]" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 ))}
               </div>
-              <span className="text-white/70 text-sm font-medium">4.9/5 rating</span>
+              <span className="text-white/70 text-sm font-medium">5-star rated</span>
             </div>
           </motion.div>
         </div>

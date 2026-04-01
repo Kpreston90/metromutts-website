@@ -1,16 +1,16 @@
 /*
  * Metro Mutts Services Section
- * Design: Alternating two-column layouts with wave dividers
- * Service cards with gradient icons, teal/amber palette
+ * Brand: Green #48D597, Dark #345460
+ * Alternating two-column layouts with real facility photos
  */
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sun, Moon, Scissors, GraduationCap } from "lucide-react";
 
-const DAYCARE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/daycare-fun-8kperQGBjZChkBHiape229.webp";
-const BOARDING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/boarding-comfort-3asgZXtjh4txURDdDriUET.webp";
-const GROOMING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/grooming-spa-gRQvgp5cAxhZ3tgXQwU4ce.webp";
-const TRAINING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/dog-training-atRxRKvZ8RJH9MBzQLgpfC.webp";
+const DAYCARE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/mm-dogs-daycare-play_cff457d0.jpeg";
+const BOARDING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/mm-boarding-suites_465c23e3.png";
+const GROOMING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/mm-golden-retriever-happy_7ff34448.jpeg";
+const TRAINING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/mm-dogs-playing-turf_ef6e3775.jpeg";
 
 const services = [
   {
@@ -19,11 +19,11 @@ const services = [
     title: "Dog Daycare",
     tagline: "Play All Day",
     description:
-      "Your dog will love spending the day with their furry friends in our safe, supervised playrooms. We group dogs by size and temperament to ensure the best experience for every pup. With indoor and outdoor play areas, enrichment activities, and trained staff, your dog will come home happy and tired.",
+      "Your dog will love spending the day with their furry friends in our safe, supervised playrooms. We group dogs by size and temperament to ensure the best experience for every pup. With 2,000 sq ft of indoor and 2,000 sq ft of outdoor play areas, enrichment activities, and trained staff, your dog will come home happy and tired.",
     features: ["Supervised group play", "Size-appropriate grouping", "Indoor & outdoor areas", "Enrichment activities"],
     image: DAYCARE_IMG,
-    color: "oklch(0.55 0.14 195)",
-    bgColor: "oklch(0.97 0.02 195)",
+    color: "#48D597",
+    bgColor: "rgba(72, 213, 151, 0.1)",
   },
   {
     id: "boarding",
@@ -31,11 +31,11 @@ const services = [
     title: "Overnight Boarding",
     tagline: "Home Away From Home",
     description:
-      "When you need to travel, your dog deserves a comfortable, loving stay. Our luxury boarding suites feature plush bedding, climate control, and plenty of playtime during the day. We provide evening walks, bedtime snacks, and around-the-clock care so you can travel worry-free.",
-    features: ["Private luxury suites", "24/7 supervised care", "Evening walks & playtime", "Webcam access"],
+      "When you need to travel, your dog deserves a comfortable, loving stay. Our spacious boarding suites feature comfortable bedding, climate control, and plenty of playtime during the day. We provide evening walks, bedtime snacks, and around-the-clock care so you can travel worry-free.",
+    features: ["Spacious private suites", "24/7 supervised care", "Evening walks & playtime", "Webcam access"],
     image: BOARDING_IMG,
-    color: "oklch(0.77 0.17 75)",
-    bgColor: "oklch(0.97 0.02 85)",
+    color: "#345460",
+    bgColor: "rgba(52, 84, 96, 0.1)",
   },
   {
     id: "grooming",
@@ -46,8 +46,8 @@ const services = [
       "Our professional groomers provide everything from basic baths to full breed-specific styling. We use premium, pet-safe products and take the time to ensure every dog looks and feels their best. Add-on spa treatments include teeth brushing, nail grinding, and soothing oatmeal baths.",
     features: ["Full-service grooming", "Breed-specific styling", "Premium products", "Spa treatments"],
     image: GROOMING_IMG,
-    color: "oklch(0.55 0.14 195)",
-    bgColor: "oklch(0.97 0.02 195)",
+    color: "#48D597",
+    bgColor: "rgba(72, 213, 151, 0.1)",
   },
   {
     id: "training",
@@ -58,8 +58,8 @@ const services = [
       "From basic obedience to advanced behavior modification, our certified trainers use positive reinforcement methods to bring out the best in your dog. We offer group classes, private sessions, and puppy socialization programs designed to build confidence and good manners.",
     features: ["Positive reinforcement", "Group & private classes", "Puppy socialization", "Behavior modification"],
     image: TRAINING_IMG,
-    color: "oklch(0.77 0.17 75)",
-    bgColor: "oklch(0.97 0.02 85)",
+    color: "#345460",
+    bgColor: "rgba(52, 84, 96, 0.1)",
   },
 ];
 
@@ -121,15 +121,15 @@ function ServiceBlock({
           >
             <Icon className="w-7 h-7" style={{ color: service.color }} />
           </div>
-          <h3 className="text-3xl lg:text-4xl font-extrabold text-[oklch(0.20_0.02_260)] mb-4 tracking-tight">
+          <h3 className="text-3xl lg:text-4xl font-extrabold text-[#345460] mb-4 tracking-tight">
             {service.title}
           </h3>
-          <p className="text-[oklch(0.45_0.02_260)] text-base lg:text-lg leading-relaxed mb-6">
+          <p className="text-[#345460]/70 text-base lg:text-lg leading-relaxed mb-6">
             {service.description}
           </p>
           <ul className="grid grid-cols-2 gap-3 mb-8">
             {service.features.map((feature) => (
-              <li key={feature} className="flex items-center gap-2 text-sm font-medium text-[oklch(0.35_0.02_260)]">
+              <li key={feature} className="flex items-center gap-2 text-sm font-medium text-[#345460]/80">
                 <div
                   className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
                   style={{ backgroundColor: service.bgColor }}
@@ -168,14 +168,14 @@ export default function ServicesSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-[oklch(0.97_0.02_195)] text-[oklch(0.55_0.14_195)] text-sm font-bold mb-4 tracking-wide uppercase">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-[#48D597]/10 text-[#48D597] text-sm font-bold mb-4 tracking-wide uppercase">
             Our Services
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[oklch(0.20_0.02_260)] tracking-tight mb-5">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#345460] tracking-tight mb-5">
             Everything Your Dog{" "}
-            <span className="text-[oklch(0.55_0.14_195)]">Needs & Loves</span>
+            <span className="text-[#48D597]">Needs & Loves</span>
           </h2>
-          <p className="text-[oklch(0.45_0.02_260)] text-lg leading-relaxed">
+          <p className="text-[#345460]/70 text-lg leading-relaxed">
             From energetic daycare play sessions to relaxing spa days, we offer a complete range of premium services tailored to your dog's unique needs.
           </p>
         </motion.div>

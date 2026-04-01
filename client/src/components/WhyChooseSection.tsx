@@ -1,7 +1,7 @@
 /*
  * Metro Mutts "Why Choose Us" Section
- * Design: Feature cards in a grid with icons
- * Positioned between hero and services
+ * Brand: Green #48D597, Dark #345460
+ * Feature cards in a grid with icons
  */
 import { motion } from "framer-motion";
 import { Camera, ShieldCheck, Stethoscope, Clock, Smile, Award } from "lucide-react";
@@ -10,7 +10,7 @@ const features = [
   {
     icon: ShieldCheck,
     title: "Safety Certified",
-    description: "All facilities meet or exceed state safety standards with secure entry, fire suppression, and 24/7 monitoring.",
+    description: "Our facility meets or exceeds state safety standards with secure entry, fire suppression, and 24/7 monitoring.",
   },
   {
     icon: Camera,
@@ -20,12 +20,12 @@ const features = [
   {
     icon: Stethoscope,
     title: "Vet on Call",
-    description: "Partnered with local veterinarians for immediate care. Your dog's health is always our priority.",
+    description: "Partnered with local Tulsa veterinarians for immediate care. Your dog's health is always our priority.",
   },
   {
     icon: Clock,
     title: "Flexible Hours",
-    description: "Early drop-off and late pick-up options to fit your busy schedule. Open 7 days a week.",
+    description: "Open Mon-Fri 6:30am-7pm and Sat 8am-5pm. Early drop-off and late pick-up to fit your schedule.",
   },
   {
     icon: Smile,
@@ -34,8 +34,8 @@ const features = [
   },
   {
     icon: Award,
-    title: "Award Winning",
-    description: "Voted 'Best Dog Care' for 5 consecutive years by the Metro Area Pet Owners Association.",
+    title: "5-Star Rated",
+    description: "Consistently rated 5 stars by Tulsa dog owners for our exceptional care and clean facilities.",
   },
 ];
 
@@ -50,13 +50,13 @@ export default function WhyChooseSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-[oklch(0.97_0.02_85)] text-[oklch(0.65_0.15_75)] text-sm font-bold mb-4 tracking-wide uppercase">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-[#48D597]/10 text-[#48D597] text-sm font-bold mb-4 tracking-wide uppercase">
             Why Metro Mutts
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[oklch(0.20_0.02_260)] tracking-tight mb-5">
-            The <span className="text-[oklch(0.77_0.17_75)]">Metro Mutts</span> Difference
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#345460] tracking-tight mb-5">
+            The <span className="text-[#48D597]">Metro Mutts</span> Difference
           </h2>
-          <p className="text-[oklch(0.45_0.02_260)] text-lg leading-relaxed">
+          <p className="text-[#345460]/70 text-lg leading-relaxed">
             We go above and beyond to ensure every dog in our care has the safest, happiest, and most enriching experience possible.
           </p>
         </motion.div>
@@ -67,19 +67,19 @@ export default function WhyChooseSection() {
             return (
               <motion.div
                 key={feature.title}
-                className="group bg-white rounded-2xl p-7 shadow-sm shadow-black/5 border border-black/5 hover:shadow-xl hover:shadow-[oklch(0.55_0.14_195)]/8 hover:border-[oklch(0.55_0.14_195)]/20 transition-all duration-300 hover:-translate-y-1"
+                className="group bg-white rounded-2xl p-7 shadow-sm shadow-black/5 border border-black/5 hover:shadow-xl hover:shadow-[#48D597]/10 hover:border-[#48D597]/20 transition-all duration-300 hover:-translate-y-1"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
               >
-                <div className="w-13 h-13 rounded-2xl bg-[oklch(0.97_0.02_195)] group-hover:bg-[oklch(0.55_0.14_195)] flex items-center justify-center mb-5 transition-colors duration-300">
-                  <Icon className="w-6 h-6 text-[oklch(0.55_0.14_195)] group-hover:text-white transition-colors duration-300" />
+                <div className="w-13 h-13 rounded-2xl bg-[#48D597]/10 group-hover:bg-[#48D597] flex items-center justify-center mb-5 transition-colors duration-300">
+                  <Icon className="w-6 h-6 text-[#48D597] group-hover:text-white transition-colors duration-300" />
                 </div>
-                <h3 className="text-lg font-bold text-[oklch(0.20_0.02_260)] mb-2">
+                <h3 className="text-lg font-bold text-[#345460] mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-sm text-[oklch(0.50_0.02_260)] leading-relaxed">
+                <p className="text-sm text-[#345460]/60 leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>
