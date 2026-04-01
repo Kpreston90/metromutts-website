@@ -6,8 +6,8 @@
 import { motion } from "framer-motion";
 import { Shield, Heart, Sparkles, Users } from "lucide-react";
 
-const ABOUT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/mm-aerial-building-tulsa_db8a7bcb.jpeg";
-const STAFF_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/mm-staff-with-dogs_2c5ab082.jpeg";
+const ABOUT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-team-f9uaYtnCFLCBYE9qfUMujd.webp";
+const STAFF_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-staff-cuddle-PjhfHvXzFSDCVuoaoZZxq6.webp";
 
 const values = [
   {
@@ -50,7 +50,7 @@ export default function AboutSection() {
               <div className="rounded-3xl overflow-hidden shadow-2xl shadow-black/10">
                 <img
                   src={ABOUT_IMAGE}
-                  alt="Aerial view of Metro Mutts facility in Tulsa"
+                  alt="Metro Mutts team with dogs celebrating"
                   className="w-full aspect-[4/3] object-cover"
                 />
               </div>
@@ -70,7 +70,7 @@ export default function AboutSection() {
               <div className="hidden lg:block absolute -top-6 -left-6 w-28 h-28 rounded-2xl overflow-hidden shadow-lg border-4 border-white">
                 <img
                   src={STAFF_IMAGE}
-                  alt="Metro Mutts staff with dogs"
+                  alt="Metro Mutts staff member cuddling a golden retriever"
                   className="w-full h-full object-cover"
                 />
               </div>

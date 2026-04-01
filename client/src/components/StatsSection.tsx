@@ -49,20 +49,21 @@ function AnimatedCounter({ value, suffix, format }: { value: number; suffix: str
 
   useEffect(() => {
     if (!isInView) return;
-    const duration = 2000;
-    const steps = 60;
-    const increment = value / steps;
-    let current = 0;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= value) {
-        setCount(value);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(current));
+    const duration = 1500;
+    const startTime = performance.now();
+    let rafId: number;
+    const animate = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic for smooth deceleration
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * value));
+      if (progress < 1) {
+        rafId = requestAnimationFrame(animate);
       }
-    }, duration / steps);
-    return () => clearInterval(timer);
+    };
+    rafId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafId);
   }, [isInView, value]);
 
   const displayValue = format ? count.toLocaleString() : count;
