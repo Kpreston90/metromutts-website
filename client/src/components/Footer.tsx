@@ -4,7 +4,6 @@
  * Dark background, multi-column links, real logo
  */
 import { Facebook, Instagram } from "lucide-react";
-import { toast } from "sonner";
 import { Link } from "wouter";
 
 const LOGO_WHITE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/mm-logo-white_a0eef0bd.png";
@@ -49,20 +48,24 @@ export default function Footer() {
               Tulsa's most trusted dog care provider. Award-winning daycare, luxury boarding, and professional grooming — all under one roof.
             </p>
             <div className="flex gap-3">
-              {[
-                { icon: Facebook, label: "Facebook" },
-                { icon: Instagram, label: "Instagram" },
-              ].map(({ icon: Icon, label }) => (
-                <a
-                  key={label}
-                  href="#"
-                  aria-label={label}
-                  className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-[#48D597] hover:text-[#345460] transition-colors"
-                  onClick={(e) => { e.preventDefault(); toast("Coming soon!"); }}
-                >
-                  <Icon className="w-4.5 h-4.5" />
-                </a>
-              ))}
+              <a
+                href="https://www.instagram.com/metromuttstulsa/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-[#48D597] hover:text-[#345460] transition-colors"
+              >
+                <Instagram className="w-4.5 h-4.5" />
+              </a>
+              <a
+                href="https://www.facebook.com/p/Metro-Mutts-61559392709790"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-[#48D597] hover:text-[#345460] transition-colors"
+              >
+                <Facebook className="w-4.5 h-4.5" />
+              </a>
             </div>
           </div>
 
