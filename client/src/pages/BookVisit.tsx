@@ -31,6 +31,9 @@ const GINGR_URL =
 const HERO_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-pricing-hero-v2-a5SWsGB42RmL6secufgGrA.webp";
 
+const RECEPTION_IMG =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/reception-welcome-aBghJbxUirJ4BZnJwhtVtQ.webp";
+
 /* ─── Steps Data ─── */
 const steps = [
   {
@@ -325,70 +328,67 @@ export default function BookVisit() {
           </div>
         </section>
 
-        {/* ─── What to Expect callout ─── */}
-        <section className="py-16 lg:py-20 bg-white">
+        {/* ─── Welcome to Our Front Desk ─── */}
+        <section className="py-16 lg:py-24 bg-white">
           <div className="container">
-            <motion.div
-              className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#345460] via-[#3a5f6d] to-[#345460] p-10 lg:p-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              {/* Decorative paw */}
-              <svg
-                className="absolute top-6 right-8 w-24 h-24 text-white/5 rotate-12"
-                viewBox="0 0 100 100"
-                fill="currentColor"
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+              {/* Reception Image */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="relative"
               >
-                <ellipse cx="35" cy="25" rx="12" ry="15" />
-                <ellipse cx="65" cy="25" rx="12" ry="15" />
-                <ellipse cx="20" cy="50" rx="10" ry="13" />
-                <ellipse cx="80" cy="50" rx="10" ry="13" />
-                <ellipse cx="50" cy="68" rx="22" ry="20" />
-              </svg>
-              <svg
-                className="absolute bottom-6 left-12 w-16 h-16 text-white/5 -rotate-12"
-                viewBox="0 0 100 100"
-                fill="currentColor"
-              >
-                <ellipse cx="35" cy="25" rx="12" ry="15" />
-                <ellipse cx="65" cy="25" rx="12" ry="15" />
-                <ellipse cx="20" cy="50" rx="10" ry="13" />
-                <ellipse cx="80" cy="50" rx="10" ry="13" />
-                <ellipse cx="50" cy="68" rx="22" ry="20" />
-              </svg>
-
-              <div className="relative grid lg:grid-cols-2 gap-10 items-center">
-                <div>
-                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#48D597]/20 text-[#48D597] text-xs font-bold mb-5">
-                    <Heart className="w-3.5 h-3.5" />
-                    The Metro Mutts Difference
-                  </span>
-                  <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-5 leading-tight">
-                    Your Dog Will Be in{" "}
-                    <span className="text-[#48D597]">Great Hands</span>
-                  </h2>
-                  <p className="text-white/70 text-base leading-relaxed mb-6">
-                    Our booking portal is powered by Gingr, the industry-leading
-                    pet care platform. When you click through, you'll land on a
-                    secure login page with the Metro Mutts logo. From there you
-                    can manage everything — bookings, vaccination uploads, payment
-                    info, and more.
-                  </p>
-                  <p className="text-white/70 text-base leading-relaxed">
-                    If you ever need help navigating the portal, just give us a
-                    call at{" "}
-                    <a
-                      href="tel:5398673841"
-                      className="text-[#48D597] font-semibold hover:underline"
-                    >
-                      539-867-3841
-                    </a>{" "}
-                    and we'll walk you through it.
-                  </p>
+                <div className="rounded-3xl overflow-hidden shadow-2xl shadow-black/10">
+                  <img
+                    src={RECEPTION_IMG}
+                    alt="Metro Mutts reception area — staff greeting a customer and their dog at the front desk"
+                    className="w-full h-auto object-cover"
+                  />
                 </div>
-                <div className="space-y-4">
+                {/* Accent badge */}
+                <div className="absolute -bottom-4 -right-4 bg-[#48D597] text-[#345460] rounded-2xl px-5 py-3 shadow-lg shadow-[#48D597]/20 hidden sm:flex items-center gap-2">
+                  <Heart className="w-5 h-5" />
+                  <span className="font-bold text-sm">Warm Welcome Guaranteed</span>
+                </div>
+              </motion.div>
+
+              {/* Text + Portal Info */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#48D597]/10 text-[#48D597] text-xs font-bold mb-5">
+                  <Heart className="w-3.5 h-3.5" />
+                  The Metro Mutts Difference
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#345460] tracking-tight mb-5 leading-tight">
+                  Your Dog Will Be in{" "}
+                  <span className="text-[#48D597]">Great Hands</span>
+                </h2>
+                <p className="text-[#345460]/65 text-base leading-relaxed mb-6">
+                  When you walk through our doors, our team is ready to greet you
+                  and your pup by name. We handle check-in quickly so your dog can
+                  get straight to the fun.
+                </p>
+                <p className="text-[#345460]/65 text-base leading-relaxed mb-8">
+                  Our booking portal is powered by Gingr, the industry-leading
+                  pet care platform. From there you can manage bookings,
+                  vaccination uploads, payment info, and more. Need help? Call us
+                  at{" "}
+                  <a
+                    href="tel:5398673841"
+                    className="text-[#48D597] font-semibold hover:underline"
+                  >
+                    539-867-3841
+                  </a>
+                  .
+                </p>
+
+                <div className="space-y-3">
                   {[
                     {
                       icon: Shield,
@@ -411,20 +411,18 @@ export default function BookVisit() {
                     return (
                       <div
                         key={item.label}
-                        className="flex items-center gap-4 bg-white/10 rounded-xl px-5 py-4 backdrop-blur-sm"
+                        className="flex items-center gap-3 text-[#345460]/70 text-sm"
                       >
-                        <div className="w-10 h-10 rounded-lg bg-[#48D597]/20 flex items-center justify-center shrink-0">
-                          <Icon className="w-5 h-5 text-[#48D597]" />
+                        <div className="w-8 h-8 rounded-lg bg-[#48D597]/10 flex items-center justify-center shrink-0">
+                          <Icon className="w-4 h-4 text-[#48D597]" />
                         </div>
-                        <span className="text-white/90 font-medium text-sm">
-                          {item.label}
-                        </span>
+                        <span className="font-medium">{item.label}</span>
                       </div>
                     );
                   })}
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
