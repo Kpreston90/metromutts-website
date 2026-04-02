@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Pricing from "./pages/Pricing";
 import BookVisit from "./pages/BookVisit";
 import ReferFriend from "./pages/ReferFriend";
+import Careers from "./pages/Careers";
 
 function Router() {
   return (
@@ -16,6 +17,7 @@ function Router() {
       <Route path={"/pricing"} component={Pricing} />
       <Route path={"/book"} component={BookVisit} />
       <Route path={"/refer"} component={ReferFriend} />
+      <Route path={"/careers"} component={Careers} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
