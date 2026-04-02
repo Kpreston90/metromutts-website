@@ -14,8 +14,8 @@ const features = [
   },
   {
     icon: Camera,
-    title: "Live Webcams",
-    description: "Watch your pup play in real-time from anywhere. Our HD webcams stream directly to your phone.",
+    title: "Full Camera Coverage",
+    description: "Cameras in every play area, boarding suite, and common space for complete safety monitoring around the clock.",
   },
   {
     icon: Stethoscope,

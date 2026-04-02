@@ -18,7 +18,7 @@ const testimonials = [
   {
     name: "James & Lisa T.",
     location: "Tulsa, OK",
-    text: "We've tried three different daycares before finding Metro Mutts, and the difference is night and day. The webcam access gives us peace of mind, and our pup comes home happy and exhausted every single time. Worth every penny.",
+    text: "We've tried three different daycares before finding Metro Mutts, and the difference is night and day. Knowing they have cameras everywhere for safety gives us total peace of mind, and our pup comes home happy and exhausted every single time. Worth every penny.",
     rating: 5,
     dog: "Bella, French Bulldog",
   },
