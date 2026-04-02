@@ -6,6 +6,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
+import { Link } from "wouter";
 
 export default function CTASection() {
   return (
@@ -54,10 +55,10 @@ export default function CTASection() {
                 className="bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold text-base px-8 h-13 shadow-xl shadow-black/15 transition-all hover:-translate-y-0.5"
                 asChild
               >
-                <a href="https://metromutts.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" target="_blank" rel="noopener noreferrer">
+                <Link href="/book">
                   Schedule a Free Tour
                   <ArrowRight className="w-5 h-5 ml-1" />
-                </a>
+                </Link>
               </Button>
               <Button
                 size="lg"

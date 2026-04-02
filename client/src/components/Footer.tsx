@@ -23,9 +23,9 @@ const footerLinks = {
     { label: "Blog", href: "#" },
   ],
   Support: [
+    { label: "Book a Visit", href: "/book" },
     { label: "Contact Us", href: "#contact" },
     { label: "FAQ", href: "#" },
-    { label: "Safety Promise", href: "#" },
     { label: "Refer a Friend", href: "#" },
   ],
 };

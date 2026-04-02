@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Link } from "wouter";
 import {
   Sun,
   Moon,
@@ -191,10 +192,10 @@ export default function Pricing() {
                   className="bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold text-base px-8 h-13 shadow-xl shadow-black/15"
                   asChild
                 >
-                  <a href={GINGR_URL} target="_blank" rel="noopener noreferrer">
+                  <Link href="/book">
                     Book a Visit
                     <ArrowRight className="w-5 h-5 ml-1" />
-                  </a>
+                  </Link>
                 </Button>
                 <Button
                   size="lg"

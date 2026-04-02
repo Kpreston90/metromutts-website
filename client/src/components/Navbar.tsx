@@ -167,9 +167,9 @@ export default function Navbar() {
               className="bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold shadow-lg shadow-[#48D597]/20"
               asChild
             >
-              <a href="https://metromutts.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" target="_blank" rel="noopener noreferrer">
+              <Link href="/book">
                 Book a Visit
-              </a>
+              </Link>
             </Button>
           </div>
 
@@ -230,9 +230,9 @@ export default function Navbar() {
                   className="w-full bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold"
                   asChild
                 >
-                  <a href="https://metromutts.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
+                  <Link href="/book" onClick={() => setMobileOpen(false)}>
                     Book a Visit
-                  </a>
+                  </Link>
                 </Button>
                 <a href="tel:5398673841" className="flex items-center justify-center gap-2 py-2 text-sm font-medium text-[#345460]/70">
                   <Phone className="w-4 h-4" /> 539-867-3841

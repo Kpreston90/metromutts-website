@@ -7,6 +7,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
+import { Link } from "wouter";
 import { useRef, useEffect, useState } from "react";
 
 const HERO_VIDEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/hero-video-drone-v3_cae6b26c.mp4";
@@ -111,10 +112,10 @@ export default function HeroSection() {
               className="bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold text-base px-8 h-13 shadow-xl shadow-[#48D597]/25 transition-all hover:shadow-2xl hover:shadow-[#48D597]/30 hover:-translate-y-0.5"
               asChild
             >
-              <a href="https://metromutts.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" target="_blank" rel="noopener noreferrer">
+              <Link href="/book">
                 Book a Free Visit
                 <ArrowRight className="w-5 h-5 ml-1" />
-              </a>
+              </Link>
             </Button>
             <Button
               size="lg"

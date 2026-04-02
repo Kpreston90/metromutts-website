@@ -24,7 +24,7 @@ export default function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    window.open("https://metromutts.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=", "_blank");
+    window.location.href = "/book";
   };
 
   const handleMapReady = useCallback((map: google.maps.Map) => {
