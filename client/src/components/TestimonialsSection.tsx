@@ -1,49 +1,83 @@
 /*
  * Metro Mutts Testimonials Section
  * Brand: Green #48D597, Dark #345460
- * Auto-advancing carousel with customer quotes
+ * Real Google Reviews with verified badge and auto-advancing carousel
  */
 import { motion } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sarah M.",
-    location: "Tulsa, OK",
-    text: "Metro Mutts has been a game-changer for us. My anxious rescue dog now pulls me toward the door every morning because he can't wait to see his friends. The staff genuinely cares about every single dog, and the facility is always spotless.",
+    name: "Joseph O.",
+    text: "I love Metro Mutts!!! Truly the best doggy daycare in Tulsa. My puppy absolutely loves it there and is always so well taken care of. Drop-offs are easy because he's excited and ready to go, and pick-ups are the hardest part — he's always having so much fun! I really appreciate the passion the team puts into caring for the dogs. Couldn't recommend them more!",
     rating: 5,
-    dog: "Max, Golden Retriever",
+    source: "Google",
+    timeAgo: "4 months ago",
   },
   {
-    name: "James & Lisa T.",
-    location: "Tulsa, OK",
-    text: "We've tried three different daycares before finding Metro Mutts, and the difference is night and day. Knowing they have cameras everywhere for safety gives us total peace of mind, and our pup comes home happy and exhausted every single time. Worth every penny.",
+    name: "Marvin M.",
+    text: "This is the only place Allie has not turned and ran to the door when we walk in. Jacque, the groomer is the absolute BEST! She does exactly what you ask for and gives lots of TLC to your best friend. We love her so much, and highly recommend Metro Mutts!",
     rating: 5,
-    dog: "Bella, French Bulldog",
+    source: "Google",
+    timeAgo: "5 months ago",
   },
   {
-    name: "Dr. Rachel K.",
-    location: "Tulsa, OK",
-    text: "As a veterinarian, I'm very particular about where I leave my dogs. Metro Mutts exceeds my standards in every way — from their safety protocols to their staff expertise. I recommend them to all my clients without hesitation.",
+    name: "Amy",
+    text: "I have an older dog and the groomer is wonderful! She's very good with her and she comes out looking beautiful! The deshedding is incredible — the amount of hair in my house has gone down so much.",
     rating: 5,
-    dog: "Cooper & Daisy, Labs",
+    source: "Google",
+    timeAgo: "6 months ago",
   },
   {
-    name: "Michael P.",
-    location: "Tulsa, OK",
-    text: "The boarding service is incredible. I travel frequently for work and knowing my dog is getting love, playtime, and the best care possible makes all the difference. The nightly photo updates are such a nice touch!",
+    name: "Loghan A.",
+    text: "Nicole was amazing, patient and understanding of our situation. She took our new puppy and gave him his freedom back. We will definitely be returning! Thank you!",
     rating: 5,
-    dog: "Rocky, German Shepherd",
+    source: "Google",
+    timeAgo: "9 months ago",
   },
   {
-    name: "Amanda W.",
-    location: "Tulsa, OK",
-    text: "The grooming team at Metro Mutts is absolutely phenomenal. My poodle has never looked better, and they're so patient and gentle with her. She actually enjoys going to the groomer now — that says everything!",
+    name: "Verified Customer",
+    text: "Very thoughtful, very clean! Happy with my mini Schnauzer's grooming and she didn't seem stressed. Play yard is a great bonus!",
     rating: 5,
-    dog: "Luna, Standard Poodle",
+    source: "Yelp",
+    timeAgo: "Recent",
+  },
+  {
+    name: "Verified Customer",
+    text: "Best place for dog grooming and day care. Love those guys.",
+    rating: 5,
+    source: "Facebook",
+    timeAgo: "Recent",
   },
 ];
+
+function GoogleIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className}>
+      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+    </svg>
+  );
+}
+
+function SourceIcon({ source, className = "" }: { source: string; className?: string }) {
+  if (source === "Google") return <GoogleIcon className={className} />;
+  if (source === "Facebook") {
+    return (
+      <svg viewBox="0 0 24 24" fill="#1877F2" className={className}>
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 24 24" fill="#FF1A1A" className={className}>
+      <path d="M20.16 4.61C19.21 3.58 17.66 3 15.76 3c-3.42 0-5.7 2.7-5.7 6.3 0 .5.06.99.17 1.46C6.73 10.56 3.68 8.14 1.64 4.88c-.52.9-.82 1.94-.82 3.06 0 2.12 1.08 3.99 2.72 5.09-.99-.03-1.93-.3-2.75-.76v.08c0 2.96 2.11 5.43 4.91 5.99-.51.14-1.05.22-1.61.22-.39 0-.78-.04-1.15-.11.78 2.42 3.04 4.18 5.72 4.23-2.1 1.64-4.74 2.62-7.61 2.62-.49 0-.98-.03-1.46-.09 2.71 1.74 5.93 2.75 9.39 2.75 11.27 0 17.43-9.34 17.43-17.43 0-.27-.01-.53-.02-.79 1.2-.86 2.24-1.94 3.06-3.17-1.1.49-2.28.82-3.52.97 1.27-.76 2.24-1.96 2.7-3.39-1.19.7-2.5 1.21-3.9 1.49z"/>
+    </svg>
+  );
+}
 
 export default function TestimonialsSection() {
   const [current, setCurrent] = useState(0);
@@ -57,7 +91,7 @@ export default function TestimonialsSection() {
   }, []);
 
   useEffect(() => {
-    const timer = setInterval(next, 6000);
+    const timer = setInterval(next, 7000);
     return () => clearInterval(timer);
   }, [next]);
 
@@ -74,12 +108,15 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.5 }}
         >
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#48D597]/10 text-[#48D597] text-sm font-bold mb-4 tracking-wide uppercase">
-            Testimonials
+            Real Reviews
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#345460] tracking-tight">
-            Loved by Dogs{" "}
-            <span className="text-[#48D597]">& Their Humans</span>
+            What Our Customers{" "}
+            <span className="text-[#48D597]">Actually Say</span>
           </h2>
+          <p className="mt-4 text-[#345460]/60 text-base">
+            Real reviews from real pet parents — straight from Google, Yelp, and Facebook.
+          </p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
@@ -97,9 +134,7 @@ export default function TestimonialsSection() {
             {/* Stars */}
             <div className="flex gap-1 mb-6">
               {Array.from({ length: t.rating }).map((_, i) => (
-                <svg key={i} className="w-5 h-5 text-[#48D597]" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
+                <Star key={i} className="w-5 h-5 text-amber-400 fill-amber-400" />
               ))}
             </div>
 
@@ -108,13 +143,25 @@ export default function TestimonialsSection() {
               "{t.text}"
             </blockquote>
 
-            {/* Author */}
+            {/* Author + Source */}
             <div className="flex items-center justify-between flex-wrap gap-4">
-              <div>
-                <div className="font-bold text-[#345460] text-lg">{t.name}</div>
-                <div className="text-[#345460]/60 text-sm">
-                  {t.dog} — {t.location}
+              <div className="flex items-center gap-3">
+                {/* Avatar initial */}
+                <div className="w-11 h-11 rounded-full bg-[#48D597]/15 flex items-center justify-center text-[#48D597] font-bold text-lg">
+                  {t.name.charAt(0)}
                 </div>
+                <div>
+                  <div className="font-bold text-[#345460] text-lg">{t.name}</div>
+                  <div className="text-[#345460]/50 text-sm">{t.timeAgo}</div>
+                </div>
+              </div>
+
+              {/* Source badge */}
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-50 border border-gray-100">
+                <SourceIcon source={t.source} className="w-4 h-4" />
+                <span className="text-xs font-semibold text-[#345460]/70">
+                  Posted on {t.source}
+                </span>
               </div>
             </div>
           </motion.div>
@@ -149,6 +196,36 @@ export default function TestimonialsSection() {
               <ChevronRight className="w-5 h-5 text-[#345460]" />
             </button>
           </div>
+
+          {/* Overall rating bar */}
+          <motion.div
+            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 text-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
+            <div className="flex items-center gap-2">
+              <GoogleIcon className="w-5 h-5" />
+              <span className="text-sm font-semibold text-[#345460]">4.2</span>
+              <div className="flex gap-0.5">
+                {[1, 2, 3, 4].map((i) => (
+                  <Star key={i} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                ))}
+                <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400 opacity-30" />
+              </div>
+              <span className="text-xs text-[#345460]/50">on Google</span>
+            </div>
+            <span className="hidden sm:block text-[#345460]/20">|</span>
+            <a
+              href="https://www.google.com/maps/place/Metro+Mutts/@36.1468,-95.9868,17z/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-[#48D597] hover:underline underline-offset-2"
+            >
+              Leave us a review on Google →
+            </a>
+          </motion.div>
         </div>
       </div>
     </section>
