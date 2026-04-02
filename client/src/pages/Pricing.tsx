@@ -246,7 +246,7 @@ function DaycareTab({
             </p>
             <div className="flex items-center gap-3 text-sm text-[#345460]/60">
               <Clock className="w-4 h-4 text-[#48D597]" />
-              Mon-Fri: 6:30am - 7:00pm &nbsp;|&nbsp; Sat: 8:00am - 5:00pm
+              Mon–Fri: 7:00 AM – 6:00 PM &nbsp;|&nbsp; Sat–Sun: 9:00 AM – 5:00 PM
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-xl shadow-black/10">

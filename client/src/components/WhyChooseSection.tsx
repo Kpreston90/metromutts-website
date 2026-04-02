@@ -25,7 +25,7 @@ const features = [
   {
     icon: Clock,
     title: "Flexible Hours",
-    description: "Open Mon-Fri 6:30am-7pm and Sat 8am-5pm. Early drop-off and late pick-up to fit your schedule.",
+    description: "Open Mon–Fri 7 AM–6 PM and Sat–Sun 9 AM–5 PM. Convenient hours to fit your schedule.",
   },
   {
     icon: Smile,

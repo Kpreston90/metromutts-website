@@ -55,8 +55,8 @@ const images: GalleryImage[] = [
     category: "Facility",
   },
   {
-    src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-team-v2-LNTktW35QDiGhk7GnjxkSp.webp",
-    alt: "The Metro Mutts team with dogs in the play area",
+    src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/reception-welcome-aBghJbxUirJ4BZnJwhtVtQ.webp",
+    alt: "Metro Mutts reception area with staff greeting customers",
     category: "Facility",
     span: "wide",
   },

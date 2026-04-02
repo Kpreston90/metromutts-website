@@ -9,8 +9,8 @@ import { MapPin, Phone, Mail, Clock, ArrowRight, Navigation } from "lucide-react
 import { useState, useRef, useCallback } from "react";
 import { MapView } from "@/components/Map";
 
-// Metro Mutts exact location: 1219 E 13th St, Tulsa, OK 74120
-const METRO_MUTTS_LOCATION = { lat: 36.1444, lng: -95.9794 };
+// Metro Mutts exact location: 3321 E 15th St, Tulsa, OK 74104
+const METRO_MUTTS_LOCATION = { lat: 36.1404, lng: -95.9508 };
 
 export default function ContactSection() {
   const mapRef = useRef<google.maps.Map | null>(null);
@@ -44,14 +44,14 @@ export default function ContactSection() {
     new google.maps.marker.AdvancedMarkerElement({
       map,
       position: METRO_MUTTS_LOCATION,
-      title: "Metro Mutts - 1219 E 13th St, Tulsa, OK 74120",
+      title: "Metro Mutts - 3321 E 15th St, Tulsa, OK 74104",
       content: markerContent,
     });
   }, []);
 
   const handleGetDirections = () => {
     window.open(
-      `https://www.google.com/maps/dir/?api=1&destination=1219+E+13th+St+Tulsa+OK+74120`,
+      `https://www.google.com/maps/dir/?api=1&destination=3321+E+15th+St+Tulsa+OK+74104`,
       "_blank"
     );
   };
@@ -188,7 +188,7 @@ export default function ContactSection() {
               <div className="space-y-3">
                 <div className="flex items-start gap-2.5 text-sm text-[#345460]/70">
                   <MapPin className="w-4 h-4 text-[#48D597] mt-0.5 flex-shrink-0" />
-                  1219 E 13th St, Tulsa, OK 74120
+                  3321 E 15th St, Tulsa, OK 74104
                 </div>
                 <div className="flex items-center gap-2.5 text-sm text-[#345460]/70">
                   <Phone className="w-4 h-4 text-[#48D597] flex-shrink-0" />
@@ -205,9 +205,8 @@ export default function ContactSection() {
                 <div className="flex items-start gap-2.5 text-sm text-[#345460]/70">
                   <Clock className="w-4 h-4 text-[#48D597] mt-0.5 flex-shrink-0" />
                   <div>
-                    <div>Mon-Fri: 6:30am - 7:00pm</div>
-                    <div>Sat: 8:00am - 5:00pm</div>
-                    <div>Sun: Closed</div>
+                    <div>Mon–Fri: 7:00 AM – 6:00 PM</div>
+                    <div>Sat–Sun: 9:00 AM – 5:00 PM</div>
                   </div>
                 </div>
               </div>

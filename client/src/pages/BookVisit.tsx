@@ -100,10 +100,9 @@ const requirements = [
     icon: Clock,
     title: "Hours & Drop-off",
     items: [
-      "Mon–Fri: 6:30 AM – 7:00 PM",
-      "Saturday: 8:00 AM – 5:00 PM",
-      "Sunday: Boarding pickup only",
-      "Early/late drop-off available",
+      "Mon–Fri: 7:00 AM – 6:00 PM",
+      "Sat–Sun: 9:00 AM – 5:00 PM",
+      "Holiday hours may vary",
     ],
   },
 ];

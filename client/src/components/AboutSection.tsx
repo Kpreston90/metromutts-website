@@ -6,7 +6,7 @@
 import { motion } from "framer-motion";
 import { Shield, Heart, Sparkles, Users } from "lucide-react";
 
-const ABOUT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-team-v2-LNTktW35QDiGhk7GnjxkSp.webp";
+const ABOUT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/reception-welcome-aBghJbxUirJ4BZnJwhtVtQ.webp";
 const STAFF_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-staff-cuddle-PjhfHvXzFSDCVuoaoZZxq6.webp";
 
 const values = [
@@ -50,7 +50,7 @@ export default function AboutSection() {
               <div className="rounded-3xl overflow-hidden shadow-2xl shadow-black/10">
                 <img
                   src={ABOUT_IMAGE}
-                  alt="Metro Mutts team with dogs celebrating"
+                  alt="Metro Mutts reception area — staff greeting a customer and their dog at the front desk"
                   className="w-full aspect-[4/3] object-cover"
                 />
               </div>
