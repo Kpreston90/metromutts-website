@@ -24,11 +24,10 @@ const navLinks = [
       { label: "Grooming & Spa", href: "#grooming" },
     ],
   },
-  { label: "Pricing", href: "/pricing" },
   { label: "About Us", href: "#about" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
-  { label: "Blog", href: "/blog" },
 ];
 
 function PawIcon({ className = "" }: { className?: string }) {
