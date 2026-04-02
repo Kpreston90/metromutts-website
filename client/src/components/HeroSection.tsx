@@ -77,7 +77,7 @@ export default function HeroSection() {
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#48D597]/20 text-[#48D597] text-sm font-semibold mb-6 border border-[#48D597]/30 backdrop-blur-sm">
               <Play className="w-3.5 h-3.5 fill-current" />
-              Tulsa's Favorite Dog Care
+              Where Tails Never Stop Wagging
             </span>
           </motion.div>
 
