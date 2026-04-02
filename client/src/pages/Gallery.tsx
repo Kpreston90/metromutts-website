@@ -28,8 +28,8 @@ const images: GalleryImage[] = [
     span: "wide",
   },
   {
-    src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/gallery-grooming-closeup-Ur97hjpVj8G2zT3crW4Unz.webp",
-    alt: "Professional groomer carefully trimming a Bichon Frise",
+    src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/grooming-dog-enhanced_04ac8ef9.png",
+    alt: "Doodle on the grooming table at Metro Mutts",
     category: "Grooming",
   },
   {
@@ -76,10 +76,10 @@ const images: GalleryImage[] = [
     category: "Boarding",
   },
   {
-    src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-grooming-v2-P52m7Vwun9UEmDTRAQJb3H.webp",
-    alt: "Professional grooming session in progress",
+    src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/grooming-room-active-2_9e608ce8.png",
+    alt: "Metro Mutts grooming salon with groomer and dog",
     category: "Grooming",
-    span: "tall",
+    span: "wide",
   },
   {
     src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/realistic-indoor-play-ZvWc5A7LSn5PUgeFcAKee5.webp",
