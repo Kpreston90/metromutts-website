@@ -25,7 +25,7 @@ const footerLinks = {
     { label: "Book a Visit", href: "/book" },
     { label: "Contact Us", href: "#contact" },
     { label: "FAQ", href: "#" },
-    { label: "Refer a Friend", href: "#" },
+    { label: "Refer a Friend", href: "/refer" },
   ],
 };
 

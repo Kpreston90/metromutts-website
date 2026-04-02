@@ -64,7 +64,7 @@ export default function Navbar() {
             </span>
           </div>
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-white transition-colors">Refer a Friend</a>
+            <Link href="/refer" className="hover:text-white transition-colors">Refer a Friend</Link>
             <span className="text-white/30">|</span>
             <a href="#" className="hover:text-white transition-colors">Careers</a>
           </div>
