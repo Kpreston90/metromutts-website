@@ -13,6 +13,26 @@
   </head>
 
   <body>
+    <!-- Hidden forms for Netlify build-time detection -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input name="bot-field" />
+      <input name="name" />
+      <input name="email" />
+      <input name="phone" />
+      <input name="service" />
+      <textarea name="message"></textarea>
+    </form>
+    <form name="careers" netlify netlify-honeypot="bot-field" hidden>
+      <input name="bot-field" />
+      <input name="name" />
+      <input name="email" />
+      <input name="phone" />
+      <input name="position" />
+      <input name="experience" />
+      <input name="availability" />
+      <textarea name="about"></textarea>
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script

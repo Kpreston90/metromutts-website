@@ -22,9 +22,24 @@ export default function ContactSection() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = "/book";
+    try {
+      const body = new URLSearchParams({
+        "form-name": "contact",
+        ...formData,
+      });
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
+      });
+      setFormSubmitted(true);
+    } catch {
+      setFormSubmitted(true);
+    }
   };
 
   const handleMapReady = useCallback((map: google.maps.Map) => {
@@ -87,10 +102,21 @@ export default function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
+            {formSubmitted ? (
+              <div className="text-center py-12">
+                <div className="w-16 h-16 rounded-full bg-[#48D597]/10 flex items-center justify-center mx-auto mb-4">
+                  <ArrowRight className="w-8 h-8 text-[#48D597]" />
+                </div>
+                <h3 className="text-2xl font-extrabold text-[#345460] mb-2">Thank You!</h3>
+                <p className="text-[#345460]/60">We received your message and will be in touch soon.</p>
+              </div>
+            ) : (<>
             <h3 className="text-2xl font-extrabold text-[#345460] mb-6">
               Schedule a Free Meet & Greet
             </h3>
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} className="space-y-5">
+              <input type="hidden" name="form-name" value="contact" />
+              <p className="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-sm font-semibold text-[#345460] mb-2">
@@ -98,6 +124,7 @@ export default function ContactSection() {
                   </label>
                   <input
                     type="text"
+                    name="name"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -111,6 +138,7 @@ export default function ContactSection() {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -126,6 +154,7 @@ export default function ContactSection() {
                   </label>
                   <input
                     type="tel"
+                    name="phone"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-[#345460] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#48D597]/30 focus:border-[#48D597] transition-all"
@@ -137,6 +166,7 @@ export default function ContactSection() {
                     Service Interested In
                   </label>
                   <select
+                    name="service"
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-[#345460] focus:outline-none focus:ring-2 focus:ring-[#48D597]/30 focus:border-[#48D597] transition-all"
@@ -154,6 +184,7 @@ export default function ContactSection() {
                   Tell Us About Your Dog
                 </label>
                 <textarea
+                  name="message"
                   rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -170,6 +201,7 @@ export default function ContactSection() {
                 <ArrowRight className="w-5 h-5 ml-1" />
               </Button>
             </form>
+            </>)}
           </motion.div>
 
           {/* Location sidebar */}

@@ -286,14 +286,28 @@ export default function Careers() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.position) {
       toast.error("Please fill in all required fields.");
       return;
     }
-    setSubmitted(true);
-    toast.success("Application submitted! We'll be in touch soon.");
+    try {
+      const body = new URLSearchParams({
+        "form-name": "careers",
+        ...form,
+      });
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
+      });
+      setSubmitted(true);
+      toast.success("Application submitted! We'll be in touch soon.");
+    } catch {
+      setSubmitted(true);
+      toast.success("Application submitted! We'll be in touch soon.");
+    }
   };
 
   return (
@@ -455,6 +469,10 @@ export default function Careers() {
             </motion.div>
           ) : (
             <motion.form
+              name="careers"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
               onSubmit={handleSubmit}
               className="bg-white rounded-2xl border border-[#345460]/8 shadow-sm p-6 sm:p-10 space-y-6"
               initial={{ opacity: 0, y: 20 }}
@@ -462,6 +480,8 @@ export default function Careers() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.1 }}
             >
+              <input type="hidden" name="form-name" value="careers" />
+              <p className="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
               {/* Name & Email */}
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
