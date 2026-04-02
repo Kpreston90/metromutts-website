@@ -25,7 +25,6 @@ const navLinks = [
     ],
   },
   { label: "About Us", href: "#about" },
-  { label: "Gallery", href: "/gallery" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
