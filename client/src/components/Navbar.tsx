@@ -28,6 +28,7 @@ const navLinks = [
   { label: "About Us", href: "#about" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
+  { label: "Blog", href: "/blog" },
 ];
 
 function PawIcon({ className = "" }: { className?: string }) {

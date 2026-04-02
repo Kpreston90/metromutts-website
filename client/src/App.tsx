@@ -9,6 +9,8 @@ import Pricing from "./pages/Pricing";
 import BookVisit from "./pages/BookVisit";
 import ReferFriend from "./pages/ReferFriend";
 import Careers from "./pages/Careers";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 
 function Router() {
   return (
@@ -18,6 +20,8 @@ function Router() {
       <Route path={"/book"} component={BookVisit} />
       <Route path={"/refer"} component={ReferFriend} />
       <Route path={"/careers"} component={Careers} />
+      <Route path={"/blog"} component={Blog} />
+      <Route path={"/blog/:slug"} component={BlogPost} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
