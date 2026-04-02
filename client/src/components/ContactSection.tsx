@@ -6,14 +6,9 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Clock, ArrowRight, Navigation } from "lucide-react";
-import { useState, useRef, useCallback } from "react";
-import { MapView } from "@/components/Map";
-
-// Metro Mutts exact location: 3321 E 15th St, Tulsa, OK 74104
-const METRO_MUTTS_LOCATION = { lat: 36.1404, lng: -95.9508 };
+import { useState } from "react";
 
 export default function ContactSection() {
-  const mapRef = useRef<google.maps.Map | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -41,28 +36,6 @@ export default function ContactSection() {
       setFormSubmitted(true);
     }
   };
-
-  const handleMapReady = useCallback((map: google.maps.Map) => {
-    mapRef.current = map;
-
-    // Add a custom styled marker for Metro Mutts
-    const markerContent = document.createElement("div");
-    markerContent.innerHTML = `
-      <div style="display:flex;flex-direction:column;align-items:center;">
-        <div style="background:#48D597;color:#345460;padding:8px 14px;border-radius:12px;font-weight:700;font-size:13px;box-shadow:0 4px 12px rgba(0,0,0,0.15);white-space:nowrap;font-family:system-ui,-apple-system,sans-serif;">
-          🐾 Metro Mutts
-        </div>
-        <div style="width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid #48D597;margin-top:-1px;"></div>
-      </div>
-    `;
-
-    new google.maps.marker.AdvancedMarkerElement({
-      map,
-      position: METRO_MUTTS_LOCATION,
-      title: "Metro Mutts - 3321 E 15th St, Tulsa, OK 74104",
-      content: markerContent,
-    });
-  }, []);
 
   const handleGetDirections = () => {
     window.open(
@@ -252,13 +225,16 @@ export default function ContactSection() {
               </button>
             </div>
 
-            {/* Interactive Google Map */}
+            {/* Google Maps Embed */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg shadow-black/5 border border-black/5">
-              <MapView
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1611.2!2d-95.9759825!3d36.1445471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87b6ed906adb6ad7%3A0xb3d1639b3985760f!2sMetro%20Mutts!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
                 className="w-full h-[250px]"
-                initialCenter={METRO_MUTTS_LOCATION}
-                initialZoom={15}
-                onMapReady={handleMapReady}
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Metro Mutts Location - 3321 E 15th St, Tulsa, OK 74104"
               />
             </div>
 
