@@ -145,7 +145,6 @@ export default function ContactSection() {
                     <option value="daycare">Dog Daycare</option>
                     <option value="boarding">Overnight Boarding</option>
                     <option value="grooming">Grooming & Spa</option>
-                    <option value="training">Dog Training</option>
                     <option value="multiple">Multiple Services</option>
                   </select>
                 </div>

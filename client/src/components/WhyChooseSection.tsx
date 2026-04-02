@@ -29,8 +29,8 @@ const features = [
   },
   {
     icon: Smile,
-    title: "Trained Team",
-    description: "Every team member is pet first-aid certified and undergoes extensive behavior training.",
+    title: "Expert Team",
+    description: "Every team member is pet first-aid certified and undergoes extensive hands-on education in dog behavior and safety.",
   },
   {
     icon: Award,

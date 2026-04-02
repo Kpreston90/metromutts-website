@@ -23,7 +23,7 @@ const values = [
   {
     icon: Sparkles,
     title: "Premium Care",
-    description: "We invest in the best facilities, products, and training to ensure your dog receives nothing but the highest quality care.",
+    description: "We invest in the best facilities, products, and staff development to ensure your dog receives nothing but the highest quality care.",
   },
   {
     icon: Users,

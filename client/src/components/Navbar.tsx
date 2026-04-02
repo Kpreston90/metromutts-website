@@ -18,7 +18,6 @@ const navLinks = [
       { label: "Daycare", href: "#daycare" },
       { label: "Boarding", href: "#boarding" },
       { label: "Grooming & Spa", href: "#grooming" },
-      { label: "Training", href: "#training" },
     ],
   },
   { label: "Pricing", href: "/pricing" },

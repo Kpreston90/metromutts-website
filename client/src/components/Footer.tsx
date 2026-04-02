@@ -13,7 +13,6 @@ const footerLinks = {
     { label: "Dog Daycare", href: "#daycare" },
     { label: "Overnight Boarding", href: "#boarding" },
     { label: "Grooming & Spa", href: "#grooming" },
-    { label: "Dog Training", href: "#training" },
     { label: "Pricing", href: "/pricing" },
   ],
   Company: [

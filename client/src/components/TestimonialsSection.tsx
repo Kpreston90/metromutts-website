@@ -25,7 +25,7 @@ const testimonials = [
   {
     name: "Dr. Rachel K.",
     location: "Tulsa, OK",
-    text: "As a veterinarian, I'm very particular about where I leave my dogs. Metro Mutts exceeds my standards in every way — from their safety protocols to their staff training. I recommend them to all my clients without hesitation.",
+    text: "As a veterinarian, I'm very particular about where I leave my dogs. Metro Mutts exceeds my standards in every way — from their safety protocols to their staff expertise. I recommend them to all my clients without hesitation.",
     rating: 5,
     dog: "Cooper & Daisy, Labs",
   },

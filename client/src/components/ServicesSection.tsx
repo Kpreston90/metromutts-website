@@ -5,12 +5,11 @@
  */
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sun, Moon, Scissors, GraduationCap } from "lucide-react";
+import { ArrowRight, Sun, Moon, Scissors } from "lucide-react";
 
 const DAYCARE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-daycare-9JTdpbodWw4zW5xQhTfmzM.webp";
 const BOARDING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-boarding-v2-CwC54XGXncXGgfsW4r5qkv.webp";
 const GROOMING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-grooming-v2-P52m7Vwun9UEmDTRAQJb3H.webp";
-const TRAINING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-training-v2-jwM4LczvNKrnEoAMYwXnUT.webp";
 
 const services = [
   {
@@ -49,18 +48,7 @@ const services = [
     color: "#48D597",
     bgColor: "rgba(72, 213, 151, 0.1)",
   },
-  {
-    id: "training",
-    icon: GraduationCap,
-    title: "Dog Training",
-    tagline: "Learn & Grow",
-    description:
-      "From basic obedience to advanced behavior modification, our certified trainers use positive reinforcement methods to bring out the best in your dog. We offer group classes, private sessions, and puppy socialization programs designed to build confidence and good manners.",
-    features: ["Positive reinforcement", "Group & private classes", "Puppy socialization", "Behavior modification"],
-    image: TRAINING_IMG,
-    color: "#345460",
-    bgColor: "rgba(52, 84, 96, 0.1)",
-  },
+
 ];
 
 function ServiceBlock({
