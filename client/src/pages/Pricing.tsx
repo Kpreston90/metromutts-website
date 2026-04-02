@@ -81,7 +81,7 @@ export default function Pricing() {
       <Navbar />
 
       {/* Hero Banner */}
-      <section className="relative h-[340px] lg:h-[420px] overflow-hidden">
+      <section className="relative h-[380px] sm:h-[340px] lg:h-[420px] overflow-hidden">
         <img
           src={HERO_IMG}
           alt="Dogs playing at Metro Mutts"

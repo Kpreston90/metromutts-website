@@ -146,7 +146,7 @@ export default function BookVisit() {
       <Navbar />
 
       {/* ─── Hero ─── */}
-      <section className="relative h-[380px] lg:h-[460px] overflow-hidden">
+      <section className="relative h-[440px] sm:h-[380px] lg:h-[460px] overflow-hidden">
         <img
           src={HERO_IMG}
           alt="Happy dogs at Metro Mutts"

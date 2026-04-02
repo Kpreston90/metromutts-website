@@ -1,7 +1,7 @@
 /*
- * Metro Mutts Announcement Bar — v2
+ * Metro Mutts Announcement Bar — v3
  * Bold, minimal, high-contrast top strip
- * Animated scrolling text ticker with paw accent
+ * Static centered layout on all screen sizes — no ticker clipping
  */
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
@@ -44,40 +44,43 @@ export default function AnnouncementBar() {
 
   if (!visible) return null;
 
-  const tickerContent = (
-    <span className="inline-flex items-center gap-6 whitespace-nowrap">
-      <span className="inline-flex items-center gap-2">
-        <PawIcon className="w-3.5 h-3.5 text-[#48D597]" />
-        <span className="font-bold tracking-wide uppercase text-[11px] sm:text-xs">
-          Spring Special
-        </span>
-      </span>
-      <span className="text-white/60">|</span>
-      <span className="text-[11px] sm:text-xs tracking-wide">
-        First day of daycare is <strong className="text-[#48D597]">FREE</strong> for new pups
-      </span>
-      <span className="text-white/60">|</span>
-      <Link
-        href="/book"
-        className="text-[11px] sm:text-xs font-bold tracking-wider uppercase text-[#48D597] hover:text-white transition-colors"
-      >
-        Claim Offer &rarr;
-      </Link>
-    </span>
-  );
-
   return (
-    <div className="relative bg-[#1a2e36] text-white/90 select-none overflow-hidden">
-      {/* Desktop: centered static content */}
-      <div className="hidden sm:flex items-center justify-center gap-2 py-2 px-10">
-        {tickerContent}
-      </div>
+    <div className="relative bg-[#1a2e36] text-white/90 select-none">
+      <div className="flex items-center justify-center py-2 px-10">
+        {/* Desktop: full layout with separators */}
+        <div className="hidden sm:flex items-center gap-6">
+          <span className="inline-flex items-center gap-2">
+            <PawIcon className="w-3.5 h-3.5 text-[#48D597]" />
+            <span className="font-bold tracking-wide uppercase text-xs">
+              Spring Special
+            </span>
+          </span>
+          <span className="text-white/30">|</span>
+          <span className="text-xs tracking-wide">
+            First day of daycare is{" "}
+            <strong className="text-[#48D597]">FREE</strong> for new pups
+          </span>
+          <span className="text-white/30">|</span>
+          <Link
+            href="/book"
+            className="text-xs font-bold tracking-wider uppercase text-[#48D597] hover:text-white transition-colors"
+          >
+            Claim Offer &rarr;
+          </Link>
+        </div>
 
-      {/* Mobile: scrolling ticker */}
-      <div className="sm:hidden py-2 px-10 overflow-hidden">
-        <div className="flex animate-[ticker_18s_linear_infinite]">
-          <span className="shrink-0 pr-12">{tickerContent}</span>
-          <span className="shrink-0 pr-12">{tickerContent}</span>
+        {/* Mobile: compact stacked layout */}
+        <div className="flex sm:hidden items-center gap-2 text-center">
+          <PawIcon className="w-3.5 h-3.5 text-[#48D597] shrink-0" />
+          <span className="text-[11px] leading-tight">
+            <strong className="text-[#48D597]">FREE</strong> first day for new pups!{" "}
+            <Link
+              href="/book"
+              className="font-bold text-[#48D597] underline underline-offset-2"
+            >
+              Claim&nbsp;&rarr;
+            </Link>
+          </span>
         </div>
       </div>
 
