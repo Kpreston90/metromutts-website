@@ -19,6 +19,64 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "how-dog-daycare-helps-working-pet-parents",
+    title: "How Dog Daycare Helps Tulsa's Working Pet Parents Stay Guilt-Free",
+    excerpt: "Leaving your dog home alone all day while you work doesn't have to be the norm. Here's how daycare solves the guilt \u2014 and keeps your pup thriving.",
+    content: `
+You love your dog. You also love your job \u2014 or at least need it. And somewhere between the morning commute and the evening return, there's a stretch of 8-10 hours where your dog is home alone, probably staring at the door, wondering when you're coming back.
+
+If that mental image makes you cringe, you're not alone. The guilt of leaving a dog home all day is one of the most common concerns we hear from pet parents in Tulsa. The good news? It doesn't have to be that way.
+
+## The Problem with Long Days Alone
+
+Dogs are social animals. They weren't designed to spend most of their waking hours in an empty house. When they do, a few things tend to happen:
+
+**Destructive behavior.** Chewed shoes, scratched doors, shredded pillows \u2014 these aren't signs of a "bad dog." They're signs of a bored, understimulated dog looking for something to do.
+
+**Excess energy.** A dog that's been lying around all day has a full tank of energy when you walk through the door. That means jumping, barking, pulling on the leash during the evening walk, and generally being a handful when you're already exhausted.
+
+**Separation anxiety.** Some dogs develop genuine anxiety about being left alone. This can manifest as excessive barking, pacing, drooling, or even self-harm. Once separation anxiety sets in, it's difficult to reverse without professional help.
+
+**Weight gain.** Just like humans, dogs who don't move enough gain weight. And just like humans, that extra weight leads to joint problems, heart issues, and a shorter lifespan.
+
+## How Daycare Changes the Equation
+
+Enrolling your dog in daycare even two or three days a week can transform their quality of life \u2014 and yours.
+
+**Physical exercise.** At Metro Mutts, dogs spend their day running, playing, and moving on our indoor and outdoor turf areas. By the time you pick them up, they've had the equivalent of several long walks worth of exercise. You'll notice the difference immediately \u2014 a calm, satisfied dog who's ready to relax with you on the couch.
+
+**Mental stimulation.** Navigating a social group of dogs requires constant mental engagement. Reading body language, negotiating play styles, figuring out group dynamics \u2014 it's a full brain workout. A mentally tired dog is a well-behaved dog.
+
+**Consistent socialization.** Regular exposure to other dogs and people keeps your dog's social skills sharp. Dogs who attend daycare regularly tend to be calmer at the vet, more relaxed at the dog park, and better behaved around guests in your home.
+
+**Routine and structure.** Dogs thrive on routine. Knowing that certain days mean daycare \u2014 with its predictable schedule of play, rest, and snacks \u2014 gives your dog something to look forward to and reduces anxiety about being left.
+
+## The Tulsa Factor
+
+Tulsa's weather makes daycare especially valuable. Our summers regularly hit 100\u00b0F+, making outdoor exercise dangerous for dogs during peak hours. And our winters can swing from 60\u00b0F to ice storms within the same week. A climate-controlled indoor facility means your dog gets consistent exercise regardless of what Oklahoma's weather decides to do.
+
+Plus, Tulsa's growing pet community means more dogs in neighborhoods, more encounters on walks, and more situations where good socialization matters. A well-socialized daycare dog handles all of it with confidence.
+
+## What About the Cost?
+
+We get it \u2014 daycare is an added expense. But consider what you're saving: replacement costs for destroyed furniture and shoes, potential vet bills from obesity-related health issues, and the cost of a dog trainer or behaviorist to address problems that develop from isolation and boredom.
+
+At Metro Mutts, a single day of daycare starts at $29, and multi-day packages bring the per-day cost down significantly. Many of our regulars find that 2-3 days per week hits the sweet spot \u2014 enough to keep their dog happy and exercised without breaking the budget.
+
+## The Guilt-Free Workday
+
+Here's what your day looks like with daycare in the mix: You drop your dog off on the way to work. They spend the day playing with friends, supervised by our staff, burning energy on the turf. You pick them up on the way home. They're tired, happy, and ready to curl up next to you. No guilt. No destroyed house. No anxious dog. Just a good life for both of you.
+
+Your first day at Metro Mutts is free. Come see what a difference it makes.
+    `.trim(),
+    category: "Dog Care",
+    author: "Metro Mutts Team",
+    date: "2026-04-02",
+    readTime: "6 min read",
+    image: "https://images.unsplash.com/photo-1560807707-8cc77767d783?w=800&q=80",
+    tags: ["daycare", "working parents", "tulsa", "separation anxiety", "exercise", "socialization"],
+  },
+  {
     slug: "how-to-prepare-your-dog-for-daycare",
     title: "How to Prepare Your Dog for Their First Day at Daycare",
     excerpt: "Starting daycare can be a big transition for your pup. Here's everything you need to know to make their first day a tail-wagging success.",
