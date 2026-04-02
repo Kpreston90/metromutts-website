@@ -14,38 +14,38 @@ import Footer from "@/components/Footer";
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb";
 
 const groomingPhotos = [
-  { src: `${CDN}/groom-01_da91fc56.jpg`, alt: "Small dog freshly groomed at Metro Mutts Tulsa" },
-  { src: `${CDN}/groom-02_b49f884a.jpg`, alt: "Happy Corgi with tongue out on the grooming table after a bath and trim" },
-  { src: `${CDN}/groom-03_633bda67.jpg`, alt: "Rough Collie with a gorgeous flowing coat after a full groom session" },
-  { src: `${CDN}/groom-04_ca9511eb.jpg`, alt: "Goldendoodle with a neat body trim looking adorable on the grooming table" },
-  { src: `${CDN}/groom-05_ee909187.jpg`, alt: "Freshly groomed pup ready for pickup at Metro Mutts" },
-  { src: `${CDN}/groom-06_e62250c7.jpg`, alt: "Dog looking sharp after a professional grooming session" },
-  { src: `${CDN}/groom-07_e5532619.jpg`, alt: "Clean and fluffy dog after Jacque's expert grooming" },
-  { src: `${CDN}/groom-08_1e8c43ca.jpg`, alt: "Happy dog on the grooming table after a bath and style" },
-  { src: `${CDN}/groom-09_f17c66b8.jpg`, alt: "Freshly bathed and trimmed dog at Metro Mutts grooming salon" },
-  { src: `${CDN}/groom-10_28998b0b.jpg`, alt: "Dog with a perfect coat after grooming at Metro Mutts Tulsa" },
-  { src: `${CDN}/groom-11_23e31d79.jpg`, alt: "Black Standard Poodle with a fresh clip on the grooming table" },
-  { src: `${CDN}/groom-12_16503f64.jpg`, alt: "Beautifully groomed dog posing after a spa treatment" },
-  { src: `${CDN}/groom-13_6ed78284.jpg`, alt: "Dog looking their best after a full grooming session" },
-  { src: `${CDN}/groom-14_0af64cc8.jpg`, alt: "Professional breed-specific grooming results at Metro Mutts" },
-  { src: `${CDN}/groom-15_e0eb87d3.jpg`, alt: "Freshly groomed and happy pup on the grooming table" },
-  { src: `${CDN}/groom-16_c3bc853e.jpg`, alt: "Clean coat and neat trim by groomer Jacque" },
-  { src: `${CDN}/groom-17_fa984c2b.jpg`, alt: "Dog with a beautiful grooming cut at Metro Mutts" },
-  { src: `${CDN}/groom-18_ab6cc0aa.jpg`, alt: "Another satisfied grooming client at Metro Mutts Tulsa" },
-  { src: `${CDN}/groom-19_9001f11a.jpg`, alt: "Professional cut and style on the grooming table" },
-  { src: `${CDN}/groom-20_355005a7.jpg`, alt: "Dog looking gorgeous after a full spa day" },
-  { src: `${CDN}/groom-21_2be4140f.jpg`, alt: "Freshly groomed pup ready to go home" },
-  { src: `${CDN}/groom-22_5d48b50a.jpg`, alt: "Beautiful grooming work by Jacque at Metro Mutts" },
-  { src: `${CDN}/groom-23_08c490db.jpg`, alt: "Dog with a perfect trim and clean coat" },
-  { src: `${CDN}/groom-24_024d8517.jpg`, alt: "Happy dog after grooming at Metro Mutts in Tulsa" },
-  { src: `${CDN}/groom-25_e4dd60c8.jpg`, alt: "Freshly groomed and camera-ready pup" },
-  { src: `${CDN}/groom-26_7542d579.jpg`, alt: "Black and white terrier mix with a neat body clip, tongue out and happy" },
-  { src: `${CDN}/groom-27_071ed652.jpg`, alt: "Adorable dog after a grooming session at Metro Mutts" },
-  { src: `${CDN}/groom-28_97ed8a01.jpg`, alt: "Dog looking clean and styled after a professional groom" },
-  { src: `${CDN}/groom-29_fc8601b3.jpg`, alt: "Freshly bathed and trimmed pup at Metro Mutts grooming" },
-  { src: `${CDN}/groom-30_2afca1d4.jpg`, alt: "Dog with a beautiful coat after grooming by Jacque" },
-  { src: `${CDN}/groom-31_9e9d50a7.jpg`, alt: "Happy grooming client on the table at Metro Mutts Tulsa" },
-  { src: `${CDN}/groom-32_fcddf264.jpg`, alt: "Lhasa Apso with a gorgeous flowing golden coat after a full groom" },
+  { src: `${CDN}/groom-01_4138aade.jpg`, alt: "Small dog freshly groomed at Metro Mutts Tulsa" },
+  { src: `${CDN}/groom-02_d82e8e44.jpg`, alt: "Happy Corgi with tongue out on the grooming table after a bath and trim" },
+  { src: `${CDN}/groom-03_0f1bd748.jpg`, alt: "Rough Collie with a gorgeous flowing coat after a full groom session" },
+  { src: `${CDN}/groom-04_51191a74.jpg`, alt: "Goldendoodle with a neat body trim looking adorable on the grooming table" },
+  { src: `${CDN}/groom-05_c896f636.jpg`, alt: "Freshly groomed pup ready for pickup at Metro Mutts" },
+  { src: `${CDN}/groom-06_aadaadf2.jpg`, alt: "Dog looking sharp after a professional grooming session" },
+  { src: `${CDN}/groom-07_b646a579.jpg`, alt: "Clean and fluffy dog after Jacque's expert grooming" },
+  { src: `${CDN}/groom-08_c3ea5888.jpg`, alt: "Happy dog on the grooming table after a bath and style" },
+  { src: `${CDN}/groom-09_a5c44067.jpg`, alt: "Freshly bathed and trimmed dog at Metro Mutts grooming salon" },
+  { src: `${CDN}/groom-10_d4b80439.jpg`, alt: "Dog with a perfect coat after grooming at Metro Mutts Tulsa" },
+  { src: `${CDN}/groom-11_45007fc2.jpg`, alt: "Black Standard Poodle with a fresh clip on the grooming table" },
+  { src: `${CDN}/groom-12_4818e023.jpg`, alt: "Beautifully groomed dog posing after a spa treatment" },
+  { src: `${CDN}/groom-13_68a51d35.jpg`, alt: "Dog looking their best after a full grooming session" },
+  { src: `${CDN}/groom-14_c0fc8e4f.jpg`, alt: "Professional breed-specific grooming results at Metro Mutts" },
+  { src: `${CDN}/groom-15_e0dc59cd.jpg`, alt: "Freshly groomed and happy pup on the grooming table" },
+  { src: `${CDN}/groom-16_dd83a14a.jpg`, alt: "Clean coat and neat trim by groomer Jacque" },
+  { src: `${CDN}/groom-17_3cb87f40.jpg`, alt: "Dog with a beautiful grooming cut at Metro Mutts" },
+  { src: `${CDN}/groom-18_109b645d.jpg`, alt: "Another satisfied grooming client at Metro Mutts Tulsa" },
+  { src: `${CDN}/groom-19_0e7d222c.jpg`, alt: "Professional cut and style on the grooming table" },
+  { src: `${CDN}/groom-20_5c1e9e61.jpg`, alt: "Dog looking gorgeous after a full spa day" },
+  { src: `${CDN}/groom-21_677232de.jpg`, alt: "Freshly groomed pup ready to go home" },
+  { src: `${CDN}/groom-22_7b45e343.jpg`, alt: "Beautiful grooming work by Jacque at Metro Mutts" },
+  { src: `${CDN}/groom-23_9d2bdb26.jpg`, alt: "Dog with a perfect trim and clean coat" },
+  { src: `${CDN}/groom-24_4242b605.jpg`, alt: "Happy dog after grooming at Metro Mutts in Tulsa" },
+  { src: `${CDN}/groom-25_f41b1ebc.jpg`, alt: "Freshly groomed and camera-ready pup" },
+  { src: `${CDN}/groom-26_12ee0631.jpg`, alt: "Black and white terrier mix with a neat body clip, tongue out and happy" },
+  { src: `${CDN}/groom-27_c8baf2cf.jpg`, alt: "Adorable dog after a grooming session at Metro Mutts" },
+  { src: `${CDN}/groom-28_c62a1b94.jpg`, alt: "Dog looking clean and styled after a professional groom" },
+  { src: `${CDN}/groom-29_3245c6e2.jpg`, alt: "Freshly bathed and trimmed pup at Metro Mutts grooming" },
+  { src: `${CDN}/groom-30_d1d555e9.jpg`, alt: "Dog with a beautiful coat after grooming by Jacque" },
+  { src: `${CDN}/groom-31_30a915f6.jpg`, alt: "Happy grooming client on the table at Metro Mutts Tulsa" },
+  { src: `${CDN}/groom-32_c1f387b4.jpg`, alt: "Lhasa Apso with a gorgeous flowing golden coat after a full groom" },
 ];
 
 export default function GroomingGallery() {
@@ -137,8 +137,8 @@ export default function GroomingGallery() {
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="flex items-center gap-8">
               <div>
-                <p className="text-3xl font-extrabold text-[#345460]">{groomingPhotos.length}+</p>
-                <p className="text-sm text-[#345460]/50 font-medium">Happy Grooms</p>
+                <p className="text-3xl font-extrabold text-[#345460]">1,000s</p>
+                <p className="text-sm text-[#345460]/50 font-medium">of Happy Grooms</p>
               </div>
               <div className="w-px h-10 bg-[#345460]/10" />
               <div>
