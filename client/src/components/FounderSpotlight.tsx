@@ -1,45 +1,12 @@
 /*
  * Metro Mutts Founder Spotlight — Kyle Gillum
  * Brand: Green #48D597, Dark #345460
- * Narrative section with portrait, family legacy timeline, and 9th St. Barking Lot connection
+ * Narrative section with real portrait, bio, and 9th St. Barking Lot connection
  */
 import { motion } from "framer-motion";
 
 const FOUNDER_IMAGE =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/founder-kyle-portrait-SU2cHhrXhEVFVU4bx9Xjts.webp";
-
-const timeline = [
-  {
-    era: "Early 1900s",
-    title: "A Legacy Begins",
-    description:
-      "Kyle's great-grandfather founded Barber & Lundberg, Inc., a lumber and veterinarian supply business — planting the seeds of a family deeply rooted in animal care.",
-  },
-  {
-    era: "Mid-Century",
-    title: "Carrying the Torch",
-    description:
-      "Kyle's grandfather continued the family tradition, working alongside his father and helping grow the business into a trusted name in the animal health industry.",
-  },
-  {
-    era: "Modern Era",
-    title: "National Scale",
-    description:
-      "Kyle's father scaled the company into NLS Animal Health, a national animal health supply distributor — now owned by Schien Pharmaceuticals.",
-  },
-  {
-    era: "2016",
-    title: "9th St. Barking Lot",
-    description:
-      "Kyle opened 9th St. Barking Lot in downtown Oklahoma City, breaking even in just 9 months. Today it averages 120 dogs per day with a 6-month wait list.",
-  },
-  {
-    era: "Today",
-    title: "Metro Mutts",
-    description:
-      "Building on that proven success, Kyle brought the same standard of care to Tulsa with Metro Mutts — a sister location built for Oklahoma's growing community of dog lovers.",
-  },
-];
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/kyle-gillum-real_127bdd33.png";
 
 export default function FounderSpotlight() {
   return (
@@ -63,7 +30,7 @@ export default function FounderSpotlight() {
         </motion.div>
 
         {/* Two-column: portrait + bio */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Portrait side */}
           <motion.div
             className="relative"
@@ -79,7 +46,7 @@ export default function FounderSpotlight() {
                 <img
                   src={FOUNDER_IMAGE}
                   alt="Kyle Gillum, Co-Founder and Executive Director of Metro Mutts"
-                  className="w-full aspect-[3/4] object-cover"
+                  className="w-full aspect-[3/4] object-cover object-top"
                 />
               </div>
               {/* Name card overlay */}
@@ -165,48 +132,6 @@ export default function FounderSpotlight() {
             </div>
           </motion.div>
         </div>
-
-        {/* Family legacy timeline */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="text-2xl font-extrabold text-center mb-12">
-            The Gillum Family Timeline
-          </h3>
-          <div className="relative">
-            {/* Connecting line */}
-            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-[#48D597]/20 -translate-y-1/2" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-              {timeline.map((item, index) => (
-                <motion.div
-                  key={item.era}
-                  className="relative bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 transition-colors"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                >
-                  {/* Timeline dot */}
-                  <div className="hidden lg:flex absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-[#345460] border-2 border-[#48D597] items-center justify-center">
-                    <div className="w-2 h-2 rounded-full bg-[#48D597]" />
-                  </div>
-                  <div className="text-[#48D597] text-xs font-bold tracking-wider uppercase mb-2">
-                    {item.era}
-                  </div>
-                  <h4 className="font-bold text-white text-sm mb-2">
-                    {item.title}
-                  </h4>
-                  <p className="text-white/60 text-xs leading-relaxed">
-                    {item.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
