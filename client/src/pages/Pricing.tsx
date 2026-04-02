@@ -7,7 +7,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import AnnouncementBar from "@/components/AnnouncementBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
@@ -77,7 +76,6 @@ export default function Pricing() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <AnnouncementBar />
       <Navbar />
 
       {/* Hero Banner */}

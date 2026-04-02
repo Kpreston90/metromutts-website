@@ -6,7 +6,6 @@
  */
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import AnnouncementBar from "@/components/AnnouncementBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import {
@@ -142,7 +141,6 @@ const fadeUp = {
 export default function BookVisit() {
   return (
     <div className="min-h-screen flex flex-col">
-      <AnnouncementBar />
       <Navbar />
 
       {/* ─── Hero ─── */}

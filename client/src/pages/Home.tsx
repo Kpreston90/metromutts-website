@@ -4,7 +4,6 @@
  * Teal (#0891B2) primary, Amber (#F59E0B) accent, Navy text
  * Plus Jakarta Sans typography, wave dividers, animated sections
  */
-import AnnouncementBar from "@/components/AnnouncementBar";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import WhyChooseSection from "@/components/WhyChooseSection";
@@ -19,7 +18,6 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
-      <AnnouncementBar />
       <Navbar />
       <main>
         <HeroSection />

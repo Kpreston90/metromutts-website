@@ -6,7 +6,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import AnnouncementBar from "@/components/AnnouncementBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
@@ -299,7 +298,6 @@ export default function Careers() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#fafaf8]">
-      <AnnouncementBar />
       <Navbar />
 
       {/* ─── Hero ─── */}
