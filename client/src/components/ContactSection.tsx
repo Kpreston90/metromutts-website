@@ -39,7 +39,7 @@ export default function ContactSection() {
 
   const handleGetDirections = () => {
     window.open(
-      `https://www.google.com/maps/dir/?api=1&destination=3321+E+15th+St+Tulsa+OK+74104`,
+      `https://www.google.com/maps/dir/?api=1&destination=1219+E+13th+St+Tulsa+OK+74120`,
       "_blank"
     );
   };
@@ -193,7 +193,7 @@ export default function ContactSection() {
               <div className="space-y-3">
                 <div className="flex items-start gap-2.5 text-sm text-[#345460]/70">
                   <MapPin className="w-4 h-4 text-[#48D597] mt-0.5 flex-shrink-0" />
-                  3321 E 15th St, Tulsa, OK 74104
+                  1219 E 13th St, Tulsa, OK 74120
                 </div>
                 <div className="flex items-center gap-2.5 text-sm text-[#345460]/70">
                   <Phone className="w-4 h-4 text-[#48D597] flex-shrink-0" />
@@ -234,7 +234,7 @@ export default function ContactSection() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Metro Mutts Location - 3321 E 15th St, Tulsa, OK 74104"
+                title="Metro Mutts Location - 1219 E 13th St, Tulsa, OK 74120"
               />
             </div>
 

@@ -210,7 +210,7 @@ export default function GroomingGallery() {
               products to ensure your pup gets the best care possible.
             </p>
             <p>
-              Located at 3321 E 15th St in Tulsa, Metro Mutts is your one-stop shop for
+              Located at 1219 E 13th St in Tulsa, Metro Mutts is your one-stop shop for
               dog daycare, boarding, and grooming. Call us at{" "}
               <a href="tel:539-867-3841" className="text-[#48D597] font-semibold hover:underline">
                 539-867-3841
