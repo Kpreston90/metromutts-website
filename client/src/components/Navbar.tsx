@@ -22,6 +22,7 @@ const navLinks = [
       { label: "Daycare", href: "#daycare" },
       { label: "Boarding", href: "#boarding" },
       { label: "Grooming & Spa", href: "#grooming" },
+      { label: "Grooming Gallery", href: "/grooming-gallery" },
     ],
   },
   { label: "About Us", href: "#about" },
@@ -208,16 +209,27 @@ export default function Navbar() {
                 {link.children && activeDropdown === link.label && (
                   <div className="absolute top-full left-0 pt-2 w-52">
                     <div className="bg-white rounded-xl shadow-xl shadow-black/10 border border-black/5 py-2 overflow-hidden">
-                      {link.children.map((child) => (
-                        <a
-                          key={child.label}
-                          href={child.href}
-                          onClick={() => handleNavClick(child.href)}
-                          className="block px-4 py-2.5 text-sm font-medium text-[#345460] hover:text-[#48D597] hover:bg-[#48D597]/10 transition-colors"
-                        >
-                          {child.label}
-                        </a>
-                      ))}
+                      {link.children.map((child) =>
+                        isRouteLink(child.href) ? (
+                          <Link
+                            key={child.label}
+                            href={child.href}
+                            className="block px-4 py-2.5 text-sm font-medium text-[#345460] hover:text-[#48D597] hover:bg-[#48D597]/10 transition-colors"
+                            onClick={() => setActiveDropdown(null)}
+                          >
+                            {child.label}
+                          </Link>
+                        ) : (
+                          <a
+                            key={child.label}
+                            href={child.href}
+                            onClick={() => handleNavClick(child.href)}
+                            className="block px-4 py-2.5 text-sm font-medium text-[#345460] hover:text-[#48D597] hover:bg-[#48D597]/10 transition-colors"
+                          >
+                            {child.label}
+                          </a>
+                        )
+                      )}
                       <div className="border-t border-gray-100 mt-1 pt-1">
                         <Link
                           href="/pricing"
@@ -296,16 +308,27 @@ export default function Navbar() {
                   )}
                   {link.children && (
                     <div className="ml-4 space-y-1">
-                      {link.children.map((child) => (
-                        <a
-                          key={child.label}
-                          href={child.href}
-                          className="block px-4 py-2 text-sm font-medium text-[#345460]/70 hover:text-[#48D597] transition-colors"
-                          onClick={() => handleNavClick(child.href)}
-                        >
-                          {child.label}
-                        </a>
-                      ))}
+                      {link.children.map((child) =>
+                        isRouteLink(child.href) ? (
+                          <Link
+                            key={child.label}
+                            href={child.href}
+                            className="block px-4 py-2 text-sm font-medium text-[#345460]/70 hover:text-[#48D597] transition-colors"
+                            onClick={() => setMobileOpen(false)}
+                          >
+                            {child.label}
+                          </Link>
+                        ) : (
+                          <a
+                            key={child.label}
+                            href={child.href}
+                            className="block px-4 py-2 text-sm font-medium text-[#345460]/70 hover:text-[#48D597] transition-colors"
+                            onClick={() => handleNavClick(child.href)}
+                          >
+                            {child.label}
+                          </a>
+                        )
+                      )}
                     </div>
                   )}
                 </div>
