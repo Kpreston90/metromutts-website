@@ -6,7 +6,7 @@
 import { motion } from "framer-motion";
 import { Shield, Heart, Sparkles, Users } from "lucide-react";
 
-const ABOUT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-team-f9uaYtnCFLCBYE9qfUMujd.webp";
+const ABOUT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-team-v2-LNTktW35QDiGhk7GnjxkSp.webp";
 const STAFF_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-staff-cuddle-PjhfHvXzFSDCVuoaoZZxq6.webp";
 
 const values = [

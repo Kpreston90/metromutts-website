@@ -29,7 +29,7 @@ const GINGR_URL =
   "https://metromutts.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=";
 
 const HERO_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-pricing-hero-HgPxBH6Q2JZ4d9EeSstQ3F.webp";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-pricing-hero-v2-a5SWsGB42RmL6secufgGrA.webp";
 
 /* ─── Steps Data ─── */
 const steps = [

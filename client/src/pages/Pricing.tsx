@@ -26,10 +26,10 @@ import {
 
 const GINGR_URL = "https://metromutts.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-pricing-hero-HgPxBH6Q2JZ4d9EeSstQ3F.webp";
+const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-pricing-hero-v2-a5SWsGB42RmL6secufgGrA.webp";
 const DAYCARE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-daycare-9JTdpbodWw4zW5xQhTfmzM.webp";
-const BOARDING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-boarding-Z8W2AUuCWNvw7EphaeE3qb.webp";
-const GROOMING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-grooming-AimYbm2B4Ab8yWnzvK9Qhu.webp";
+const BOARDING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-boarding-v2-CwC54XGXncXGgfsW4r5qkv.webp";
+const GROOMING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-grooming-v2-P52m7Vwun9UEmDTRAQJb3H.webp";
 
 type TabId = "daycare" | "boarding" | "grooming";
 
