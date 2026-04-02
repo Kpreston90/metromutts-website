@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { Award, TrendingUp, History, PawPrint } from "lucide-react";
 
 const KYLE_HEADSHOT =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/kyle-headshot_1c72e339.png";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/kyle-headshot-enhanced_3543f25a.png";
 
 const highlights = [
   {
@@ -20,7 +20,7 @@ const highlights = [
     icon: TrendingUp,
     title: "Proven Track Record",
     description:
-      "Founded 9th St. Barking Lot in OKC in 2016 — broke even in 9 months, now averages 120 dogs/day with a 6-month wait list.",
+      "Founded 9th St. Barking Lot in OKC in 2016 — now one of the most popular dog care facilities in Oklahoma with a 6-month wait list.",
   },
   {
     icon: Award,
