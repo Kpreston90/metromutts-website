@@ -77,7 +77,7 @@ export default function HeroSection() {
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#48D597]/20 text-[#48D597] text-sm font-semibold mb-6 border border-[#48D597]/30 backdrop-blur-sm">
               <Play className="w-3.5 h-3.5 fill-current" />
-              Where Tails Never Stop Wagging
+              Tulsa's Favorite Dog Daycare
             </span>
           </motion.div>
 
@@ -87,9 +87,9 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
           >
-            Where Every Dog{" "}
-            <span className="text-[#48D597]">Lives Their</span>{" "}
-            Best Life
+            Your Dog's{" "}
+            <span className="text-[#48D597]">Best Day</span>{" "}
+            Starts Here
           </motion.h1>
 
           <motion.p
@@ -98,7 +98,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            Award-winning daycare, luxury boarding, and professional grooming — all under one roof in Tulsa. Your pup deserves the best, and we deliver it every single day.
+            Tulsa's newest dog daycare, boarding, and grooming facility — from the family behind OKC's most waitlisted dog care spot. 4,000+ sq ft of pure pup paradise.
           </motion.p>
 
           <motion.div

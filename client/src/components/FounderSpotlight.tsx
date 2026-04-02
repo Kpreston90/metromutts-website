@@ -38,7 +38,7 @@ const highlights = [
 
 export default function FounderSpotlight() {
   return (
-    <section className="py-20 lg:py-28 scroll-mt-20">
+    <section className="pt-4 pb-20 lg:pt-6 lg:pb-28 scroll-mt-20">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Content side */}
