@@ -26,7 +26,7 @@ const OG_DATA = {
   "/services": {
     title: "Dog Daycare, Boarding & Grooming | Metro Mutts Tulsa",
     description: "Everything your dog needs under one roof. Daycare, overnight boarding, and professional grooming in Tulsa. First day free. Call 539-867-3841.",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/all-services-hero-eQZuVzFHd8YPnSkAAhYnbj.webp",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/all-services-hero-v2-F7Rco3Tzz3Mz2bBh8CM8dG.webp",
     url: "https://www.metromutts.com/services",
   },
   "/pricing": {

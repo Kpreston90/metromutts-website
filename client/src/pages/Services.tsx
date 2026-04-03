@@ -25,7 +25,7 @@ import { trackPhoneCall, trackCTA } from "@/lib/analytics";
 import { useSectionTracking } from "@/hooks/usePageTracking";
 
 const HERO_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/all-services-hero-eQZuVzFHd8YPnSkAAhYnbj.webp";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/all-services-hero-v2-F7Rco3Tzz3Mz2bBh8CM8dG.webp";
 const DAYCARE_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-daycare-9JTdpbodWw4zW5xQhTfmzM.webp";
 const BOARDING_IMG =
