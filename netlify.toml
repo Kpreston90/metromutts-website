@@ -22,3 +22,11 @@
 [[edge_functions]]
   function = "og-tags"
   path = "/pricing"
+
+[[edge_functions]]
+  function = "og-tags"
+  path = "/daycare"
+
+[[edge_functions]]
+  function = "og-tags"
+  path = "/services"
