@@ -778,8 +778,8 @@ export default function Pricing() {
                 {/* Photo mosaic background */}
                 <div className="grid grid-cols-4 sm:grid-cols-6 h-[200px] sm:h-[220px]">
                   {[
-                    "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/groom-02_b49f884a.jpg",
-                    "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/groom-07_e5532619.jpg",
+                    "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/groom-28_97ed8a01.jpg",
+                    "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/groom-32_fcddf264.jpg",
                     "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/groom-11_23e31d79.jpg",
                     "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/groom-19_9001f11a.jpg",
                     "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/groom-26_7542d579.jpg",
