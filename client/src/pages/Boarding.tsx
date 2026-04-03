@@ -28,9 +28,11 @@ import { trackPhoneCall, trackCTA } from "@/lib/analytics";
 import { useSectionTracking } from "@/hooks/usePageTracking";
 
 const HERO_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/boarding-hero-e7Bz4scKeafvRLgh5W26xr.webp";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/boarding-suites-enhanced_303b9a0a.png";
 const FACILITY_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/boarding-facility-9Xr8FRgnPBjkJRCD7gt3Cq.webp";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/boarding-playyard-enhanced_15fe1bd8.png";
+const KENNELS_IMG =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/boarding-kennels-enhanced_bf0d51ce.png";
 
 const included = [
   {
@@ -292,6 +294,21 @@ export default function Boarding() {
               A Day in Your Dog's{" "}
               <span className="text-[#48D597]">Boarding Life</span>
             </h2>
+          </motion.div>
+
+          {/* Kennels photo */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="max-w-4xl mx-auto mb-12 rounded-2xl overflow-hidden shadow-xl"
+          >
+            <img
+              src={KENNELS_IMG}
+              alt="Dogs relaxing in cozy Metro Mutts boarding kennels with plush beds and toys"
+              className="w-full aspect-[16/9] object-cover"
+            />
           </motion.div>
 
           <div className="max-w-3xl mx-auto">
