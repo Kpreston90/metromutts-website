@@ -5,7 +5,7 @@
  */
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sun, Moon, Scissors } from "lucide-react";
+import { ArrowRight, Sun, Moon, Scissors, Camera } from "lucide-react";
 import { Link } from "wouter";
 
 const DAYCARE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-daycare-9JTdpbodWw4zW5xQhTfmzM.webp";
@@ -177,6 +177,55 @@ export default function ServicesSection() {
             <ServiceBlock key={service.id} service={service} index={index} />
           ))}
         </div>
+
+        {/* Grooming Gallery Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+          className="mt-24 lg:mt-32"
+        >
+          <Link href="/grooming-gallery">
+            <div className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-xl shadow-black/10">
+              <div className="grid grid-cols-4 sm:grid-cols-6 h-[200px] sm:h-[240px]">
+                {[
+                  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/v2-groom-04_14dac1c6.jpg",
+                  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/v2-groom-19_16b7fa21.jpg",
+                  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/v2-groom-26_db809956.jpg",
+                  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/v2-groom-30_64184bfe.jpg",
+                  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/v2-groom-11_0611c3ca.jpg",
+                  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/v2-groom-22_f39ad591.jpg",
+                ].map((src, i) => (
+                  <img
+                    key={i}
+                    src={src}
+                    alt="Groomed dog at Metro Mutts"
+                    className={`w-full h-full object-cover ${i >= 4 ? "hidden sm:block" : ""}`}
+                  />
+                ))}
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#345460]/90 via-[#345460]/70 to-[#345460]/40 group-hover:from-[#345460]/85 group-hover:via-[#345460]/60 group-hover:to-[#345460]/30 transition-all duration-300 flex items-center">
+                <div className="px-8 sm:px-10">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Camera className="w-4 h-4 text-[#48D597]" />
+                    <span className="text-[#48D597] text-xs font-bold uppercase tracking-wider">Grooming Gallery</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">
+                    See Jacque's Work
+                  </h3>
+                  <p className="text-white/60 text-sm mb-4 max-w-md">
+                    Browse 30+ photos of freshly groomed pups — from doodles to dachshunds.
+                  </p>
+                  <span className="inline-flex items-center gap-2 text-[#48D597] font-bold text-sm group-hover:gap-3 transition-all">
+                    View Gallery
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

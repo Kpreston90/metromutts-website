@@ -23,7 +23,44 @@ import {
   Dog,
   Phone,
   ChevronDown,
+  HelpCircle,
+  MessageCircle,
 } from "lucide-react";
+
+/* ─── FAQ Accordion Item ─── */
+function FaqItem({ question, answer }: { question: string; answer: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.3 }}
+      className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden"
+    >
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50/50 transition-colors"
+      >
+        <span className="font-semibold text-[#345460] pr-4">{question}</span>
+        <ChevronDown
+          className={`w-5 h-5 text-[#345460]/40 flex-shrink-0 transition-transform duration-200 ${
+            open ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          open ? "max-h-60" : "max-h-0"
+        }`}
+      >
+        <p className="px-6 pb-5 text-[#345460]/60 text-sm leading-relaxed">
+          {answer}
+        </p>
+      </div>
+    </motion.div>
+  );
+}
 
 const GINGR_URL =
   "https://metromutts.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=";
@@ -778,12 +815,12 @@ export default function Pricing() {
                 {/* Photo mosaic background */}
                 <div className="grid grid-cols-4 sm:grid-cols-6 h-[200px] sm:h-[220px]">
                   {[
-                    "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/groom-28_97ed8a01.jpg",
-                    "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/groom-32_fcddf264.jpg",
-                    "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/groom-11_23e31d79.jpg",
-                    "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/groom-19_9001f11a.jpg",
-                    "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/groom-26_7542d579.jpg",
-                    "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/groom-30_2afca1d4.jpg",
+                    "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/v2-groom-28_e2dabc24.jpg",
+                    "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/v2-groom-32_96e243c7.jpg",
+                    "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/v2-groom-11_0611c3ca.jpg",
+                    "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/v2-groom-19_16b7fa21.jpg",
+                    "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/v2-groom-26_db809956.jpg",
+                    "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/v2-groom-30_64184bfe.jpg",
                   ].map((src, i) => (
                     <img
                       key={i}
@@ -814,6 +851,80 @@ export default function Pricing() {
                 </div>
               </div>
             </Link>
+          </div>
+        </section>
+
+        {/* ─── FAQ Section ─── */}
+        <section className="py-16 lg:py-20">
+          <div className="container max-w-3xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-10"
+            >
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#48D597]/10 text-[#48D597] text-xs font-bold mb-4 uppercase tracking-wider">
+                <HelpCircle className="w-3.5 h-3.5" />
+                FAQ
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#345460] tracking-tight">
+                Common Questions
+              </h2>
+            </motion.div>
+
+            <div className="space-y-3">
+              {[
+                {
+                  q: "What vaccines are required?",
+                  a: "All dogs must be current on Rabies, DHPP (Distemper), and Bordetella (kennel cough). We also recommend the Canine Influenza vaccine. Please bring proof of vaccination on your first visit.",
+                },
+                {
+                  q: "Is a temperament test required?",
+                  a: "Yes — every new dog gets a free meet & greet and temperament evaluation before their first day. This helps us place your pup in the right play group by size and energy level. You can schedule this by calling us.",
+                },
+                {
+                  q: "What should I bring on my dog's first day?",
+                  a: "Bring proof of current vaccinations, any medications your dog takes, and their favorite toy or blanket if it helps them feel comfortable. We provide food and water bowls, beds, and treats.",
+                },
+                {
+                  q: "Do daycare packages expire?",
+                  a: "Daycare packages are valid for 12 months from the date of purchase. Unused days do not roll over after expiration.",
+                },
+                {
+                  q: "What's included with overnight boarding?",
+                  a: "Every boarding stay includes a full day of daycare, a private suite with comfortable bedding, evening walks, bedtime snacks, and 24/7 supervised care. Additional dogs from the same family receive a discounted rate of $45/night.",
+                },
+                {
+                  q: "How do I book a grooming appointment?",
+                  a: "Grooming appointments are booked by phone. Call us at 539-867-3841 to schedule with our groomer Jacque. Prices depend on your dog's size, breed, and coat condition — Jacque will give you an exact quote when you call.",
+                },
+                {
+                  q: "What are your hours?",
+                  a: "We're open Monday through Friday 7:00 AM – 6:00 PM and Saturday & Sunday 9:00 AM – 5:00 PM. Drop-off and pick-up for daycare and boarding happen during regular business hours.",
+                },
+                {
+                  q: "What's your cancellation policy?",
+                  a: "We ask for at least 24 hours notice for cancellations. Late cancellations or no-shows may be charged a fee. Grooming appointments require 24 hours notice as well.",
+                },
+              ].map((faq, i) => (
+                <FaqItem key={i} question={faq.q} answer={faq.a} />
+              ))}
+            </div>
+
+            <div className="mt-10 text-center">
+              <p className="text-[#345460]/50 text-sm mb-3">Still have questions?</p>
+              <Button
+                variant="outline"
+                className="border-[#345460]/20 text-[#345460] hover:bg-[#345460]/5 font-semibold"
+                asChild
+              >
+                <a href="tel:5398673841">
+                  <MessageCircle className="w-4 h-4 mr-2" />
+                  Call Us — 539-867-3841
+                </a>
+              </Button>
+            </div>
           </div>
         </section>
 
