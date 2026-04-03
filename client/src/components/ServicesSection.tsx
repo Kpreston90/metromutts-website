@@ -6,6 +6,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sun, Moon, Scissors } from "lucide-react";
+import { Link } from "wouter";
 
 const DAYCARE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-daycare-9JTdpbodWw4zW5xQhTfmzM.webp";
 const BOARDING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-boarding-v2-CwC54XGXncXGgfsW4r5qkv.webp";
@@ -133,10 +134,12 @@ function ServiceBlock({
           <Button
             className="font-bold text-white shadow-lg transition-all hover:-translate-y-0.5"
             style={{ backgroundColor: service.color }}
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+            asChild
           >
-            Learn More
-            <ArrowRight className="w-4 h-4 ml-1" />
+            <Link href={`/pricing#${service.id}`}>
+              View Pricing
+              <ArrowRight className="w-4 h-4 ml-1" />
+            </Link>
           </Button>
         </motion.div>
       </div>
