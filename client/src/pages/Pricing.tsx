@@ -1,11 +1,11 @@
 /*
- * Metro Mutts Pricing Page
+ * Metro Mutts Pricing Page — Redesigned
  * Brand: Green #48D597, Dark #345460
- * Tabbed pricing display for Daycare, Boarding, and Grooming
- * All rates sourced from metromutts.com
+ * All-on-one-page layout with anchor nav, quick-glance summary,
+ * simplified daycare packages, and "starting at" grooming prices
  */
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -21,26 +21,29 @@ import {
   Sparkles,
   Clock,
   Dog,
-  Package,
+  Phone,
+  ChevronDown,
 } from "lucide-react";
 
-const GINGR_URL = "https://metromutts.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=";
+const GINGR_URL =
+  "https://metromutts.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=";
 
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/realistic-indoor-play-ZvWc5A7LSn5PUgeFcAKee5.webp";
-const DAYCARE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-daycare-9JTdpbodWw4zW5xQhTfmzM.webp";
-const BOARDING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-boarding-v2-CwC54XGXncXGgfsW4r5qkv.webp";
-const GROOMING_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/grooming-dog-enhanced_04ac8ef9.png";
+const HERO_IMG =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/realistic-indoor-play-ZvWc5A7LSn5PUgeFcAKee5.webp";
+const DAYCARE_IMG =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-daycare-9JTdpbodWw4zW5xQhTfmzM.webp";
+const BOARDING_IMG =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-boarding-v2-CwC54XGXncXGgfsW4r5qkv.webp";
+const GROOMING_IMG =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/grooming-dog-enhanced_04ac8ef9.png";
 
-type TabId = "daycare" | "boarding" | "grooming";
-
-const tabs: { id: TabId; label: string; icon: typeof Sun }[] = [
-  { id: "daycare", label: "Daycare", icon: Sun },
-  { id: "boarding", label: "Boarding", icon: Bed },
-  { id: "grooming", label: "Grooming", icon: Scissors },
-];
-
-/* ─── Daycare Data ─── */
+/* ─── Daycare Packages ─── */
 const fullDayPackages = [
+  { days: 10, price: 288, popular: false },
+  { days: 20, price: 576, popular: true },
+  { days: 30, price: 864, popular: false },
+];
+const allFullDayPackages = [
   { days: 5, price: 144 },
   { days: 10, price: 288 },
   { days: 15, price: 432 },
@@ -48,8 +51,12 @@ const fullDayPackages = [
   { days: 25, price: 720 },
   { days: 30, price: 864 },
 ];
-
 const halfDayPackages = [
+  { days: 10, price: 189, popular: false },
+  { days: 20, price: 349, popular: true },
+  { days: 30, price: 473, popular: false },
+];
+const allHalfDayPackages = [
   { days: 5, price: 99 },
   { days: 10, price: 189 },
   { days: 15, price: 271 },
@@ -58,28 +65,76 @@ const halfDayPackages = [
   { days: 30, price: 473 },
 ];
 
-/* ─── Grooming Data ─── */
+/* ─── Grooming Add-Ons ─── */
 const groomingAddOns = [
   { name: "De-matting", price: "$30" },
-  { name: "Nail buffing", price: "$15", note: "We use a Dremel if your pup is comfortable!" },
-  { name: "Teeth brushing", price: "$10", note: "Brush teeth with doggy toothpaste and apply breath freshening gel." },
+  {
+    name: "Nail buffing",
+    price: "$15",
+    note: "We use a Dremel if your pup is comfortable!",
+  },
+  {
+    name: "Teeth brushing",
+    price: "$10",
+    note: "Brush with doggy toothpaste + breath freshening gel",
+  },
   { name: "Ear cleaning", price: "$15", note: "Flush and wipe ears" },
   { name: "Anal gland expression", price: "$15" },
-  { name: "Face, feet, and fanny trim", price: "$15" },
+  { name: "Face, feet & fanny trim", price: "$15" },
   { name: "Poodle design", price: "$40" },
   { name: "Flea & tick treatment", price: "$30" },
 ];
 
+const sections = [
+  { id: "daycare", label: "Daycare", icon: Sun },
+  { id: "boarding", label: "Boarding", icon: Bed },
+  { id: "grooming", label: "Grooming", icon: Scissors },
+];
+
 export default function Pricing() {
-  const [activeTab, setActiveTab] = useState<TabId>("daycare");
   const [daycareSub, setDaycareSub] = useState<"full" | "half">("full");
+  const [showAllPackages, setShowAllPackages] = useState(false);
+  const [activeSection, setActiveSection] = useState("daycare");
+
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // Track which section is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -50% 0px" }
+    );
+
+    sections.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const packages = daycareSub === "full" ? fullDayPackages : halfDayPackages;
+  const allPackages =
+    daycareSub === "full" ? allFullDayPackages : allHalfDayPackages;
+  const singlePrice = daycareSub === "full" ? 32 : 21;
+  const additionalPrice = daycareSub === "full" ? 24 : 15;
+  const fullRate = daycareSub === "full" ? 32 : 21;
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[oklch(0.98_0.003_90)]">
       <Navbar />
 
-      {/* Hero Banner */}
-      <section className="relative h-[380px] sm:h-[340px] lg:h-[420px] overflow-hidden">
+      {/* ─── Hero ─── */}
+      <section className="relative h-[340px] sm:h-[320px] lg:h-[380px] overflow-hidden">
         <img
           src={HERO_IMG}
           alt="Dogs playing at Metro Mutts"
@@ -101,77 +156,636 @@ export default function Pricing() {
               <span className="text-[#48D597]">Pricing</span>
             </h1>
             <p className="text-white/70 text-lg max-w-xl leading-relaxed">
-              Simple, honest pricing for Tulsa's best dog care. No hidden fees — just happy pups.
+              Simple, honest pricing for Tulsa's best dog care. No hidden fees.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <main className="flex-1">
-        {/* Tab Navigation */}
-        <div className="sticky top-16 lg:top-20 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
-          <div className="container">
-            <div className="flex gap-1 py-3">
-              {tabs.map((tab) => {
-                const Icon = tab.icon;
-                const isActive = activeTab === tab.id;
-                return (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all ${
-                      isActive
-                        ? "bg-[#48D597] text-[#345460] shadow-lg shadow-[#48D597]/20"
-                        : "text-[#345460]/60 hover:text-[#345460] hover:bg-gray-100"
-                    }`}
-                  >
-                    <Icon className="w-4 h-4" />
-                    {tab.label}
-                  </button>
-                );
-              })}
-            </div>
+      {/* ─── Quick-Glance Summary ─── */}
+      <div className="relative -mt-12 z-10 mb-4">
+        <div className="container">
+          <div className="grid sm:grid-cols-3 gap-4">
+            {[
+              {
+                label: "Daycare",
+                price: "$21",
+                unit: "/day",
+                sub: "Half day from",
+                icon: Sun,
+                anchor: "#daycare",
+              },
+              {
+                label: "Boarding",
+                price: "$50",
+                unit: "/night",
+                sub: "Includes daycare",
+                icon: Bed,
+                anchor: "#boarding",
+              },
+              {
+                label: "Grooming",
+                price: "$30",
+                unit: "+",
+                sub: "Starting at",
+                icon: Scissors,
+                anchor: "#grooming",
+              },
+            ].map((item) => {
+              const Icon = item.icon;
+              return (
+                <a
+                  key={item.label}
+                  href={item.anchor}
+                  className="group bg-white rounded-2xl p-6 shadow-xl shadow-black/8 border border-gray-100 hover:border-[#48D597]/30 hover:shadow-[#48D597]/10 transition-all"
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-xl bg-[#48D597]/10 flex items-center justify-center group-hover:bg-[#48D597]/20 transition-colors">
+                      <Icon className="w-5 h-5 text-[#48D597]" />
+                    </div>
+                    <span className="text-sm font-bold text-[#345460]/50 uppercase tracking-wider">
+                      {item.label}
+                    </span>
+                  </div>
+                  <p className="text-xs text-[#345460]/40 mb-1">{item.sub}</p>
+                  <div className="flex items-baseline gap-0.5">
+                    <span className="text-3xl font-extrabold text-[#345460]">
+                      {item.price}
+                    </span>
+                    <span className="text-[#345460]/40 text-sm font-medium">
+                      {item.unit}
+                    </span>
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </div>
+      </div>
 
-        {/* Tab Content */}
-        <AnimatePresence mode="wait">
-          {activeTab === "daycare" && (
-            <motion.div
-              key="daycare"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.3 }}
-            >
-              <DaycareTab sub={daycareSub} setSub={setDaycareSub} />
-            </motion.div>
-          )}
-          {activeTab === "boarding" && (
-            <motion.div
-              key="boarding"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.3 }}
-            >
-              <BoardingTab />
-            </motion.div>
-          )}
-          {activeTab === "grooming" && (
-            <motion.div
-              key="grooming"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.3 }}
-            >
-              <GroomingTab />
-            </motion.div>
-          )}
-        </AnimatePresence>
+      {/* ─── Sticky Anchor Nav ─── */}
+      <div className="sticky top-16 lg:top-20 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div className="container">
+          <div className="flex gap-1 py-3">
+            {sections.map((sec) => {
+              const Icon = sec.icon;
+              const isActive = activeSection === sec.id;
+              return (
+                <a
+                  key={sec.id}
+                  href={`#${sec.id}`}
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all ${
+                    isActive
+                      ? "bg-[#48D597] text-[#345460] shadow-lg shadow-[#48D597]/20"
+                      : "text-[#345460]/60 hover:text-[#345460] hover:bg-gray-100"
+                  }`}
+                >
+                  <Icon className="w-4 h-4" />
+                  {sec.label}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
 
-        {/* Bottom CTA */}
+      <main className="flex-1">
+        {/* ═══════════════════════════════════════════════════
+           DAYCARE SECTION
+           ═══════════════════════════════════════════════════ */}
+        <section id="daycare" className="py-16 lg:py-20 scroll-mt-32">
+          <div className="container">
+            {/* Header with image */}
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-12">
+              <div>
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#48D597]/10 text-[#48D597] text-xs font-bold mb-4 uppercase tracking-wider">
+                  <Sun className="w-3.5 h-3.5" />
+                  Daycare
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#345460] tracking-tight mb-4">
+                  Dog Daycare
+                </h2>
+                <p className="text-[#345460]/70 text-lg leading-relaxed mb-4">
+                  Full day (5+ hours) or half day (under 5 hours) — your pup
+                  gets supervised play, socialization, and loving care all day
+                  long.
+                </p>
+                <div className="flex items-center gap-3 text-sm text-[#345460]/60">
+                  <Clock className="w-4 h-4 text-[#48D597]" />
+                  Mon–Fri: 7 AM – 6 PM &nbsp;|&nbsp; Sat–Sun: 9 AM – 5 PM
+                </div>
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-xl shadow-black/10">
+                <img
+                  src={DAYCARE_IMG}
+                  alt="Dogs playing at Metro Mutts daycare"
+                  className="w-full h-64 lg:h-80 object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Full / Half toggle */}
+            <div className="flex gap-2 mb-8">
+              <button
+                onClick={() => {
+                  setDaycareSub("full");
+                  setShowAllPackages(false);
+                }}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all ${
+                  daycareSub === "full"
+                    ? "bg-[#345460] text-white shadow-lg"
+                    : "bg-gray-100 text-[#345460]/60 hover:bg-gray-200"
+                }`}
+              >
+                <Sun className="w-4 h-4" />
+                Full Day (5+ hrs)
+              </button>
+              <button
+                onClick={() => {
+                  setDaycareSub("half");
+                  setShowAllPackages(false);
+                }}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all ${
+                  daycareSub === "half"
+                    ? "bg-[#345460] text-white shadow-lg"
+                    : "bg-gray-100 text-[#345460]/60 hover:bg-gray-200"
+                }`}
+              >
+                <Moon className="w-4 h-4" />
+                Half Day (&lt;5 hrs)
+              </button>
+            </div>
+
+            {/* Single day rate cards */}
+            <div className="grid sm:grid-cols-2 gap-5 mb-10">
+              <div className="bg-white rounded-2xl border border-gray-100 p-7 shadow-lg shadow-black/5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-lg bg-[#48D597]/10 flex items-center justify-center">
+                    <Dog className="w-5 h-5 text-[#48D597]" />
+                  </div>
+                  <h3 className="font-bold text-[#345460]">One Dog</h3>
+                </div>
+                <div className="flex items-baseline gap-1 mb-1">
+                  <span className="text-4xl font-extrabold text-[#345460]">
+                    ${singlePrice}
+                  </span>
+                  <span className="text-[#345460]/50 text-sm font-medium">
+                    / day
+                  </span>
+                </div>
+                <p className="text-xs text-[#345460]/40">
+                  Single-day drop-in rate
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl border border-gray-100 p-7 shadow-lg shadow-black/5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-lg bg-[#48D597]/10 flex items-center justify-center">
+                    <Dog className="w-5 h-5 text-[#48D597]" />
+                  </div>
+                  <h3 className="font-bold text-[#345460]">
+                    Each Additional Dog
+                  </h3>
+                </div>
+                <div className="flex items-baseline gap-1 mb-1">
+                  <span className="text-4xl font-extrabold text-[#345460]">
+                    ${additionalPrice}
+                  </span>
+                  <span className="text-[#345460]/50 text-sm font-medium">
+                    / day
+                  </span>
+                </div>
+                <p className="text-xs text-[#345460]/40">
+                  Bring the whole pack & save
+                </p>
+              </div>
+            </div>
+
+            {/* Popular packages — 3 cards */}
+            <div className="bg-[#345460] rounded-2xl p-8 lg:p-10 shadow-xl">
+              <h3 className="text-xl font-extrabold text-white mb-1">
+                {daycareSub === "full" ? "Full Day" : "Half Day"} Packages
+              </h3>
+              <p className="text-white/50 text-sm mb-8">
+                Buy in bulk and save. Discount already applied.
+              </p>
+
+              <div className="grid sm:grid-cols-3 gap-4 mb-6">
+                {packages.map((pkg) => {
+                  const perDay = (pkg.price / pkg.days).toFixed(0);
+                  const savings = fullRate * pkg.days - pkg.price;
+                  return (
+                    <div
+                      key={pkg.days}
+                      className={`relative rounded-xl p-6 transition-colors ${
+                        pkg.popular
+                          ? "bg-[#48D597] text-[#345460]"
+                          : "bg-white/5 hover:bg-white/10 border border-white/10 text-white"
+                      }`}
+                    >
+                      {pkg.popular && (
+                        <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#345460] text-[#48D597] text-[10px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider">
+                          Best Value
+                        </span>
+                      )}
+                      <p
+                        className={`text-sm font-bold mb-3 ${
+                          pkg.popular ? "text-[#345460]/70" : "text-white/50"
+                        }`}
+                      >
+                        {pkg.days} Days
+                      </p>
+                      <div className="flex items-baseline gap-1 mb-1">
+                        <span className="text-3xl font-extrabold">
+                          ${pkg.price}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between text-sm mt-3">
+                        <span
+                          className={
+                            pkg.popular ? "text-[#345460]/60" : "text-white/40"
+                          }
+                        >
+                          ${perDay}/day
+                        </span>
+                        <span
+                          className={`font-semibold ${
+                            pkg.popular ? "text-[#345460]/80" : "text-[#48D597]"
+                          }`}
+                        >
+                          Save ${savings}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* See all packages toggle */}
+              <div className="text-center">
+                <button
+                  onClick={() => setShowAllPackages(!showAllPackages)}
+                  className="inline-flex items-center gap-1.5 text-white/50 hover:text-white text-sm font-medium transition-colors"
+                >
+                  {showAllPackages ? "Hide" : "See all"} package options
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${
+                      showAllPackages ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+              </div>
+
+              {showAllPackages && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  className="mt-6 overflow-hidden"
+                >
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                    {allPackages.map((pkg) => {
+                      const perDay = (pkg.price / pkg.days).toFixed(0);
+                      return (
+                        <div
+                          key={pkg.days}
+                          className="bg-white/5 border border-white/10 rounded-lg p-4 text-center"
+                        >
+                          <p className="text-white/50 text-xs font-bold mb-1">
+                            {pkg.days} Days
+                          </p>
+                          <p className="text-white font-extrabold text-lg">
+                            ${pkg.price}
+                          </p>
+                          <p className="text-white/30 text-xs mt-1">
+                            ${perDay}/day
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="container">
+          <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+        </div>
+
+        {/* ═══════════════════════════════════════════════════
+           BOARDING SECTION
+           ═══════════════════════════════════════════════════ */}
+        <section id="boarding" className="py-16 lg:py-20 scroll-mt-32">
+          <div className="container">
+            {/* Header with image */}
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-12">
+              <div>
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#48D597]/10 text-[#48D597] text-xs font-bold mb-4 uppercase tracking-wider">
+                  <Bed className="w-3.5 h-3.5" />
+                  Boarding
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#345460] tracking-tight mb-4">
+                  Overnight Boarding
+                </h2>
+                <p className="text-[#345460]/70 text-lg leading-relaxed mb-4">
+                  A comfortable home away from home. Spacious suites, loving
+                  staff, and a full day of daycare included with every night's
+                  stay.
+                </p>
+                <div className="flex items-center gap-3 text-sm text-[#345460]/60">
+                  <Clock className="w-4 h-4 text-[#48D597]" />
+                  Check-in during regular business hours
+                </div>
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-xl shadow-black/10">
+                <img
+                  src={BOARDING_IMG}
+                  alt="Metro Mutts boarding suites"
+                  className="w-full h-64 lg:h-80 object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Pricing cards */}
+            <div className="grid sm:grid-cols-2 gap-5 mb-10">
+              <div className="bg-white rounded-2xl border border-gray-100 p-7 shadow-lg shadow-black/5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-lg bg-[#48D597]/10 flex items-center justify-center">
+                    <Bed className="w-5 h-5 text-[#48D597]" />
+                  </div>
+                  <h3 className="font-bold text-[#345460]">One Dog</h3>
+                </div>
+                <div className="flex items-baseline gap-1 mb-1">
+                  <span className="text-4xl font-extrabold text-[#345460]">
+                    $50
+                  </span>
+                  <span className="text-[#345460]/50 text-sm font-medium">
+                    / night
+                  </span>
+                </div>
+                <p className="text-xs text-[#345460]/40">
+                  Includes full day of daycare
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl border border-gray-100 p-7 shadow-lg shadow-black/5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-lg bg-[#48D597]/10 flex items-center justify-center">
+                    <Dog className="w-5 h-5 text-[#48D597]" />
+                  </div>
+                  <h3 className="font-bold text-[#345460]">
+                    Each Additional Dog
+                  </h3>
+                </div>
+                <div className="flex items-baseline gap-1 mb-1">
+                  <span className="text-4xl font-extrabold text-[#345460]">
+                    $45
+                  </span>
+                  <span className="text-[#345460]/50 text-sm font-medium">
+                    / night
+                  </span>
+                </div>
+                <p className="text-xs text-[#345460]/40">Per additional dog</p>
+              </div>
+            </div>
+
+            {/* What's included */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
+              {[
+                "Spacious private suites",
+                "Full day of daycare included",
+                "Climate-controlled facility",
+                "Loving & attentive staff",
+                "Indoor & outdoor play areas",
+                "Feeding per your schedule",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-3 bg-white rounded-xl p-4 border border-gray-100 shadow-sm"
+                >
+                  <div className="w-6 h-6 rounded-full bg-[#48D597]/10 flex items-center justify-center flex-shrink-0">
+                    <Check className="w-3.5 h-3.5 text-[#48D597]" />
+                  </div>
+                  <span className="text-sm font-medium text-[#345460]">
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Important note */}
+            <div className="bg-[#48D597]/10 border border-[#48D597]/20 rounded-2xl p-6 lg:p-8">
+              <div className="flex gap-4">
+                <div className="w-10 h-10 rounded-xl bg-[#48D597]/20 flex items-center justify-center flex-shrink-0">
+                  <Info className="w-5 h-5 text-[#48D597]" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-[#345460] mb-2">
+                    First-Time Boarders
+                  </h4>
+                  <p className="text-[#345460]/70 text-sm leading-relaxed">
+                    All first-time boarding dogs must complete a full day of
+                    daycare for temperament testing. Please call{" "}
+                    <a
+                      href="tel:5398673841"
+                      className="text-[#48D597] font-semibold hover:underline"
+                    >
+                      539-867-3841
+                    </a>{" "}
+                    at least 2 days before your boarding dates to schedule.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="container">
+          <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+        </div>
+
+        {/* ═══════════════════════════════════════════════════
+           GROOMING SECTION
+           ═══════════════════════════════════════════════════ */}
+        <section id="grooming" className="py-16 lg:py-20 scroll-mt-32">
+          <div className="container">
+            {/* Header with image */}
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-12">
+              <div>
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#48D597]/10 text-[#48D597] text-xs font-bold mb-4 uppercase tracking-wider">
+                  <Scissors className="w-3.5 h-3.5" />
+                  Grooming
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#345460] tracking-tight mb-4">
+                  Grooming Services
+                </h2>
+                <p className="text-[#345460]/70 text-lg leading-relaxed mb-4">
+                  Our groomer Jacque will have your pup looking and feeling
+                  amazing. Prices vary by size, breed, and coat condition.
+                </p>
+                <div className="flex items-center gap-3 text-sm text-[#345460]/60">
+                  <Phone className="w-4 h-4 text-[#48D597]" />
+                  Call{" "}
+                  <a
+                    href="tel:5398673841"
+                    className="text-[#48D597] font-semibold hover:underline"
+                  >
+                    539-867-3841
+                  </a>{" "}
+                  for your breed's exact price
+                </div>
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-xl shadow-black/10">
+                <img
+                  src={GROOMING_IMG}
+                  alt="Happy dog after grooming at Metro Mutts"
+                  className="w-full h-64 lg:h-80 object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Main grooming services — "starting at" approach */}
+            <div className="grid md:grid-cols-3 gap-5 mb-10">
+              {/* Full Bath */}
+              <div className="bg-white rounded-2xl border border-gray-100 p-7 shadow-lg shadow-black/5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-lg bg-[#48D597]/10 flex items-center justify-center">
+                    <Sparkles className="w-5 h-5 text-[#48D597]" />
+                  </div>
+                  <h3 className="font-bold text-[#345460]">Full Bath</h3>
+                </div>
+                <p className="text-[#345460]/60 text-sm mb-4">
+                  Wash, dry, and brush out. Recommended for short-hair and
+                  non-grooming breeds.
+                </p>
+                <p className="text-xs text-[#345460]/40 mb-1">Starting at</p>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-3xl font-extrabold text-[#345460]">
+                    $30
+                  </span>
+                </div>
+              </div>
+
+              {/* Full Grooming — highlighted */}
+              <div className="bg-white rounded-2xl border-2 border-[#48D597] p-7 shadow-lg shadow-[#48D597]/10 relative">
+                <div className="absolute -top-3 left-6">
+                  <span className="bg-[#48D597] text-[#345460] text-xs font-bold px-3 py-1 rounded-full">
+                    Most Popular
+                  </span>
+                </div>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-lg bg-[#48D597]/10 flex items-center justify-center">
+                    <Scissors className="w-5 h-5 text-[#48D597]" />
+                  </div>
+                  <h3 className="font-bold text-[#345460]">Full Grooming</h3>
+                </div>
+                <p className="text-[#345460]/60 text-sm mb-4">
+                  Full bath + haircut/shaving. Ear hair pulling, paw pads &
+                  anal gland expression included on request.
+                </p>
+                <p className="text-xs text-[#345460]/40 mb-1">Starting at</p>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-3xl font-extrabold text-[#345460]">
+                    $70
+                  </span>
+                </div>
+              </div>
+
+              {/* De-shedding */}
+              <div className="bg-white rounded-2xl border border-gray-100 p-7 shadow-lg shadow-black/5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-lg bg-[#48D597]/10 flex items-center justify-center">
+                    <Dog className="w-5 h-5 text-[#48D597]" />
+                  </div>
+                  <h3 className="font-bold text-[#345460]">De-shedding</h3>
+                </div>
+                <p className="text-[#345460]/60 text-sm mb-4">
+                  Special shampoo & conditioner with de-shedding brushes/rakes
+                  to reduce shedding.
+                </p>
+                <p className="text-xs text-[#345460]/40 mb-1">Add-on from</p>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-3xl font-extrabold text-[#345460]">
+                    $20
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Call for quote CTA */}
+            <div className="bg-[#345460] rounded-2xl p-6 lg:p-8 flex flex-col sm:flex-row items-center justify-between gap-5 mb-10">
+              <div>
+                <h4 className="text-lg font-extrabold text-white mb-1">
+                  Not sure what your pup needs?
+                </h4>
+                <p className="text-white/50 text-sm">
+                  Call us and we'll recommend the right service and give you an
+                  exact quote for your breed.
+                </p>
+              </div>
+              <a
+                href="tel:5398673841"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#48D597] text-[#345460] font-bold hover:bg-[#3bc485] transition-colors shadow-lg shadow-[#48D597]/25 flex-shrink-0"
+              >
+                <Phone className="w-4 h-4" />
+                539-867-3841
+              </a>
+            </div>
+
+            {/* Add-ons */}
+            <div className="bg-white rounded-2xl p-8 lg:p-10 border border-gray-100 shadow-lg shadow-black/5">
+              <h3 className="text-xl font-extrabold text-[#345460] mb-1">
+                Grooming Add-Ons
+              </h3>
+              <p className="text-[#345460]/50 text-sm mb-6">
+                Customize your pup's grooming experience.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {groomingAddOns.map((addon) => (
+                  <div
+                    key={addon.name}
+                    className="flex items-center justify-between bg-[oklch(0.98_0.003_90)] rounded-xl p-4 border border-gray-100 hover:border-[#48D597]/20 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-[#48D597]/10 flex items-center justify-center flex-shrink-0">
+                        <Check className="w-3.5 h-3.5 text-[#48D597]" />
+                      </div>
+                      <div>
+                        <span className="text-sm font-semibold text-[#345460]">
+                          {addon.name}
+                        </span>
+                        {addon.note && (
+                          <p className="text-xs text-[#345460]/40 mt-0.5">
+                            {addon.note}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                    <span className="text-sm font-bold text-[#48D597] ml-4 flex-shrink-0">
+                      {addon.price}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Gallery link */}
+            <div className="mt-8 text-center">
+              <Link
+                href="/grooming-gallery"
+                className="inline-flex items-center gap-2 text-[#48D597] font-bold hover:underline"
+              >
+                See Jacque's grooming gallery
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── Bottom CTA ─── */}
         <section className="py-16 lg:py-20 bg-[#345460]">
           <div className="container text-center">
             <motion.div
@@ -184,7 +798,8 @@ export default function Pricing() {
                 Ready to Get Started?
               </h2>
               <p className="text-white/60 text-lg mb-8 max-w-lg mx-auto">
-                Book your pup's first visit today. New customers get a free meet & greet!
+                Book your pup's first visit today. New customers get a free meet
+                & greet!
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button
@@ -203,9 +818,7 @@ export default function Pricing() {
                   className="border-white/30 text-white hover:bg-white/10 font-semibold text-base px-8 h-13 bg-transparent"
                   asChild
                 >
-                  <a href="tel:5398673841">
-                    Call 539-867-3841
-                  </a>
+                  <a href="tel:5398673841">Call 539-867-3841</a>
                 </Button>
               </div>
             </motion.div>
@@ -215,368 +828,5 @@ export default function Pricing() {
 
       <Footer />
     </div>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════
-   DAYCARE TAB
-   ═══════════════════════════════════════════════════════════ */
-function DaycareTab({
-  sub,
-  setSub,
-}: {
-  sub: "full" | "half";
-  setSub: (v: "full" | "half") => void;
-}) {
-  const packages = sub === "full" ? fullDayPackages : halfDayPackages;
-  const singlePrice = sub === "full" ? 32 : 21;
-  const additionalPrice = sub === "full" ? 24 : 15;
-
-  return (
-    <section className="py-14 lg:py-20">
-      <div className="container">
-        {/* Section header with image */}
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-14">
-          <div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#345460] tracking-tight mb-4">
-              Dog Daycare
-            </h2>
-            <p className="text-[#345460]/70 text-lg leading-relaxed mb-6">
-              For your convenience, daycare is broken up in two ways — full day sessions and half day sessions. A full day is any stay more than 5 hours, while a half day is any session less than 5 hours.
-            </p>
-            <div className="flex items-center gap-3 text-sm text-[#345460]/60">
-              <Clock className="w-4 h-4 text-[#48D597]" />
-              Mon–Fri: 7:00 AM – 6:00 PM &nbsp;|&nbsp; Sat–Sun: 9:00 AM – 5:00 PM
-            </div>
-          </div>
-          <div className="rounded-2xl overflow-hidden shadow-xl shadow-black/10">
-            <img src={DAYCARE_IMG} alt="Dogs playing at Metro Mutts daycare" className="w-full h-64 lg:h-80 object-cover" />
-          </div>
-        </div>
-
-        {/* Full/Half toggle */}
-        <div className="flex gap-2 mb-10">
-          <button
-            onClick={() => setSub("full")}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all ${
-              sub === "full"
-                ? "bg-[#345460] text-white shadow-lg"
-                : "bg-gray-100 text-[#345460]/60 hover:bg-gray-200"
-            }`}
-          >
-            <Sun className="w-4 h-4" />
-            Full Day
-          </button>
-          <button
-            onClick={() => setSub("half")}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all ${
-              sub === "half"
-                ? "bg-[#345460] text-white shadow-lg"
-                : "bg-gray-100 text-[#345460]/60 hover:bg-gray-200"
-            }`}
-          >
-            <Moon className="w-4 h-4" />
-            Half Day
-          </button>
-        </div>
-
-        {/* Pricing cards */}
-        <div className="grid md:grid-cols-2 gap-6 mb-14">
-          {/* Single day rate */}
-          <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-lg shadow-black/5 hover:shadow-xl transition-shadow">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-[#48D597]/10 flex items-center justify-center">
-                <Dog className="w-5 h-5 text-[#48D597]" />
-              </div>
-              <h3 className="text-lg font-bold text-[#345460]">
-                {sub === "full" ? "Full Day" : "Half Day"} Daycare
-              </h3>
-            </div>
-            <p className="text-[#345460]/60 text-sm mb-5">
-              {sub === "full"
-                ? "Drop off any time during the day. While you're away, your dog will be cared for in a safe, respectful, loving environment."
-                : "The closest thing you'll find to a hip play area for your dog. Your dog will receive loving, attentive care throughout the day."}
-            </p>
-            <div className="flex items-baseline gap-1 mb-2">
-              <span className="text-4xl font-extrabold text-[#345460]">${singlePrice}</span>
-              <span className="text-[#345460]/50 text-sm font-medium">/ day</span>
-            </div>
-            <p className="text-sm text-[#345460]/50">One dog</p>
-          </div>
-
-          {/* Additional dog */}
-          <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-lg shadow-black/5 hover:shadow-xl transition-shadow">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-[#48D597]/10 flex items-center justify-center">
-                <Dog className="w-5 h-5 text-[#48D597]" />
-              </div>
-              <h3 className="text-lg font-bold text-[#345460]">Each Additional Dog</h3>
-            </div>
-            <p className="text-[#345460]/60 text-sm mb-5">
-              Got more than one pup? Not a problem. Bring the whole pack and save on each additional dog.
-            </p>
-            <div className="flex items-baseline gap-1 mb-2">
-              <span className="text-4xl font-extrabold text-[#345460]">${additionalPrice}</span>
-              <span className="text-[#345460]/50 text-sm font-medium">/ day</span>
-            </div>
-            <p className="text-sm text-[#345460]/50">Per additional dog</p>
-          </div>
-        </div>
-
-        {/* Packages table */}
-        <div className="bg-[#345460] rounded-2xl p-8 lg:p-10 shadow-xl">
-          <div className="flex items-center gap-3 mb-2">
-            <Package className="w-5 h-5 text-[#48D597]" />
-            <h3 className="text-xl font-extrabold text-white">
-              {sub === "full" ? "Full Day" : "Half Day"} Packages
-            </h3>
-          </div>
-          <p className="text-white/50 text-sm mb-8">
-            Save more as you purchase more days for your precious pup! Discount already applied. Ask us about further discounts on siblings!
-          </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {packages.map((pkg) => {
-              const perDay = (pkg.price / pkg.days).toFixed(2);
-              const fullRate = sub === "full" ? 32 : 21;
-              const savings = (fullRate * pkg.days - pkg.price);
-              return (
-                <div
-                  key={pkg.days}
-                  className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-5 transition-colors group"
-                >
-                  <div className="flex items-baseline justify-between mb-3">
-                    <span className="text-white font-bold text-lg">{pkg.days} Days</span>
-                    <span className="text-[#48D597] font-extrabold text-2xl">${pkg.price}</span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-white/40">${perDay}/day</span>
-                    <span className="text-[#48D597]/80 font-medium">Save ${savings}</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════
-   BOARDING TAB
-   ═══════════════════════════════════════════════════════════ */
-function BoardingTab() {
-  return (
-    <section className="py-14 lg:py-20">
-      <div className="container">
-        {/* Section header with image */}
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-14">
-          <div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#345460] tracking-tight mb-4">
-              Overnight Boarding
-            </h2>
-            <p className="text-[#345460]/70 text-lg leading-relaxed mb-6">
-              Your dog deserves a comfortable home away from home. Our spacious boarding suites ensure your pup gets the rest and care they need while you're away.
-            </p>
-            <div className="flex items-center gap-3 text-sm text-[#345460]/60">
-              <Clock className="w-4 h-4 text-[#48D597]" />
-              Check-in during regular business hours
-            </div>
-          </div>
-          <div className="rounded-2xl overflow-hidden shadow-xl shadow-black/10">
-            <img src={BOARDING_IMG} alt="Metro Mutts boarding suites" className="w-full h-64 lg:h-80 object-cover" />
-          </div>
-        </div>
-
-        {/* Pricing cards */}
-        <div className="grid md:grid-cols-2 gap-6 mb-10">
-          <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-lg shadow-black/5 hover:shadow-xl transition-shadow">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-[#48D597]/10 flex items-center justify-center">
-                <Bed className="w-5 h-5 text-[#48D597]" />
-              </div>
-              <h3 className="text-lg font-bold text-[#345460]">Boarding (One Dog)</h3>
-            </div>
-            <p className="text-[#345460]/60 text-sm mb-5">
-              Your dog will enjoy a spacious suite with comfortable bedding, plus full access to our play areas during the day.
-            </p>
-            <div className="flex items-baseline gap-1 mb-2">
-              <span className="text-4xl font-extrabold text-[#345460]">$50</span>
-              <span className="text-[#345460]/50 text-sm font-medium">/ night</span>
-            </div>
-            <p className="text-sm text-[#345460]/50">Includes full day of daycare</p>
-          </div>
-
-          <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-lg shadow-black/5 hover:shadow-xl transition-shadow">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-[#48D597]/10 flex items-center justify-center">
-                <Bed className="w-5 h-5 text-[#48D597]" />
-              </div>
-              <h3 className="text-lg font-bold text-[#345460]">Each Additional Dog</h3>
-            </div>
-            <p className="text-[#345460]/60 text-sm mb-5">
-              Got more than one pup? Not a problem. Each additional dog boards at a discounted nightly rate.
-            </p>
-            <div className="flex items-baseline gap-1 mb-2">
-              <span className="text-4xl font-extrabold text-[#345460]">$45</span>
-              <span className="text-[#345460]/50 text-sm font-medium">/ night</span>
-            </div>
-            <p className="text-sm text-[#345460]/50">Per additional dog</p>
-          </div>
-        </div>
-
-        {/* Important note */}
-        <div className="bg-[#48D597]/10 border border-[#48D597]/20 rounded-2xl p-6 lg:p-8">
-          <div className="flex gap-4">
-            <div className="w-10 h-10 rounded-xl bg-[#48D597]/20 flex items-center justify-center flex-shrink-0">
-              <Info className="w-5 h-5 text-[#48D597]" />
-            </div>
-            <div>
-              <h4 className="font-bold text-[#345460] mb-2">Important Note for First-Time Boarders</h4>
-              <p className="text-[#345460]/70 text-sm leading-relaxed">
-                All first-time boarding dogs are required to complete a full day of daycare for temperament testing purposes. Please call our front desk at{" "}
-                <a href="tel:5398673841" className="text-[#48D597] font-semibold hover:underline">539-867-3841</a>{" "}
-                to schedule your temperament testing day at least 2 days in advance of your scheduled boarding dates.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* What's included */}
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {[
-            "Spacious private suites",
-            "Full day of daycare included",
-            "Climate-controlled facility",
-            "Loving & attentive staff",
-            "Indoor & outdoor play areas",
-            "Feeding per your schedule",
-          ].map((item) => (
-            <div key={item} className="flex items-center gap-3 bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
-              <div className="w-6 h-6 rounded-full bg-[#48D597]/10 flex items-center justify-center flex-shrink-0">
-                <Check className="w-3.5 h-3.5 text-[#48D597]" />
-              </div>
-              <span className="text-sm font-medium text-[#345460]">{item}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════
-   GROOMING TAB
-   ═══════════════════════════════════════════════════════════ */
-function GroomingTab() {
-  return (
-    <section className="py-14 lg:py-20">
-      <div className="container">
-        {/* Section header with image */}
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-14">
-          <div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#345460] tracking-tight mb-4">
-              Grooming Services
-            </h2>
-            <p className="text-[#345460]/70 text-lg leading-relaxed mb-6">
-              Our professional groomers will have your pup looking and feeling their best. Prices vary based on size, breed, and temperament.
-            </p>
-            <div className="flex items-center gap-3 text-sm text-[#345460]/60">
-              <Sparkles className="w-4 h-4 text-[#48D597]" />
-              Book through your Metro Mutts account
-            </div>
-          </div>
-          <div className="rounded-2xl overflow-hidden shadow-xl shadow-black/10">
-            <img src={GROOMING_IMG} alt="Happy dog after grooming at Metro Mutts" className="w-full h-64 lg:h-80 object-cover" />
-          </div>
-        </div>
-
-        {/* Main grooming services */}
-        <div className="grid md:grid-cols-3 gap-6 mb-10">
-          {/* Full Bath */}
-          <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-lg shadow-black/5 hover:shadow-xl transition-shadow">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-[#48D597]/10 flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-[#48D597]" />
-              </div>
-              <h3 className="text-lg font-bold text-[#345460]">Full Bath</h3>
-            </div>
-            <p className="text-[#345460]/60 text-sm mb-5">
-              Recommended for short-hair/non-grooming dogs. Includes wash, dry, and brush out.
-            </p>
-            <div className="flex items-baseline gap-1 mb-2">
-              <span className="text-3xl font-extrabold text-[#345460]">$30–$80</span>
-            </div>
-            <p className="text-xs text-[#345460]/40">*Base price for smaller breeds. Range depends on size, breed & temperament.</p>
-          </div>
-
-          {/* Grooming */}
-          <div className="bg-white rounded-2xl border-2 border-[#48D597] p-8 shadow-lg shadow-[#48D597]/10 hover:shadow-xl transition-shadow relative">
-            <div className="absolute -top-3 left-6">
-              <span className="bg-[#48D597] text-[#345460] text-xs font-bold px-3 py-1 rounded-full">Most Popular</span>
-            </div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-[#48D597]/10 flex items-center justify-center">
-                <Scissors className="w-5 h-5 text-[#48D597]" />
-              </div>
-              <h3 className="text-lg font-bold text-[#345460]">Full Grooming</h3>
-            </div>
-            <p className="text-[#345460]/60 text-sm mb-5">
-              Includes full bath and any additional grooming/shaving. Ear hair pulling, paw pads and anal gland expression included upon request.
-            </p>
-            <div className="flex items-baseline gap-1 mb-2">
-              <span className="text-3xl font-extrabold text-[#345460]">$70–$100</span>
-            </div>
-            <p className="text-xs text-[#345460]/40">*Base price for smaller breeds. Range depends on size, breed & temperament.</p>
-          </div>
-
-          {/* De-shedding */}
-          <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-lg shadow-black/5 hover:shadow-xl transition-shadow">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-[#48D597]/10 flex items-center justify-center">
-                <Dog className="w-5 h-5 text-[#48D597]" />
-              </div>
-              <h3 className="text-lg font-bold text-[#345460]">De-shedding Treatment</h3>
-            </div>
-            <p className="text-[#345460]/60 text-sm mb-5">
-              Includes shampoo and conditioner designed to reduce shedding, with de-shedding brushes/rakes.
-            </p>
-            <div className="flex items-baseline gap-1 mb-2">
-              <span className="text-3xl font-extrabold text-[#345460]">$20–$40</span>
-            </div>
-            <p className="text-xs text-[#345460]/40">Add-on service. Price varies by coat type.</p>
-          </div>
-        </div>
-
-        {/* Add-ons */}
-        <div className="bg-[oklch(0.97_0.005_90)] rounded-2xl p-8 lg:p-10">
-          <h3 className="text-xl font-extrabold text-[#345460] mb-2">Grooming Add-Ons</h3>
-          <p className="text-[#345460]/50 text-sm mb-6">
-            Customize your pup's grooming experience with any of these additional services.
-          </p>
-          <div className="grid sm:grid-cols-2 gap-3">
-            {groomingAddOns.map((addon) => (
-              <div
-                key={addon.name}
-                className="flex items-center justify-between bg-white rounded-xl p-4 border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[#48D597]/10 flex items-center justify-center flex-shrink-0">
-                    <Check className="w-3.5 h-3.5 text-[#48D597]" />
-                  </div>
-                  <div>
-                    <span className="text-sm font-semibold text-[#345460]">{addon.name}</span>
-                    {addon.note && (
-                      <p className="text-xs text-[#345460]/40 mt-0.5">{addon.note}</p>
-                    )}
-                  </div>
-                </div>
-                <span className="text-sm font-bold text-[#48D597] ml-4 flex-shrink-0">{addon.price}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
   );
 }

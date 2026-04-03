@@ -25,6 +25,7 @@ const navLinks = [
       { label: "Grooming Gallery", href: "/grooming-gallery" },
     ],
   },
+  { label: "Pricing", href: "/pricing" },
   { label: "About Us", href: "#about" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
