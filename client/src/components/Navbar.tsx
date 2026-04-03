@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Phone, MapPin, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
+import { trackPhoneCall, trackNavClick } from "@/lib/analytics";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/mm-logo-dark_455bad7b.png";
 
@@ -20,8 +21,8 @@ const navLinks = [
     href: "#services",
     children: [
       { label: "Daycare", href: "#daycare" },
-      { label: "Boarding", href: "#boarding" },
-      { label: "Grooming & Spa", href: "#grooming" },
+      { label: "Boarding", href: "/boarding" },
+      { label: "Grooming & Spa", href: "/grooming" },
       { label: "Grooming Gallery", href: "/grooming-gallery" },
     ],
   },
@@ -89,7 +90,7 @@ export default function Navbar() {
         <div className="container flex items-center justify-between py-2">
           {/* Left: Contact info */}
           <div className="flex items-center gap-6">
-            <a href="tel:5398673841" className="flex items-center gap-1.5 hover:text-white transition-colors">
+            <a href="tel:5398673841" className="flex items-center gap-1.5 hover:text-white transition-colors" onClick={() => trackPhoneCall("navbar_desktop")}>
               <Phone className="w-3.5 h-3.5" />
               539-867-3841
             </a>
@@ -360,7 +361,7 @@ export default function Navbar() {
                     Book a Visit
                   </Link>
                 </Button>
-                <a href="tel:5398673841" className="flex items-center justify-center gap-2 py-2 text-sm font-medium text-[#345460]/70">
+                <a href="tel:5398673841" className="flex items-center justify-center gap-2 py-2 text-sm font-medium text-[#345460]/70" onClick={() => trackPhoneCall("navbar_mobile")}>
                   <Phone className="w-4 h-4" /> 539-867-3841
                 </a>
               </div>

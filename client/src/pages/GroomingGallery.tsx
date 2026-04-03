@@ -10,6 +10,8 @@ import { X, ChevronLeft, ChevronRight, Scissors, ArrowLeft, Phone } from "lucide
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { trackPhoneCall, trackGalleryView } from "@/lib/analytics";
+import { useSectionTracking } from "@/hooks/usePageTracking";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb";
 
@@ -49,9 +51,13 @@ const groomingPhotos = [
 ];
 
 export default function GroomingGallery() {
+  useSectionTracking(["grooming-gallery-hero", "grooming-gallery-grid", "grooming-gallery-groomer", "grooming-gallery-cta"]);
   const [lightbox, setLightbox] = useState<number | null>(null);
 
-  const openLightbox = useCallback((index: number) => setLightbox(index), []);
+  const openLightbox = useCallback((index: number) => {
+    setLightbox(index);
+    trackGalleryView(`photo-${index + 1}`, "grooming_gallery");
+  }, []);
   const closeLightbox = useCallback(() => setLightbox(null), []);
 
   const goNext = useCallback(() => {
@@ -127,6 +133,7 @@ export default function GroomingGallery() {
               <a
                 href="tel:539-867-3841"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#48D597] text-white font-bold hover:bg-[#3bc485] transition-colors shadow-lg shadow-[#48D597]/25"
+                onClick={() => trackPhoneCall("grooming_gallery_hero")}
               >
                 <Phone className="w-4 h-4" />
                 Book a Grooming — 539-867-3841
@@ -217,7 +224,7 @@ export default function GroomingGallery() {
             <p>
               Located at 1219 E 13th St in Tulsa, Metro Mutts is your one-stop shop for
               dog daycare, boarding, and grooming. Call us at{" "}
-              <a href="tel:539-867-3841" className="text-[#48D597] font-semibold hover:underline">
+              <a href="tel:539-867-3841" className="text-[#48D597] font-semibold hover:underline" onClick={() => trackPhoneCall("grooming_gallery_seo")}>
                 539-867-3841
               </a>{" "}
               to book a grooming appointment today.
@@ -275,6 +282,7 @@ export default function GroomingGallery() {
             <a
               href="tel:539-867-3841"
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#48D597] text-white font-bold hover:bg-[#3bc485] transition-colors shadow-lg shadow-[#48D597]/25"
+              onClick={() => trackPhoneCall("grooming_gallery_bottom_cta")}
             >
               <Phone className="w-4 h-4" />
               Call to Book — 539-867-3841

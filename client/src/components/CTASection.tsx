@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
 import { Link } from "wouter";
+import { trackPhoneCall, trackCTA } from "@/lib/analytics";
 
 export default function CTASection() {
   return (
@@ -66,7 +67,7 @@ export default function CTASection() {
                 className="border-white/30 text-white hover:bg-white/10 font-semibold text-base px-8 h-13 bg-transparent"
                 asChild
               >
-                <a href="tel:5398673841">
+                <a href="tel:5398673841" onClick={() => trackPhoneCall("cta_section")}>
                   <Phone className="w-5 h-5 mr-2" />
                   Call 539-867-3841
                 </a>

@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Clock, ArrowRight, Navigation } from "lucide-react";
 import { useState } from "react";
+import { trackFormSubmit, trackPhoneCall } from "@/lib/analytics";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -32,8 +33,10 @@ export default function ContactSection() {
         body: body.toString(),
       });
       setFormSubmitted(true);
+      trackFormSubmit("contact", true);
     } catch {
       setFormSubmitted(true);
+      trackFormSubmit("contact", false);
     }
   };
 
