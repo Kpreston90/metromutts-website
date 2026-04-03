@@ -14,6 +14,8 @@ import BlogPost from "./pages/BlogPost";
 import GroomingGallery from "./pages/GroomingGallery";
 import Boarding from "./pages/Boarding";
 import Grooming from "./pages/Grooming";
+import Daycare from "./pages/Daycare";
+import Services from "./pages/Services";
 
 
 function Router() {
@@ -29,6 +31,8 @@ function Router() {
       <Route path={"/grooming-gallery"} component={GroomingGallery} />
       <Route path={"/boarding"} component={Boarding} />
       <Route path={"/grooming"} component={Grooming} />
+      <Route path={"/daycare"} component={Daycare} />
+      <Route path={"/services"} component={Services} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

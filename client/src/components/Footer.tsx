@@ -10,9 +10,10 @@ const LOGO_WHITE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74
 
 const footerLinks = {
   Services: [
-    { label: "Dog Daycare", href: "#daycare" },
-    { label: "Overnight Boarding", href: "#boarding" },
-    { label: "Grooming & Spa", href: "#grooming" },
+    { label: "Dog Daycare", href: "/daycare" },
+    { label: "Overnight Boarding", href: "/boarding" },
+    { label: "Grooming & Spa", href: "/grooming" },
+    { label: "All Services", href: "/services" },
     { label: "Pricing", href: "/pricing" },
   ],
   Company: [

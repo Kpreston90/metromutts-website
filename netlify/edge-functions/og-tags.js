@@ -17,6 +17,18 @@ const OG_DATA = {
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/og-gallery-W9MY8CxQfZgYbNfdMQBb9u.png",
     url: "https://www.metromutts.com/grooming-gallery",
   },
+  "/daycare": {
+    title: "Dog Daycare in Tulsa | First Day FREE | Metro Mutts",
+    description: "Supervised group play, enrichment activities, 4,000+ sq ft of space. First day free for new pups. From $30/day. Call 539-867-3841.",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/daycare-hero-8mHoiByPEENzni474W7hiK.webp",
+    url: "https://www.metromutts.com/daycare",
+  },
+  "/services": {
+    title: "Dog Daycare, Boarding & Grooming | Metro Mutts Tulsa",
+    description: "Everything your dog needs under one roof. Daycare, overnight boarding, and professional grooming in Tulsa. First day free. Call 539-867-3841.",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/all-services-hero-eQZuVzFHd8YPnSkAAhYnbj.webp",
+    url: "https://www.metromutts.com/services",
+  },
   "/pricing": {
     title: "Pricing | Daycare, Boarding & Grooming | Metro Mutts",
     description: "Daycare from $21/day. Boarding $50/night. Grooming from $30. View all Metro Mutts pricing. Tulsa, OK.",
@@ -89,5 +101,5 @@ export default async (request, context) => {
 };
 
 export const config = {
-  path: ["/boarding", "/grooming", "/grooming-gallery", "/pricing"],
+  path: ["/boarding", "/grooming", "/grooming-gallery", "/pricing", "/daycare", "/services"],
 };

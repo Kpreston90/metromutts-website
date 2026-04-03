@@ -20,7 +20,8 @@ const navLinks = [
     label: "Services",
     href: "#services",
     children: [
-      { label: "Daycare", href: "#daycare" },
+      { label: "Daycare", href: "/daycare" },
+      { label: "All Services", href: "/services" },
       { label: "Boarding", href: "/boarding" },
       { label: "Grooming & Spa", href: "/grooming" },
       { label: "Grooming Gallery", href: "/grooming-gallery" },
