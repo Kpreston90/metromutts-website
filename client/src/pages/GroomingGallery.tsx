@@ -90,7 +90,12 @@ export default function GroomingGallery() {
 
       {/* Hero */}
       <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 bg-[#345460] overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(72,213,151,0.12),transparent_60%)]" />
+        <img
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/jacque-grooming-hero_ba6417a6.png"
+          alt="Jacque grooming a dog at Metro Mutts"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#345460]/90 via-[#345460]/75 to-[#345460]/50" />
         <div className="container relative z-10">
           <Link
             href="/"
