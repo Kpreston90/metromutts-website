@@ -1,14 +1,14 @@
 const OG_DATA = {
   "/boarding": {
     title: "Dog Boarding in Tulsa | $50/Night | Metro Mutts",
-    description: "Your dog's home away from home. Spacious suites, daily play sessions, overnight staff check-ins. $50/night. Call 539-867-3841.",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/og-boarding-A8KWr35xjcZ99ZqWf8A6Sr.png",
+    description: "Their own space at night. New best friends by day. Private suites, daily play sessions, overnight staff. $50/night. Call 539-867-3841.",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/insta-ad-boarding-v5_5981d89c.png",
     url: "https://www.metromutts.com/boarding",
   },
   "/grooming": {
     title: "Dog Grooming in Tulsa | Starting at $30 | Metro Mutts",
     description: "Professional dog grooming by Jacque. Baths, breed cuts, full spa treatments. Starting at $30. Call 539-867-3841 to book.",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/og-grooming-FkNBjx9i9Ut6LrNjgZq9Qz.png",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/insta-ad-grooming-final_7ae03431.png",
     url: "https://www.metromutts.com/grooming",
   },
   "/grooming-gallery": {
