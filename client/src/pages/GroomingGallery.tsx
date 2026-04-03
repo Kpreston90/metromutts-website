@@ -233,7 +233,7 @@ export default function GroomingGallery() {
           >
             <div className="flex-shrink-0">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/jacque_34de66e6.jpg"
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/jacque-portrait-v3_d7a92609.png"
                 alt="Jacque, Metro Mutts groomer"
                 className="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl object-cover shadow-md"
               />
