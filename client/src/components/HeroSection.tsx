@@ -10,8 +10,8 @@ import { ArrowRight, Play } from "lucide-react";
 import { Link } from "wouter";
 import { useRef, useEffect, useState } from "react";
 
-const HERO_VIDEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/hero-video-drone-v3_cae6b26c.mp4";
-const HERO_POSTER = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/drone-keyframe-outdoor-v2-eGwkBRCduUSjmKYCBGmhAi.png";
+const HERO_VIDEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/hero-video-final_41add44a.mp4";
+const HERO_POSTER = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/hero-shot2-keyframe-first_b8b8ba75.png";
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
