@@ -1,8 +1,9 @@
 /*
  * Metro Mutts Instagram Feed Section
  * Brand: Green #48D597, Dark #345460
- * Displays recent Instagram posts in a responsive grid with hover effects
- * Uses Instagram oEmbed-style thumbnails linked to actual posts
+ * Displays the latest 6 Instagram posts in a responsive grid with hover effects
+ * Updated manually each time a new post is published via MCP
+ * Last updated: 2026-04-04
  */
 import { motion } from "framer-motion";
 import { Instagram, Heart, MessageCircle, ExternalLink } from "lucide-react";
@@ -17,26 +18,43 @@ interface InstaPost {
   comments: number;
 }
 
-// Recent posts from @metromuttstulsa — images hosted on CDN for reliability
+// Latest 6 posts from @metromuttstulsa — images hosted on CDN for reliability
+// UPDATE THIS ARRAY every time a new Instagram post is published
 const posts: InstaPost[] = [
   {
-    id: "1",
+    id: "17912658624359597",
+    permalink: "https://www.instagram.com/p/DWtdfCglCNZ/",
+    imageUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/ig-latest-1-boarding-night_64642d36.jpg",
+    caption: "Before lights out at Metro Mutts. Bowls filled. Beds fluffed. Staff on-site all night.",
+    likes: 1,
+    comments: 0,
+  },
+  {
+    id: "18079797950104930",
+    permalink: "https://www.instagram.com/p/DWrCspnFPIl/",
+    imageUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/ig-latest-2-tbt_d600edce.jpg",
+    caption: "THROWBACK THURSDAY — Nothing beats the look on their face when they realize it's daycare day.",
+    likes: 4,
+    comments: 1,
+  },
+  {
+    id: "17905078146222994",
     permalink: "https://www.instagram.com/p/DWpwZ8iFVA5/",
     imageUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/insta-ad-grooming-final_7ae03431.png",
     caption: "Fresh cuts by Jacque — Tulsa's favorite dog groomer.",
-    likes: 0,
+    likes: 8,
     comments: 0,
   },
   {
-    id: "2",
+    id: "18020682698818265",
     permalink: "https://www.instagram.com/p/DWpwVCtlXKk/",
     imageUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/insta-ad-boarding-v5_5981d89c.png",
     caption: "Their own space at night. New best friends by day.",
-    likes: 0,
+    likes: 5,
     comments: 0,
   },
   {
-    id: "3",
+    id: "18100351012948262",
     permalink: "https://www.instagram.com/p/DWpnjIJkbuo/",
     imageUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/ig-post-3-grooming_cbf47586.jpg",
     caption: "Is your pup looking a little ruff around the edges? Treat them to a spa day at Metro Mutts!",
@@ -44,35 +62,17 @@ const posts: InstaPost[] = [
     comments: 0,
   },
   {
-    id: "4",
+    id: "17896024626286930",
     permalink: "https://www.instagram.com/p/DWpnQJAEUq6/",
     imageUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/ig-post-4-boarding_d6e81999.jpg",
     caption: "Planning a trip but worried about leaving your best friend behind? Give them a vacation of their own!",
-    likes: 3,
+    likes: 4,
     comments: 0,
-  },
-  {
-    id: "5",
-    permalink: "https://www.instagram.com/p/DWox5bKFP27/",
-    imageUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/ig-post-5-wag-wed_f4877458.jpg",
-    caption: "WAG WEDNESDAY — This is what your dog's perfect afternoon looks like.",
-    likes: 14,
-    comments: 0,
-  },
-  {
-    id: "6",
-    permalink: "https://www.instagram.com/p/DWm5yfDlXlY/",
-    imageUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/ig-post-6-training_36da55ac.jpg",
-    caption: "Training Tip Tuesday! Want your pup to master 'sit' like a pro?",
-    likes: 12,
-    comments: 1,
   },
 ];
 
 function PostCard({ post, index }: { post: InstaPost; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
-
-  const imgSrc = post.imageUrl;
 
   return (
     <motion.a
@@ -89,7 +89,7 @@ function PostCard({ post, index }: { post: InstaPost; index: number }) {
     >
       {/* Image */}
       <img
-        src={imgSrc}
+        src={post.imageUrl}
         alt={post.caption}
         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         loading="lazy"
