@@ -214,11 +214,11 @@ export default function TestimonialsSection() {
                 ))}
                 <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400 opacity-70" />
               </div>
-              <span className="text-xs text-[#345460]/50">96 reviews on Google</span>
+              <a href="https://www.google.com/maps/search/Metro+Mutts+1219+E+13th+St+Tulsa+OK" target="_blank" rel="noopener noreferrer" className="text-xs text-[#345460]/50 hover:text-[#48D597] transition-colors">96 reviews on Google</a>
             </div>
             <span className="hidden sm:block text-[#345460]/20">|</span>
             <a
-              href="https://www.google.com/maps/place/Metro+Mutts/@36.1468,-95.9868,17z/"
+              href="https://www.google.com/maps/search/Metro+Mutts+1219+E+13th+St+Tulsa+OK"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-semibold text-[#48D597] hover:underline underline-offset-2"
