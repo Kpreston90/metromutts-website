@@ -3,6 +3,7 @@
  * Brand: Green #48D597 primary, Dark #345460 text
  * Merged utility bar: contact left, promo center, links right
  * Scroll-aware sticky navigation with backdrop blur
+ * All links use proper route navigation — hash links navigate to homepage first if needed
  */
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, MapPin, ChevronDown } from "lucide-react";
@@ -18,7 +19,7 @@ const PROMO_ID = "spring-2026";
 const navLinks = [
   {
     label: "Services",
-    href: "#services",
+    href: "/services",
     children: [
       { label: "Daycare", href: "/daycare" },
       { label: "All Services", href: "/services" },
@@ -28,9 +29,10 @@ const navLinks = [
     ],
   },
   { label: "Pricing", href: "/pricing" },
-  { label: "About Us", href: "#about" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
+  { label: "About Us", href: "/#about" },
+  { label: "Testimonials", href: "/#testimonials" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 function PawIcon({ className = "" }: { className?: string }) {
@@ -47,6 +49,41 @@ function PawIcon({ className = "" }: { className?: string }) {
       <ellipse cx="10.5" cy="5" rx="1.8" ry="2.2" />
       <ellipse cx="13.5" cy="5" rx="1.8" ry="2.2" />
     </svg>
+  );
+}
+
+function NavLink({ href, className, children, onClick }: {
+  href: string;
+  className: string;
+  children: React.ReactNode;
+  onClick?: () => void;
+}) {
+  const [location] = useLocation();
+
+  // Homepage anchor links (e.g., "/#about")
+  if (href.startsWith("/#")) {
+    const sectionId = href.slice(2);
+    const handleClick = (e: React.MouseEvent) => {
+      e.preventDefault();
+      onClick?.();
+      if (location === "/") {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.location.href = href;
+      }
+    };
+    return (
+      <a href={href} onClick={handleClick} className={className}>
+        {children}
+      </a>
+    );
+  }
+
+  // Regular route links
+  return (
+    <Link href={href} className={className} onClick={onClick}>
+      {children}
+    </Link>
   );
 }
 
@@ -70,19 +107,25 @@ export default function Navbar() {
     }
   }, []);
 
+  // Handle hash scrolling when arriving on homepage from another page
+  useEffect(() => {
+    if (location === "/" && window.location.hash) {
+      const sectionId = window.location.hash.slice(1);
+      setTimeout(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    }
+  }, [location]);
+
   const dismissPromo = () => {
     setPromoDismissed(true);
     localStorage.setItem(STORAGE_KEY, PROMO_ID);
   };
 
-  const handleNavClick = (href: string) => {
-    setMobileOpen(false);
-    if (href.startsWith("#") && location !== "/") {
-      window.location.href = "/" + href;
-    }
+  const isActiveLink = (href: string) => {
+    if (href.startsWith("/#")) return false;
+    return location === href;
   };
-
-  const isRouteLink = (href: string) => href.startsWith("/");
 
   return (
     <>
@@ -188,51 +231,30 @@ export default function Navbar() {
                 onMouseEnter={() => link.children && setActiveDropdown(link.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                {isRouteLink(link.href) ? (
-                  <Link
-                    href={link.href}
-                    className={`flex items-center gap-1 px-4 py-2 text-sm font-semibold transition-colors rounded-lg hover:bg-[#48D597]/10 ${
-                      location === link.href
-                        ? "text-[#48D597]"
-                        : "text-[#345460] hover:text-[#48D597]"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a
-                    href={link.href}
-                    onClick={() => handleNavClick(link.href)}
-                    className="flex items-center gap-1 px-4 py-2 text-sm font-semibold text-[#345460] hover:text-[#48D597] transition-colors rounded-lg hover:bg-[#48D597]/10"
-                  >
-                    {link.label}
-                    {link.children && <ChevronDown className="w-3.5 h-3.5" />}
-                  </a>
-                )}
+                <NavLink
+                  href={link.href}
+                  className={`flex items-center gap-1 px-4 py-2 text-sm font-semibold transition-colors rounded-lg hover:bg-[#48D597]/10 ${
+                    isActiveLink(link.href)
+                      ? "text-[#48D597]"
+                      : "text-[#345460] hover:text-[#48D597]"
+                  }`}
+                >
+                  {link.label}
+                  {link.children && <ChevronDown className="w-3.5 h-3.5" />}
+                </NavLink>
                 {link.children && activeDropdown === link.label && (
                   <div className="absolute top-full left-0 pt-2 w-52">
                     <div className="bg-white rounded-xl shadow-xl shadow-black/10 border border-black/5 py-2 overflow-hidden">
-                      {link.children.map((child) =>
-                        isRouteLink(child.href) ? (
-                          <Link
-                            key={child.label}
-                            href={child.href}
-                            className="block px-4 py-2.5 text-sm font-medium text-[#345460] hover:text-[#48D597] hover:bg-[#48D597]/10 transition-colors"
-                            onClick={() => setActiveDropdown(null)}
-                          >
-                            {child.label}
-                          </Link>
-                        ) : (
-                          <a
-                            key={child.label}
-                            href={child.href}
-                            onClick={() => handleNavClick(child.href)}
-                            className="block px-4 py-2.5 text-sm font-medium text-[#345460] hover:text-[#48D597] hover:bg-[#48D597]/10 transition-colors"
-                          >
-                            {child.label}
-                          </a>
-                        )
-                      )}
+                      {link.children.map((child) => (
+                        <NavLink
+                          key={child.label}
+                          href={child.href}
+                          className="block px-4 py-2.5 text-sm font-medium text-[#345460] hover:text-[#48D597] hover:bg-[#48D597]/10 transition-colors"
+                          onClick={() => setActiveDropdown(null)}
+                        >
+                          {child.label}
+                        </NavLink>
+                      ))}
                       <div className="border-t border-gray-100 mt-1 pt-1">
                         <Link
                           href="/pricing"
@@ -288,50 +310,29 @@ export default function Navbar() {
             <div className="container py-4 space-y-1">
               {navLinks.map((link) => (
                 <div key={link.label}>
-                  {isRouteLink(link.href) ? (
-                    <Link
-                      href={link.href}
-                      className={`block px-4 py-3 text-base font-semibold rounded-lg transition-colors ${
-                        location === link.href
-                          ? "text-[#48D597] bg-[#48D597]/10"
-                          : "text-[#345460] hover:text-[#48D597] hover:bg-[#48D597]/10"
-                      }`}
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
-                  ) : (
-                    <a
-                      href={link.href}
-                      className="block px-4 py-3 text-base font-semibold text-[#345460] hover:text-[#48D597] hover:bg-[#48D597]/10 rounded-lg transition-colors"
-                      onClick={() => handleNavClick(link.href)}
-                    >
-                      {link.label}
-                    </a>
-                  )}
+                  <NavLink
+                    href={link.href}
+                    className={`block px-4 py-3 text-base font-semibold rounded-lg transition-colors ${
+                      isActiveLink(link.href)
+                        ? "text-[#48D597] bg-[#48D597]/10"
+                        : "text-[#345460] hover:text-[#48D597] hover:bg-[#48D597]/10"
+                    }`}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {link.label}
+                  </NavLink>
                   {link.children && (
                     <div className="ml-4 space-y-1">
-                      {link.children.map((child) =>
-                        isRouteLink(child.href) ? (
-                          <Link
-                            key={child.label}
-                            href={child.href}
-                            className="block px-4 py-2 text-sm font-medium text-[#345460]/70 hover:text-[#48D597] transition-colors"
-                            onClick={() => setMobileOpen(false)}
-                          >
-                            {child.label}
-                          </Link>
-                        ) : (
-                          <a
-                            key={child.label}
-                            href={child.href}
-                            className="block px-4 py-2 text-sm font-medium text-[#345460]/70 hover:text-[#48D597] transition-colors"
-                            onClick={() => handleNavClick(child.href)}
-                          >
-                            {child.label}
-                          </a>
-                        )
-                      )}
+                      {link.children.map((child) => (
+                        <NavLink
+                          key={child.label}
+                          href={child.href}
+                          className="block px-4 py-2 text-sm font-medium text-[#345460]/70 hover:text-[#48D597] transition-colors"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          {child.label}
+                        </NavLink>
+                      ))}
                     </div>
                   )}
                 </div>

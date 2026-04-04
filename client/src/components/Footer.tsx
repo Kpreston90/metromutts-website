@@ -2,9 +2,11 @@
  * Metro Mutts Footer
  * Brand: Green #48D597, Dark #345460
  * Dark background, multi-column links, real logo
+ * All links use proper route navigation (no broken hash-only links)
  */
 import { Facebook, Instagram } from "lucide-react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
+import { toast } from "sonner";
 
 const LOGO_WHITE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/mm-logo-white_a0eef0bd.png";
 
@@ -17,18 +19,55 @@ const footerLinks = {
     { label: "Pricing", href: "/pricing" },
   ],
   Company: [
-    { label: "About Us", href: "#about" },
-    { label: "Testimonials", href: "#testimonials" },
+    { label: "About Us", href: "/#about" },
+    { label: "Testimonials", href: "/#testimonials" },
     { label: "Careers", href: "/careers" },
     { label: "Blog", href: "/blog" },
   ],
   Support: [
     { label: "Book a Visit", href: "/book" },
-    { label: "Contact Us", href: "#contact" },
-    { label: "FAQ", href: "#" },
+    { label: "Contact Us", href: "/#contact" },
     { label: "Refer a Friend", href: "/refer" },
   ],
 };
+
+function FooterLink({ label, href }: { label: string; href: string }) {
+  const [location] = useLocation();
+
+  // Handle homepage anchor links (e.g., "/#about")
+  if (href.startsWith("/#")) {
+    const sectionId = href.slice(2); // remove "/#"
+    const handleClick = (e: React.MouseEvent) => {
+      e.preventDefault();
+      if (location === "/") {
+        // Already on homepage — just scroll
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+      } else {
+        // Navigate to homepage with hash
+        window.location.href = href;
+      }
+    };
+    return (
+      <a
+        href={href}
+        onClick={handleClick}
+        className="text-sm text-white/60 hover:text-[#48D597] transition-colors"
+      >
+        {label}
+      </a>
+    );
+  }
+
+  // Regular route links
+  return (
+    <Link
+      href={href}
+      className="text-sm text-white/60 hover:text-[#48D597] transition-colors"
+    >
+      {label}
+    </Link>
+  );
+}
 
 export default function Footer() {
   return (
@@ -78,21 +117,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.label}>
-                    {link.href.startsWith("/") ? (
-                      <Link
-                        href={link.href}
-                        className="text-sm text-white/60 hover:text-[#48D597] transition-colors"
-                      >
-                        {link.label}
-                      </Link>
-                    ) : (
-                      <a
-                        href={link.href}
-                        className="text-sm text-white/60 hover:text-[#48D597] transition-colors"
-                      >
-                        {link.label}
-                      </a>
-                    )}
+                    <FooterLink label={link.label} href={link.href} />
                   </li>
                 ))}
               </ul>
@@ -108,8 +133,18 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Metro Mutts. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-white/40">
-            <a href="#" className="hover:text-white/60 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white/60 transition-colors">Terms of Service</a>
+            <button
+              onClick={() => toast("Privacy Policy coming soon")}
+              className="hover:text-white/60 transition-colors"
+            >
+              Privacy Policy
+            </button>
+            <button
+              onClick={() => toast("Terms of Service coming soon")}
+              className="hover:text-white/60 transition-colors"
+            >
+              Terms of Service
+            </button>
           </div>
         </div>
       </div>
