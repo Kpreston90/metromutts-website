@@ -31,7 +31,6 @@ const navLinks = [
   { label: "Pricing", href: "/pricing" },
   { label: "About Us", href: "/#about" },
   { label: "Testimonials", href: "/#testimonials" },
-  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/#contact" },
 ];
 
