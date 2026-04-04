@@ -12,7 +12,6 @@ import StatsSection from "@/components/StatsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import AboutSection from "@/components/AboutSection";
 import FounderSpotlight from "@/components/FounderSpotlight";
-import MeetTheTeam from "@/components/MeetTheTeam";
 import InstagramFeed from "@/components/InstagramFeed";
 import CTASection from "@/components/CTASection";
 import ContactSection from "@/components/ContactSection";
@@ -29,7 +28,6 @@ export default function Home() {
         <StatsSection />
         <TestimonialsSection />
         <AboutSection />
-        <MeetTheTeam />
         <InstagramFeed />
         <FounderSpotlight />
         <CTASection />
