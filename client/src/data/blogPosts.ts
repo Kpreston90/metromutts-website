@@ -19,6 +19,140 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "what-your-dogs-night-looks-like-at-metro-mutts",
+    title: "What Your Dog's Night Actually Looks Like at Metro Mutts",
+    excerpt: "Ever wonder what happens after you drop your dog off for boarding? Here's a behind-the-scenes look at how our overnight team takes care of your pup.",
+    content: `
+You've packed the bag, dropped off your dog, and now you're on your way to the airport. Somewhere between the security line and your gate, the thought creeps in: "I wonder what they're doing right now."
+
+We hear this from boarding parents all the time. So here's an honest, detailed look at what a typical evening and night looks like for dogs staying at Metro Mutts.
+
+## 5:00 PM — Wind-Down Time
+
+The afternoon play session wraps up and the energy starts to shift. Dogs who've been running, wrestling, and chasing all day are starting to feel it. Our staff begins transitioning the boarding dogs from the play areas back to their private suites. This is intentional — the gradual shift from high energy to calm helps dogs settle in for the evening without feeling abruptly cut off from the fun.
+
+## 5:30 PM — Dinner Service
+
+Every boarding dog gets fed according to their owner's instructions. Some dogs are on kibble, some on raw diets, some need medications mixed in. Our staff tracks every detail on individual care cards posted on each suite. If your dog is a slow eater, they get extra time. If they're a gulper, we monitor to make sure they don't eat too fast.
+
+For dogs on special diets or medications, we follow your instructions to the letter. We've handled everything from insulin injections to anxiety medications to dogs who will only eat if you warm their food up first. Whatever your dog needs, we've got it covered.
+
+## 6:30 PM — Evening Potty Break
+
+Every dog gets a supervised trip to our outdoor relief area. This is also a chance for our evening staff to do a quick health check — making sure every dog is moving well, eating normally, and showing no signs of stress or illness.
+
+## 7:00 PM — Quiet Time Begins
+
+The lights dim, the music shifts to something calmer, and the facility settles into evening mode. Dogs in their suites have plush beds, fresh water, and a chew toy or Kong to work on. Some dogs curl up immediately. Others take a few minutes to circle, rearrange their bedding, and find the perfect spot.
+
+This is when you'd notice something interesting if you were watching our cameras: the dogs are genuinely relaxed. Tails are low and loose, breathing is slow, and most are asleep within 30 minutes. That's not an accident — it's the result of a full day of physical and mental exercise. A tired dog is a happy, calm dog.
+
+## 9:00 PM — Final Check
+
+Our overnight staff does a final round of every suite. Fresh water bowls, a quick visual check on each dog, and any last potty breaks for dogs who need them. The facility is quiet now. The only sounds are the hum of the HVAC system and the occasional contented sigh from a sleeping dog.
+
+## Overnight — Staff On-Site
+
+This is where Metro Mutts is different from many boarding facilities. Our staff doesn't go home at night and come back in the morning. Someone is here, in the building, all night long. If a dog gets restless, has a stomach issue, or just needs some reassurance, there's a real person there to help.
+
+We've had dogs who needed a 2 AM potty break because of an upset stomach. Dogs who got spooked by a thunderstorm at 3 AM and needed someone to sit with them. Dogs who just needed a gentle voice and a scratch behind the ears to settle back down. Our overnight team handles all of it.
+
+## 6:00 AM — Good Morning
+
+The lights come up gradually, and the morning routine begins. Potty breaks first, then breakfast, then the play areas open up for another full day of fun. By the time you're landing at the airport and checking your phone, your dog has already had breakfast, made their morning rounds, and is back to playing with their friends.
+
+## Why This Matters
+
+Boarding isn't just about having a place to put your dog while you're gone. It's about knowing — really knowing — that your dog is safe, comfortable, and cared for around the clock. That's what we built Metro Mutts to be.
+
+Starting at $50/night. Every stay includes daily play sessions, private suites, and 24/7 staff. Call or text us at 539-867-3841 to book your pup's next stay.
+    `.trim(),
+    category: "Boarding",
+    author: "Metro Mutts Team",
+    date: "2026-04-04",
+    readTime: "7 min read",
+    image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&q=80",
+    tags: ["boarding", "overnight", "behind the scenes", "tulsa", "dog care"],
+  },
+  {
+    slug: "spring-allergies-in-dogs-what-tulsa-pet-parents-should-know",
+    title: "Spring Allergies in Dogs: What Tulsa Pet Parents Need to Know",
+    excerpt: "Itchy skin, watery eyes, and constant paw licking — spring allergies hit Tulsa dogs hard. Here's how to spot the signs and keep your pup comfortable.",
+    content: `
+Spring in Tulsa is beautiful — the redbuds are blooming, the grass is green, and the weather is finally warm enough to enjoy the outdoors again. But for many dogs, spring also means one thing: allergies.
+
+Oklahoma consistently ranks among the worst states in the country for seasonal allergies, and our dogs are just as affected as we are. If your pup has been scratching more than usual, here's what you need to know.
+
+## Why Tulsa Is Tough on Allergic Dogs
+
+Tulsa's allergy season starts earlier and lasts longer than most cities. Cedar and juniper pollen kicks off in February, followed by oak, elm, and pecan pollen in March and April. Then grass pollen takes over from May through July. Add in mold spores from our humid climate, and allergic dogs are dealing with triggers for nearly half the year.
+
+Unlike humans, who tend to get respiratory symptoms, dogs typically show allergies through their skin. The allergens land on their coat and skin, triggering an inflammatory response that makes them intensely itchy.
+
+## Signs Your Dog Has Spring Allergies
+
+Allergies in dogs don't always look like what you'd expect. Here are the most common signs to watch for:
+
+**Excessive scratching or biting.** If your dog is constantly scratching their sides, belly, or ears, or chewing at their paws, allergies are a likely culprit. Pay attention to whether the scratching gets worse after time outside.
+
+**Red, irritated skin.** Check your dog's belly, inner thighs, armpits, and between their toes. These areas are often the first to show redness and irritation from allergic reactions.
+
+**Paw licking.** This is one of the most telltale signs. Dogs walk through pollen and then lick their paws obsessively, which can lead to staining (you'll notice a rust-brown color on light-colored paws) and secondary infections.
+
+**Ear infections.** Allergies cause inflammation in the ear canals, creating a warm, moist environment where yeast and bacteria thrive. If your dog is shaking their head, scratching their ears, or you notice a funky smell, an allergy-related ear infection may be brewing.
+
+**Watery eyes and sneezing.** Some dogs do get respiratory symptoms similar to humans, though it's less common. Clear discharge from the eyes and occasional sneezing can indicate environmental allergies.
+
+**Hot spots.** These are areas of acute moist dermatitis — red, oozing patches that appear suddenly and spread quickly. They're often triggered by a dog obsessively licking or scratching one spot due to allergic itch.
+
+## What You Can Do at Home
+
+You can't eliminate pollen, but you can reduce your dog's exposure and manage symptoms:
+
+**Wipe them down after walks.** Keep a damp towel or pet-safe wipe by the door and give your dog a quick wipe-down after every outdoor trip. Focus on paws, belly, and face. This removes pollen before it has a chance to irritate the skin.
+
+**Bathe regularly.** During peak allergy season, bathing your dog every 1-2 weeks with a gentle, oatmeal-based shampoo can provide significant relief. The bath physically removes allergens from the coat and the oatmeal soothes irritated skin.
+
+**Wash their bedding weekly.** Pollen accumulates on dog beds, blankets, and anywhere your dog sleeps. Washing bedding in hot water weekly removes allergen buildup.
+
+**Keep windows closed during high pollen days.** Check the pollen count on weather apps and keep windows shut when counts are high. Run the AC instead — it filters out most airborne pollen.
+
+**Consider a fish oil supplement.** Omega-3 fatty acids from fish oil have natural anti-inflammatory properties that can help reduce allergic skin inflammation. Ask your vet about the right dosage for your dog's size.
+
+**Keep the grass short.** If you have a yard, keep the grass mowed short during allergy season. Shorter grass produces less pollen and gives allergens fewer places to hide.
+
+## When to See the Vet
+
+Home remedies can help with mild allergies, but some dogs need veterinary intervention. See your vet if:
+
+Your dog's scratching is causing hair loss, open sores, or bleeding. They're developing recurrent ear infections. Over-the-counter remedies aren't providing relief. The itching is affecting their sleep or quality of life. You notice signs of a secondary skin infection (pus, crusty patches, strong odor).
+
+Your vet may recommend antihistamines, prescription allergy medications like Apoquel or Cytopoint, medicated shampoos, or allergy testing to identify specific triggers.
+
+## How Daycare and Grooming Help
+
+Here's something many pet parents don't consider: regular daycare and grooming can actually help manage your dog's allergies.
+
+At Metro Mutts, our indoor play areas are climate-controlled with filtered air, which means significantly less pollen exposure compared to outdoor play. Dogs who spend their active hours indoors during peak pollen season often show fewer allergy symptoms.
+
+Regular grooming appointments also help by keeping the coat clean, removing allergen buildup, and allowing our groomers to spot early signs of skin irritation before they become bigger problems. Our medicated bath options are specifically designed for dogs with sensitive or allergy-prone skin.
+
+## The Bottom Line
+
+Spring allergies are a fact of life in Tulsa — for humans and dogs alike. But with some awareness, basic prevention, and the right care, your dog can enjoy spring without suffering through it. Keep an eye on those paws, stock up on wipes, and don't hesitate to call your vet if things aren't improving.
+
+And if you want to give your dog a break from the pollen, our air-conditioned, filtered facility is always open. Book a daycare day or a soothing bath — your itchy pup will thank you.
+
+539-867-3841 | metromutts.com
+    `.trim(),
+    category: "Health & Safety",
+    author: "Metro Mutts Team",
+    date: "2026-04-03",
+    readTime: "8 min read",
+    image: "https://images.unsplash.com/photo-1530126483408-aa533e55bdb2?w=800&q=80",
+    tags: ["allergies", "spring", "tulsa", "skin care", "health", "pollen"],
+  },
+  {
     slug: "how-dog-daycare-helps-working-pet-parents",
     title: "How Dog Daycare Helps Tulsa's Working Pet Parents Stay Guilt-Free",
     excerpt: "Leaving your dog home alone all day while you work doesn't have to be the norm. Here's how daycare solves the guilt \u2014 and keeps your pup thriving.",
