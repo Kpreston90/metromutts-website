@@ -41,10 +41,10 @@ const features = [
 
 export default function WhyChooseSection() {
   return (
-    <section className="py-20 lg:py-28 relative">
+    <section className="py-10 lg:py-12 pb-6 lg:pb-8 relative">
       <div className="container">
         <motion.div
-          className="text-center max-w-2xl mx-auto mb-14"
+          className="text-center max-w-2xl mx-auto mb-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

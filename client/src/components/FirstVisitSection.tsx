@@ -43,14 +43,14 @@ const steps = [
 
 export default function FirstVisitSection() {
   return (
-    <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
+    <section className="pt-8 pb-8 lg:pt-10 lg:pb-10 bg-white relative overflow-hidden">
       {/* Subtle background accent */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#48D597]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#48D597]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
 
       <div className="container relative">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <motion.span
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#48D597]/10 text-[#48D597] text-sm font-semibold mb-5 border border-[#48D597]/20"
             initial={{ opacity: 0, y: 15 }}
@@ -82,7 +82,7 @@ export default function FirstVisitSection() {
         </div>
 
         {/* Steps */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5 mb-14">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5 mb-8">
           {steps.map((step, i) => {
             const Icon = step.icon;
             return (

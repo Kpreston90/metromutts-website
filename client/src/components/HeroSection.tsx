@@ -40,7 +40,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden min-h-[85vh] flex items-center">
+    <section className="relative overflow-hidden flex items-center">
       {/* Video background */}
       <div className="absolute inset-0">
         <video
@@ -68,7 +68,7 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative container py-32 sm:py-32 lg:py-40">
+      <div className="relative container py-20 sm:py-24 lg:py-28">
         <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

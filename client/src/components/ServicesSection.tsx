@@ -149,11 +149,11 @@ function ServiceBlock({
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-20 lg:py-28 scroll-mt-20">
+    <section id="services" className="pt-8 pb-12 lg:pt-10 lg:pb-16 scroll-mt-20">
       <div className="container">
         {/* Section header */}
         <motion.div
-          className="text-center max-w-2xl mx-auto mb-16 lg:mb-20"
+          className="text-center max-w-2xl mx-auto mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
