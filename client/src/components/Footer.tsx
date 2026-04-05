@@ -23,6 +23,7 @@ const footerLinks = {
     { label: "Testimonials", href: "/#testimonials" },
     { label: "Careers", href: "/careers" },
     { label: "Blog", href: "/blog" },
+    { label: "Facility Tour", href: "/tour" },
   ],
   Support: [
     { label: "Book a Visit", href: "/book" },

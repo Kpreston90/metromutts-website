@@ -41,6 +41,12 @@ const OG_DATA = {
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/og-homepage-BgNMUf5cGEkMLKRdunv64P.png",
     url: "https://www.metromutts.com/faq",
   },
+  "/tour": {
+    title: "Virtual Facility Tour | See Inside Metro Mutts Tulsa",
+    description: "Take a room-by-room walkthrough of Metro Mutts. Real photos of our lobby, indoor play area, grooming salon, and more. 4,000+ sq ft of dog care space.",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/facility-lobby-wide_f16bbb5d.jpg",
+    url: "https://www.metromutts.com/tour",
+  },
 };
 
 export default async (request, context) => {
@@ -107,5 +113,5 @@ export default async (request, context) => {
 };
 
 export const config = {
-  path: ["/boarding", "/grooming", "/grooming-gallery", "/pricing", "/daycare", "/services", "/faq"],
+  path: ["/boarding", "/grooming", "/grooming-gallery", "/pricing", "/daycare", "/services", "/faq", "/tour"],
 };

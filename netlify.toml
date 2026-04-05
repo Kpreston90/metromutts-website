@@ -34,3 +34,7 @@
 [[edge_functions]]
   function = "og-tags"
   path = "/faq"
+
+[[edge_functions]]
+  function = "og-tags"
+  path = "/tour"
