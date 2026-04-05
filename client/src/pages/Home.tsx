@@ -13,6 +13,8 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import AboutSection from "@/components/AboutSection";
 import FounderSpotlight from "@/components/FounderSpotlight";
 import InstagramFeed from "@/components/InstagramFeed";
+import FirstVisitSection from "@/components/FirstVisitSection";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 import CTASection from "@/components/CTASection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -24,6 +26,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <WhyChooseSection />
+        <FirstVisitSection />
         <ServicesSection />
         <StatsSection />
         <TestimonialsSection />
@@ -34,6 +37,7 @@ export default function Home() {
         <ContactSection />
       </main>
       <Footer />
+      <ExitIntentPopup />
     </div>
   );
 }

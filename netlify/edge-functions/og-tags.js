@@ -35,6 +35,12 @@ const OG_DATA = {
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/og-homepage-BgNMUf5cGEkMLKRdunv64P.png",
     url: "https://www.metromutts.com/pricing",
   },
+  "/faq": {
+    title: "FAQ | Vaccinations, Hours, Policies | Metro Mutts Tulsa",
+    description: "Answers to common questions about Metro Mutts dog daycare, boarding, and grooming. Vaccination requirements, hours, pricing, cancellation policy, and more.",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/og-homepage-BgNMUf5cGEkMLKRdunv64P.png",
+    url: "https://www.metromutts.com/faq",
+  },
 };
 
 export default async (request, context) => {
@@ -101,5 +107,5 @@ export default async (request, context) => {
 };
 
 export const config = {
-  path: ["/boarding", "/grooming", "/grooming-gallery", "/pricing", "/daycare", "/services"],
+  path: ["/boarding", "/grooming", "/grooming-gallery", "/pricing", "/daycare", "/services", "/faq"],
 };

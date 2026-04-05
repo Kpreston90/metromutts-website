@@ -16,6 +16,7 @@ import Boarding from "./pages/Boarding";
 import Grooming from "./pages/Grooming";
 import Daycare from "./pages/Daycare";
 import Services from "./pages/Services";
+import FAQ from "./pages/FAQ";
 
 
 function Router() {
@@ -33,6 +34,7 @@ function Router() {
       <Route path={"/grooming"} component={Grooming} />
       <Route path={"/daycare"} component={Daycare} />
       <Route path={"/services"} component={Services} />
+      <Route path={"/faq"} component={FAQ} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

@@ -30,3 +30,7 @@
 [[edge_functions]]
   function = "og-tags"
   path = "/services"
+
+[[edge_functions]]
+  function = "og-tags"
+  path = "/faq"
