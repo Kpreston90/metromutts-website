@@ -19,6 +19,80 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "5-signs-your-dog-is-overdue-for-grooming",
+    title: "5 Signs Your Dog Is Overdue for a Grooming Appointment",
+    excerpt: "Not sure if it's time for a groom? Your dog might be dropping hints. Here are five telltale signs that your pup is past due for some professional pampering.",
+    content: `
+Grooming isn't just about keeping your dog looking cute — it's about their comfort, health, and hygiene. But life gets busy, and it's easy to push that grooming appointment down the to-do list. The problem is, your dog can't exactly tell you they're uncomfortable. They can, however, show you.
+
+Here are five signs that your dog is overdue for a grooming appointment — and what to do about it.
+
+## 1. You Can't See Their Eyes
+
+This one's especially common in breeds like Shih Tzus, Doodles, Schnauzers, and Yorkies. When the hair around your dog's face grows long enough to cover their eyes, it's more than a cosmetic issue. Obstructed vision can make your dog anxious, reactive, or clumsy. They may bump into things, startle more easily, or become hesitant on walks.
+
+Beyond behavior, hair hanging in the eyes traps moisture and debris, which can lead to eye irritation and infections. If you're constantly brushing hair out of your dog's face, it's time to book a groom.
+
+## 2. Their Coat Is Matted or Tangled
+
+Run your fingers through your dog's coat. Does it glide smoothly, or do you hit knots? Mats form when loose fur tangles with the attached coat and tightens over time. They're most common behind the ears, under the legs, around the collar area, and on the belly.
+
+Mats aren't just unsightly — they're painful. They pull on the skin with every movement, trap moisture against the body, and create a warm, dark environment where bacteria and parasites thrive. Severe matting can restrict blood flow and cause skin lesions underneath.
+
+Regular brushing at home helps prevent mats, but once they've formed, a professional groomer is the safest person to remove them. At Metro Mutts, our groomers assess every mat and determine the gentlest approach — whether that's careful dematting or a fresh start with a shorter cut.
+
+## 3. Their Nails Are Clicking on the Floor
+
+If you can hear your dog's nails tapping on hard floors, they're too long. Overgrown nails are one of the most overlooked grooming issues, and they cause more problems than most owners realize.
+
+Long nails change the angle of your dog's toes, which alters their gait. Over time, this puts strain on the joints and can lead to arthritis, especially in older dogs. In severe cases, nails can curl and grow into the paw pad, causing pain and infection.
+
+Most dogs need a nail trim every 2-4 weeks. If it's been longer than that, don't wait — overgrown nails also mean the quick (the blood vessel inside the nail) has grown longer, which makes future trims more difficult. Regular trimming keeps the quick receded and the process painless.
+
+## 4. They Smell — Even After a Bath
+
+All dogs have a natural scent, but if your dog smells bad even shortly after a bath, something deeper is going on. Persistent odor usually points to one of a few issues:
+
+**Skin infection.** Bacterial or yeast infections produce a distinct, musty smell that no amount of bathing will fix. These often develop in skin folds, between toes, or under matted fur.
+
+**Ear infection.** A funky, sweet, or yeasty smell coming from the ears is a classic sign of infection. Dogs with floppy ears are especially prone.
+
+**Anal gland issues.** If your dog smells fishy, their anal glands may be full or impacted. This is a normal maintenance issue that groomers can address.
+
+**Dental problems.** Bad breath that goes beyond normal "dog breath" can indicate dental disease, which affects over 80% of dogs by age three.
+
+A professional grooming session includes a thorough inspection that can identify the source of the smell. Our groomers at Metro Mutts check ears, skin, teeth, and glands during every full groom — and they'll let you know if a vet visit is warranted.
+
+## 5. They're Scratching More Than Usual
+
+Excessive scratching, biting, or licking — especially at the paws, belly, or rear — is your dog's way of telling you something is off. While allergies are a common cause (especially here in Tulsa during spring), grooming-related issues are often the culprit:
+
+**Dead undercoat buildup.** Breeds with double coats (Labs, Huskies, German Shepherds) shed their undercoat seasonally. If that dead fur isn't removed through brushing or professional deshedding, it traps heat and irritates the skin.
+
+**Dry skin from infrequent bathing.** Dogs need regular baths with appropriate products to maintain healthy skin. Too-infrequent bathing allows natural oils, dirt, and allergens to build up and cause irritation.
+
+**Irritation from mats or overgrown fur.** As mentioned above, mats pull on the skin and trap irritants. Even without full mats, overgrown fur can collect pollen, dust, and debris that makes your dog itchy.
+
+A professional grooming session addresses all of these issues — removing dead coat, cleaning the skin, and leaving your dog comfortable and itch-free.
+
+## The Fix Is Simple
+
+If you're seeing any of these signs, the solution is straightforward: book a grooming appointment. At Metro Mutts, our grooming team handles everything from basic baths and nail trims to full breed-specific cuts and spa treatments. We use premium, pet-safe products and take the time to ensure every dog leaves looking and feeling their best.
+
+Plus, since we're also a daycare and boarding facility, you can drop your dog off for a groom and a play session — they get pampered and exercised in the same visit.
+
+Grooming spots fill up fast, especially heading into spring and summer. Don't wait until your dog is uncomfortable — book this week and give your pup the refresh they deserve.
+
+539-867-3841 | metromutts.com
+    `.trim(),
+    category: "Grooming",
+    author: "Metro Mutts Team",
+    date: "2026-04-05",
+    readTime: "7 min read",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/blog-grooming-signs-BsU33woPCNBA4nNbXM4xqE.png",
+    tags: ["grooming", "dog care", "signs", "nails", "matting", "tulsa"],
+  },
+  {
     slug: "what-your-dogs-night-looks-like-at-metro-mutts",
     title: "What Your Dog's Night Actually Looks Like at Metro Mutts",
     excerpt: "Ever wonder what happens after you drop your dog off for boarding? Here's a behind-the-scenes look at how our overnight team takes care of your pup.",
