@@ -19,8 +19,8 @@ import Services from "./pages/Services";
 import FAQ from "./pages/FAQ";
 import Tour from "./pages/Tour";
 
-
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />

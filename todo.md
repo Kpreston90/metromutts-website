@@ -23,3 +23,15 @@
 - Hours: Mon-Fri 6:30AM-7PM, Sat 8AM-5PM
 - Logo PNG (dark): https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/mm-logo-dark_455bad7b.png
 - Logo PNG (white): https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/mm-logo-white_a0eef0bd.png
+
+## Recent Updates
+- [x] Update Google rating to 4.9 across all pages
+- [x] Replace Services page hero with AI-enhanced real facility photo (dogs + handler)
+- [x] Replace boarding image with real boarding suites photo
+- [x] Update Refer a Friend hero with real Metro Mutts building backdrop
+- [x] Create referral-themed OG image ($15 off)
+- [x] Upgrade to full-stack (web-db-user) for server-side capabilities
+- [x] Add dynamic OG meta tag injection per route (server-side)
+- [x] Create homepage OG image with real facility exterior
+- [x] Define route-specific OG metadata for all 12+ pages
+- [x] Write vitest tests for OG metadata injection (15 tests passing)
