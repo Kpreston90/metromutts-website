@@ -28,7 +28,7 @@ import {
 import { toast } from "sonner";
 
 const HERO_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/referral-hero-GUWtuEPPXevoywZS8Qm8vf.webp";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/refer-hero-metromutts_6200bf92.png";
 
 const REFERRAL_LINK = "https://metromuttstulsa.com/refer";
 
