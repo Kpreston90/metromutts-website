@@ -25,7 +25,7 @@ import { trackPhoneCall, trackCTA } from "@/lib/analytics";
 import { useSectionTracking } from "@/hooks/usePageTracking";
 
 const HERO_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/all-services-hero-v2-F7Rco3Tzz3Mz2bBh8CM8dG.webp";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/services-hero-v2_cd3ef501.png";
 const DAYCARE_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-daycare-9JTdpbodWw4zW5xQhTfmzM.webp";
 const BOARDING_IMG =
@@ -216,7 +216,7 @@ export default function Services() {
             {[
               { value: "3", label: "Services" },
               { value: "4,000+", label: "Sq Ft Facility" },
-              { value: "4.7★", label: "Google Rating" },
+              { value: "4.9★", label: "Google Rating" },
               { value: "FREE", label: "First Day Daycare" },
             ].map((stat) => (
               <div key={stat.label}>
@@ -456,7 +456,7 @@ export default function Services() {
                   fill="#EA4335"
                 />
               </svg>
-              <span className="text-sm font-semibold text-[#345460]">4.7</span>
+              <span className="text-sm font-semibold text-[#345460]">4.9</span>
               <div className="flex gap-0.5">
                 {[1, 2, 3, 4].map((i) => (
                   <Star

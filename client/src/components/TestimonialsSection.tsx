@@ -207,7 +207,7 @@ export default function TestimonialsSection() {
           >
             <div className="flex items-center gap-2">
               <GoogleIcon className="w-5 h-5" />
-              <span className="text-sm font-semibold text-[#345460]">4.7</span>
+              <span className="text-sm font-semibold text-[#345460]">4.9</span>
               <div className="flex gap-0.5">
                 {[1, 2, 3, 4].map((i) => (
                   <Star key={i} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
