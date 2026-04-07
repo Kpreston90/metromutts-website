@@ -35,3 +35,4 @@
 - [x] Create homepage OG image with real facility exterior
 - [x] Define route-specific OG metadata for all 12+ pages
 - [x] Write vitest tests for OG metadata injection (15 tests passing)
+- [x] Add daily blog post: "How to Teach Your Dog to Walk on a Loose Leash" (Apr 7, Dog Care)

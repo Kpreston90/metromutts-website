@@ -19,6 +19,126 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "how-to-teach-your-dog-to-walk-on-a-loose-leash",
+    title: "How to Teach Your Dog to Walk on a Loose Leash (The Right Way)",
+    excerpt: "Pulling on the leash is the #1 complaint from dog owners. Here's a step-by-step guide to teaching your dog to walk calmly beside you — no prong collars, no yelling, just patience and smart technique.",
+    content: `
+Walking your dog should be one of the best parts of your day. Fresh air, exercise, quality time together. But for a lot of dog owners, walks are anything but relaxing. Instead, they're a tug-of-war — your dog pulling you down the street while you grip the leash with both hands, trying not to lose a shoulder.
+
+If that sounds familiar, you're not alone. Leash pulling is the single most common behavioral complaint among dog owners. The good news? It's also one of the most fixable. With the right approach and some consistency, any dog can learn to walk on a loose leash.
+
+Here's how to do it — the right way.
+
+## Why Dogs Pull (It's Not What You Think)
+
+First, let's clear up a misconception. Your dog isn't pulling because they're trying to dominate you, be the "alpha," or disrespect your authority. That outdated dominance theory has been thoroughly debunked by modern animal behaviorists.
+
+Dogs pull for a much simpler reason: it works.
+
+Every time your dog pulls forward and you follow, they learn that pulling gets them where they want to go. The interesting smell, the squirrel across the street, the other dog up ahead — pulling gets them there faster. From your dog's perspective, pulling is a highly effective strategy.
+
+Your job is to change that equation. You need to teach your dog that pulling actually slows them down, and walking beside you is what moves the walk forward.
+
+## The Equipment You Need
+
+Before you start training, make sure you have the right gear:
+
+**A front-clip harness.** This is the single best training tool for leash pulling. Unlike a back-clip harness (which actually encourages pulling by engaging the opposition reflex), a front-clip harness redirects your dog toward you when they pull. It doesn't cause pain or discomfort — it just makes pulling mechanically ineffective. Popular options include the Freedom No-Pull Harness, the PetSafe Easy Walk, and the Blue-9 Balance Harness.
+
+**A 6-foot leash.** Not a retractable leash — those teach dogs that pulling extends their range, which is the opposite of what you want. A standard 6-foot flat leash gives your dog enough room to move comfortably while keeping them close enough to communicate with.
+
+**High-value treats.** For training walks, you need treats that your dog actually cares about. Kibble probably won't cut it. Think small pieces of chicken, cheese, hot dogs, or freeze-dried liver. The treats need to be more interesting than whatever your dog wants to pull toward.
+
+**A treat pouch.** Clip it to your waist so you can reward quickly without fumbling through your pockets.
+
+## Step 1: Start Indoors
+
+Don't start on the sidewalk. Start in your living room or backyard — somewhere with minimal distractions. Clip the leash on, hold it in one hand, and hold treats in the other.
+
+Walk around your house. Every few steps, when your dog is walking beside you (on either side — pick one and be consistent), say "yes!" and give them a treat at your hip level. You're teaching them that the position beside you is where good things happen.
+
+Do this for 5-10 minutes a day for a few days before moving outside. It might feel silly walking around your living room, but you're building a foundation that makes everything else easier.
+
+## Step 2: The Stop-and-Wait Method
+
+This is the core technique, and it's beautifully simple:
+
+Walk forward. The moment the leash goes tight — the instant you feel tension — stop. Plant your feet. Don't say anything. Don't pull back. Just stop.
+
+Your dog will probably keep pulling for a few seconds, then turn to look at you with a "why did we stop?" expression. The moment they turn toward you and the leash goes slack, say "yes!" and start walking again.
+
+That's it. Stop when they pull. Walk when the leash is loose.
+
+The first few walks using this method will be painfully slow. You might not make it past your driveway. That's normal. You're rewriting a deeply ingrained habit, and that takes time. But dogs are smart — most start to figure out the pattern within a few sessions.
+
+## Step 3: The U-Turn
+
+For dogs who are really committed pullers, add the U-turn to your toolkit. When your dog pulls ahead, instead of just stopping, turn around and walk in the opposite direction.
+
+This is more dramatic than stopping, and it sends a clear message: pulling doesn't just stop progress — it reverses it. Your dog wants to go forward? The only way to do that is to stay beside you.
+
+When you turn, don't yank the leash. Just turn smoothly and walk. Your dog will feel the leash redirect and follow. The moment they catch up and walk beside you, reward them.
+
+## Step 4: Reward the Position, Not Just the Behavior
+
+Here's where most people go wrong. They reward their dog for stopping the pull, but they don't reward the dog for walking nicely. You need to actively reinforce the behavior you want — which is calm walking beside you.
+
+During training walks, treat your dog every 5-10 steps when they're in position. As they get better, you can space out the rewards to every 15 steps, then every 30, then randomly. But in the beginning, be generous. You're competing with every smell, sound, and sight on the street. Your treats need to be worth more than all of that.
+
+## Step 5: Manage the Environment
+
+Set your dog up for success by managing the difficulty level:
+
+Start on quiet streets with few distractions. Avoid peak dog-walking hours at first. Cross the street or change direction before your dog fixates on a trigger (another dog, a squirrel, a jogger). Keep training walks short — 15-20 minutes of focused practice is better than an hour of frustrated pulling.
+
+As your dog improves, gradually increase the difficulty. Walk past the dog park. Walk through a busier neighborhood. Walk by the house with the barking dog behind the fence. Each new challenge is a chance to practice.
+
+## Common Mistakes to Avoid
+
+**Inconsistency.** This is the number one reason loose leash training fails. If you stop when they pull on Tuesday but let them drag you to the park on Wednesday, you're teaching them that pulling sometimes works — and intermittent reinforcement is the strongest kind. Every walk needs to follow the same rules.
+
+**Using punishment.** Leash corrections (jerking the leash), prong collars, and choke chains may suppress pulling temporarily, but they don't teach your dog what to do instead. They also create negative associations with walks, other dogs, and you. Positive reinforcement is more effective and doesn't damage your relationship with your dog.
+
+**Expecting too fast of results.** Leash pulling didn't develop overnight, and it won't disappear overnight. Expect 2-4 weeks of consistent practice before you see significant improvement. Some dogs take longer, especially if they've been pulling for years.
+
+**Only training on "training walks."** Every walk is a training walk. You can't have separate rules for different walks — your dog doesn't understand the distinction. If you're in a rush and let them pull, you're undoing your training.
+
+## The Timeline: What to Expect
+
+**Week 1:** Lots of stopping. Very slow walks. Your dog is confused about why the rules changed. This is normal.
+
+**Week 2:** Your dog starts checking in with you more. The stops become less frequent. You're actually covering some ground.
+
+**Week 3:** Noticeable improvement. Your dog is walking beside you for longer stretches. You're rewarding less frequently but the behavior is holding.
+
+**Week 4 and beyond:** Walking starts to feel enjoyable. Your dog defaults to walking beside you. You still reward occasionally to maintain the behavior, but it's becoming second nature for both of you.
+
+## How Daycare Helps with Leash Training
+
+Here's something that might surprise you: dogs who attend daycare regularly tend to be easier to leash train. Why? Because they've already burned off their excess energy.
+
+A dog who's been cooped up all day has a full tank of energy and excitement when they finally get outside. That energy has to go somewhere, and it usually goes straight into the leash. But a dog who spent the day running and playing at Metro Mutts? They're physically satisfied and mentally calm. They don't need to pull because they're not desperate to burn energy.
+
+Many of our daycare regulars tell us that their dog's leash manners improved dramatically once they started attending — even without formal leash training. The exercise and socialization take the edge off, making the dog more receptive to learning.
+
+## The Bottom Line
+
+Loose leash walking isn't about control — it's about communication. You're teaching your dog that walking beside you is rewarding, and pulling is unproductive. No pain, no force, no frustration. Just clear, consistent feedback and plenty of treats.
+
+It takes patience. It takes consistency. And it takes more treats than you think. But the payoff is worth it: relaxed, enjoyable walks where you and your dog are actually spending quality time together instead of fighting over the leash.
+
+If you're struggling with leash pulling and want to give your dog an outlet for their energy, try a day at Metro Mutts. A tired dog is a trainable dog — and your first day is free.
+
+539-867-3841 | metromutts.com
+    `.trim(),
+    category: "Dog Care",
+    author: "Metro Mutts Team",
+    date: "2026-04-07",
+    readTime: "8 min read",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/blog-loose-leash-hero-4F2saTWcrS4TkTBtJuxZzT.png",
+    tags: ["dog training", "leash walking", "loose leash", "positive reinforcement", "dog behavior", "tulsa dog training"]
+  },
+  {
     slug: "why-daycare-dogs-are-happier-dogs",
     title: "Why Daycare Dogs Are Happier Dogs: The Science Behind Socialization",
     excerpt: "Regular socialization isn't just fun for your dog — it's essential for their mental and physical health. Here's what the science says about why daycare dogs tend to be happier, calmer, and better behaved.",
