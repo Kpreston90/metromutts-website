@@ -101,7 +101,7 @@ If you've been thinking about daycare for your dog but weren't sure what to look
     author: "Metro Mutts Team",
     date: "2026-04-08",
     readTime: "8 min read",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/blog-behind-the-scenes-safety-6GuFwkPu7mKNHwvaepkE7Y.png",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/blog-behind-the-scenes-safety-v2_dfc1619a.png",
     tags: ["behind the scenes", "safety", "daycare", "facility", "dog care", "tulsa"]
   },
   {
