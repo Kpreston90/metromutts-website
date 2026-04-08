@@ -19,6 +19,92 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "behind-the-scenes-how-we-keep-30-dogs-safe-every-day",
+    title: "A Behind-the-Scenes Look at How We Keep 30+ Dogs Safe Every Day",
+    excerpt: "Dropping your dog off at daycare requires trust. Here's a full look at our daily safety protocols — from morning health checks to emergency training — so you know exactly what happens when your pup is with us.",
+    content: `
+Dropping your dog off at daycare requires trust. You're handing your best friend to someone else and hoping they'll be just as careful, just as attentive, and just as loving as you are. That's a big ask — and we don't take it lightly.
+
+At Metro Mutts, safety isn't a policy we printed out and taped to the wall. It's the foundation of everything we do, from the moment we unlock the doors at 6:30 AM to the last check-in before lights out. And because we believe transparency builds trust, we're pulling back the curtain today to show you exactly how we keep 30+ dogs safe, happy, and thriving under one roof every single day.
+
+## 6:30 AM — The Morning Setup
+
+Before the first pup walks through the door, our team is already on the floor. Every morning starts with a full facility walkthrough. We check the indoor play area for anything that shouldn't be there — a loose bolt, a toy that's been chewed down to a choking hazard, a wet spot on the floor. The outdoor turf gets inspected too. Fencing is checked, gates are tested, and water stations are filled with fresh water.
+
+We also review the day's roster. Every dog that's scheduled to come in has a profile in our system with notes on their temperament, play style, size, any medical conditions, and which dogs they do (and don't) get along with. This isn't a "wing it" operation. We know who's coming and we plan accordingly.
+
+## 7:00 AM — Drop-Off and Health Checks
+
+When dogs arrive, they don't just get tossed into the group. Every single dog gets a quick health check at the door. We're looking for signs of illness — runny eyes, coughing, lethargy, limping, skin irritations. If something looks off, we call the owner before the dog joins the group. It's not personal. It's how we protect every dog in the building.
+
+We also check vaccination records. Every dog at Metro Mutts must be current on rabies, DHPP, and bordetella. No exceptions. We verify this before a dog's first visit and track expiration dates in our system so nothing slips through the cracks.
+
+## The Play Groups — Size, Temperament, and Energy
+
+This is where the real work happens, and it's where most daycares get it wrong. You can't just throw 30 dogs into a room and hope for the best. That's a recipe for stress, fights, and injuries.
+
+At Metro Mutts, we split dogs into play groups based on three factors: size, temperament, and energy level. A mellow 80-pound lab doesn't belong in the same group as a hyperactive 15-pound terrier, even though both are friendly dogs. We match energy to energy and size to size so every dog can play at their comfort level.
+
+Our staff-to-dog ratio stays tight. We never exceed the number of dogs our team can actively supervise. And "supervise" doesn't mean standing in the corner scrolling a phone. Our handlers are in the middle of the action — redirecting play that's getting too rough, separating dogs that need a break, and rewarding good social behavior.
+
+## Reading the Room — Canine Body Language
+
+Every member of our team is trained in canine body language. This is non-negotiable. If you can't read a dog, you can't keep dogs safe.
+
+We watch for the subtle signals that most people miss. A stiff tail wag (not the same as a happy wag). Whale eye — when a dog shows the whites of their eyes. Lip licking, yawning, or turning away when another dog approaches. These are all stress signals, and our team catches them before they escalate.
+
+When we see a dog getting overwhelmed, we don't wait for a problem. We calmly remove them from the group, give them a quiet break in a separate area, and let them decompress. Some dogs need a 10-minute reset. Some need a longer nap. We read each dog individually and respond accordingly.
+
+## The Midday Reset
+
+Around lunchtime, every dog gets a mandatory rest period. The play areas quiet down, dogs settle into their individual spaces, and the energy level comes back to baseline. This isn't optional — even the most social, high-energy dogs need downtime to avoid overstimulation.
+
+During the rest period, our team does another facility check. We clean and sanitize play areas, refill water stations, and swap out any toys that have seen better days. We also take this time to update owners via our app if anything noteworthy happened during the morning session — a new friendship, a funny moment, or a heads-up about something we're monitoring.
+
+## Cleaning and Sanitation
+
+Let's talk about the unglamorous but critically important stuff. With 30+ dogs in a facility every day, cleanliness isn't just about appearances. It's about disease prevention.
+
+We use veterinary-grade disinfectants on all surfaces throughout the day — not just at closing time. Accidents get cleaned up immediately with enzymatic cleaners that eliminate bacteria and odor at the molecular level. The outdoor turf is treated and rinsed regularly. Water bowls are swapped out multiple times a day, not just refilled.
+
+Our HVAC system runs continuously to maintain air quality, and we keep the facility at a comfortable temperature year-round. Dogs don't regulate heat the way humans do, so climate control isn't a luxury — it's a safety measure.
+
+## Emergency Protocols
+
+We hope we never need them, but we train for them constantly. Every staff member knows our emergency protocols by heart.
+
+If a dog fight breaks out (rare, but it happens in any group setting), we have a specific intervention protocol that prioritizes safety for both dogs and handlers. We don't panic. We don't yell. We follow the training.
+
+If a dog shows signs of a medical emergency — choking, seizure, heatstroke, allergic reaction — we have a first aid kit on-site and a direct line to our partner veterinary clinic less than five minutes away. Every team member is trained in canine first aid and CPR.
+
+We also have protocols for severe weather (this is Oklahoma, after all), power outages, and facility emergencies. The dogs' safety comes first, always.
+
+## End of Day — The Handoff
+
+When you pick up your dog at the end of the day, we don't just hand over the leash and wave goodbye. We give you a quick rundown of how their day went. Who they played with. How their energy was. Whether they ate, drank, and rested well. If there's anything we think you should know — a small scratch from play, a change in behavior, a new best friend — we tell you.
+
+This daily communication loop is how we build trust over time. You shouldn't have to wonder what happened while you were at work. You should know.
+
+## Why This Matters
+
+There are a lot of dog daycares out there. Some are great. Some are a room with dogs in it and a person who's sort of paying attention. The difference is in the details — the systems, the training, the protocols, and the culture of a facility.
+
+At Metro Mutts, we built this business because we genuinely believe dogs deserve better. Better care, better socialization, better environments. And the only way to deliver on that promise is to take safety seriously every single day, not just on inspection days.
+
+If you've been thinking about daycare for your dog but weren't sure what to look for, we hope this gives you a clearer picture. And if you want to see it all in person, your dog's first day at Metro Mutts is completely free. Come see how we do things. We think you'll feel the difference.
+
+---
+
+*Metro Mutts is Tulsa's newest dog daycare, boarding, and grooming facility. Located in midtown Tulsa, we offer supervised group play, overnight boarding in private suites, and professional grooming. Call 539-867-3841 or visit metromutts.com to book your free first day.*
+`,
+    category: "Tulsa Pet Life",
+    author: "Metro Mutts Team",
+    date: "2026-04-08",
+    readTime: "8 min read",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/blog-behind-the-scenes-safety-6GuFwkPu7mKNHwvaepkE7Y.png",
+    tags: ["behind the scenes", "safety", "daycare", "facility", "dog care", "tulsa"]
+  },
+  {
     slug: "how-to-teach-your-dog-to-walk-on-a-loose-leash",
     title: "How to Teach Your Dog to Walk on a Loose Leash (The Right Way)",
     excerpt: "Pulling on the leash is the #1 complaint from dog owners. Here's a step-by-step guide to teaching your dog to walk calmly beside you — no prong collars, no yelling, just patience and smart technique.",
