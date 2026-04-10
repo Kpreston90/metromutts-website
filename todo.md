@@ -40,4 +40,6 @@
 - [x] Edit behind-the-scenes blog hero image: replace concrete floor with green artificial turf
 - [x] Edit behind-the-scenes blog hero image: change staff t-shirts to purplish-blue with logo over right breast
 - [x] Update blog hero image to purplish-blue t-shirt version (v3)
-- [ ] Create and publish Wag Wednesday Instagram post using same photo
+- [x] Create and publish Wag Wednesday Instagram post using same photo
+- [x] Add daily blog post for April 10 (Friday)
+- [ ] Create and publish Friday Instagram post matching blog theme

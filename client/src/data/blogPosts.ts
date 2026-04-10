@@ -19,6 +19,104 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "ultimate-weekend-checklist-dog-parents-tulsa",
+    title: "The Ultimate Weekend Checklist for Dog Parents in Tulsa",
+    excerpt: "Friday is here and you're already wondering: what are we doing this weekend? From off-leash parks to dog-friendly patios and breweries, here's your complete guide to making the most of your weekend with your pup in Tulsa.",
+    content: `
+Friday is here, and if you're anything like most Tulsa dog parents, you're already wondering: *What are we doing this weekend?*
+
+Good news — Tulsa is one of the most dog-friendly cities in Oklahoma, and there's no shortage of ways to make the most of your Saturday and Sunday with your four-legged best friend. We put together the ultimate weekend checklist so you can plan ahead, get out there, and actually enjoy the weekend instead of scrolling through options at 10 a.m. on Saturday.
+
+## Morning: Burn Off That Energy
+
+Start the day right by tiring out your pup before the afternoon heat kicks in.
+
+### Off-Leash Dog Parks
+
+Tulsa has some fantastic off-leash parks where your dog can run, wrestle, and socialize to their heart's content:
+
+**Biscuit Acres (Benjamin's Biscuit Acres)** — Located at 56th and South Hudson, this is Tulsa's most popular off-leash park. Separate areas for large and small dogs, double-gated entry, water stations, and plenty of shade. It's well-maintained and the regulars are friendly.
+
+**Joe Station Dog Park** — A solid option on the east side with a good mix of open space and shaded areas. Less crowded than Biscuit Acres on weekends, which is a plus if your dog prefers smaller groups.
+
+**Waggin' Trail Dog Park** — Located in Chandler Park, this one has a nice walking trail loop around the perimeter if you want to walk while your dog plays.
+
+### Leashed Trails & Walks
+
+If your dog does better on-leash or you want a more structured outing:
+
+**Turkey Mountain Urban Wilderness** — Over 300 acres of trails ranging from easy paved paths to rugged hiking. Dogs must be leashed, but the variety of terrain keeps things interesting. Go early on weekends to beat the crowds.
+
+**Riverside Trail** — A paved path along the Arkansas River that's perfect for joggers and their dogs. Flat, scenic, and you can stop at Gathering Place along the way.
+
+**Woodward Park / Tulsa Garden Center** — Beautiful grounds for a leisurely stroll. The rose garden area is especially nice in spring.
+
+**Pro tip:** If you need a few hours to yourself on Saturday morning, drop your pup off at Metro Mutts for a daycare session. They'll get all the socialization and exercise they need while you run errands, hit the gym, or just enjoy a quiet coffee. We're open Saturdays starting at 7 a.m.
+
+## Afternoon: Dog-Friendly Patios & Dining
+
+Tulsa's patio scene is seriously dog-friendly. Here are our top picks for lunch or an afternoon drink with your pup.
+
+### Brookside & Midtown
+
+**R Bar & Grill** — A Brookside staple with a spacious patio. They're genuinely dog-friendly — not just "we'll tolerate it" but actually welcoming. Great burgers, cold beer, and water bowls for the pups.
+
+**Roosevelt's** — Upscale but relaxed patio dining. The outdoor space is perfect for well-behaved dogs, and the brunch menu is worth the trip.
+
+**Elote Cafe** — One of the only restaurants in Tulsa that actually has a menu item for your dog. Their patio is shaded and comfortable, and the street tacos are incredible.
+
+### Downtown & East Village
+
+**McNellie's** — A Tulsa institution. The patio is dog-friendly and the beer selection is massive. Casual, loud, and fun — perfect for a Saturday afternoon.
+
+**East Village Bohemian Pizzeria** — Wood-fired pizza on a dog-friendly patio. What more could you want?
+
+**Mother Road Market** — Tulsa's food hall has an outdoor area where dogs are welcome. Multiple food vendors means everyone in your group (human and canine) can find something they like.
+
+### Breweries
+
+**Heirloom Rustic Ales** — Dog-friendly taproom with a great outdoor space. Laid-back vibe, good beer, and they genuinely love dogs here.
+
+**Neff Brewing** — Another excellent dog-friendly brewery with a relaxed atmosphere and rotating food trucks.
+
+**Marshall Brewing Company** — The tap room welcomes dogs and the outdoor area is spacious enough for even the most energetic pups.
+
+## Evening: Wind Down
+
+After a full day of adventures, it's time to settle in.
+
+Give your dog a good brush-out to remove any dirt, grass, or debris from the day's activities. Check for ticks — especially if you hit Turkey Mountain or any wooded trails. A frozen Kong stuffed with peanut butter is the perfect way to keep them occupied while you make dinner. Fresh water, a good meal, and they'll be out cold by 8 p.m.
+
+Or if you've got Saturday night plans, our overnight boarding gives your pup a comfortable, supervised night while you enjoy dinner out, a concert, or a night with friends. Every boarding guest gets their own private suite, evening playtime, and our staff is on-site all night.
+
+## The Weekend Prep Checklist
+
+Before you head out, make sure you've got everything covered:
+
+- Water bottle and collapsible bowl (Tulsa heat is no joke, even in spring)
+- Leash and harness (required on all public trails)
+- Poop bags (please, always)
+- Current ID tags and up-to-date vaccination records
+- Sunscreen for light-colored or thin-coated dogs
+- A towel in the car for muddy paws after Turkey Mountain
+- Treats for rewarding good behavior on patios and trails
+
+## Make It a Routine
+
+The best weekends aren't the ones you plan once — they're the ones that become a rhythm. Pick a Saturday morning park, find your go-to patio, and build a weekend routine that works for both you and your dog.
+
+And if you ever need a hand — whether it's Saturday daycare so you can get things done, a grooming session before a big weekend outing, or overnight boarding while you're away — Metro Mutts is here for you. That's what the pack is for.
+
+Happy Friday, Tulsa. Go make some memories with your dog this weekend.
+`,
+    category: "Tulsa Pet Life",
+    author: "Metro Mutts Team",
+    date: "2026-04-10",
+    readTime: "7 min read",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/blog-weekend-checklist-tulsa-YAvQjogAtzFNZEQjzvgaWW.png",
+    tags: ["tulsa", "dog-friendly", "weekend", "parks", "patios", "activities", "dog parents"]
+  },
+  {
     slug: "behind-the-scenes-how-we-keep-30-dogs-safe-every-day",
     title: "A Behind-the-Scenes Look at How We Keep 30+ Dogs Safe Every Day",
     excerpt: "Dropping your dog off at daycare requires trust. Here's a full look at our daily safety protocols — from morning health checks to emergency training — so you know exactly what happens when your pup is with us.",
