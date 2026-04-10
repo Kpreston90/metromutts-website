@@ -29,6 +29,13 @@ const defaultOg: OgMeta = {
  * More specific routes should come first.
  */
 const routeOgMap: Record<string, OgMeta> = {
+  "/vet-referred": {
+    title: "Free Trial Day | Metro Mutts — Recommended by Your Vet",
+    description:
+      "Your veterinarian recommends Metro Mutts for daycare, boarding, and grooming. Claim your free trial day — because your vet trusts us with their patients.",
+    image: `${CDN}/vet-referred-hero-NDd4fTY9BdDrJ9HMbsxEuv.webp`,
+    url: `${BASE_URL}/vet-referred`,
+  },
   "/refer": {
     title: "Refer a Friend | Metro Mutts — You Both Get $15 Off",
     description:

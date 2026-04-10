@@ -44,3 +44,8 @@
 - [x] Add daily blog post for April 10 (Friday)
 - [x] Create and publish Friday Instagram post matching blog theme
 - [x] Update Friday blog post hero image to Tails and Ales patio photo (v4)
+- [x] Build /vet-referred landing page with free trial day offer and claim form
+- [x] Add route for /vet-referred in App.tsx
+- [ ] Generate vet referral card design (4x6 print-ready)
+- [ ] Generate vet tip sheet design (8.5x11 print-ready)
+- [ ] Write vet outreach strategy with Kyle (in-person) and digital (you) role split

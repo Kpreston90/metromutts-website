@@ -8,6 +8,14 @@ describe("getOgMetaForPath", () => {
     expect(meta.title).toContain("Tulsa");
   });
 
+  it("returns vet-referred metadata for /vet-referred", () => {
+    const meta = getOgMetaForPath("/vet-referred");
+    expect(meta.title).toContain("Recommended by Your Vet");
+    expect(meta.description).toContain("free trial day");
+    expect(meta.image).toContain("vet-referred-hero");
+    expect(meta.url).toContain("/vet-referred");
+  });
+
   it("returns refer-specific metadata for /refer", () => {
     const meta = getOgMetaForPath("/refer");
     expect(meta.title).toContain("Refer a Friend");
