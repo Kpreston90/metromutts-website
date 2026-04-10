@@ -46,6 +46,10 @@
 - [x] Update Friday blog post hero image to Tails and Ales patio photo (v4)
 - [x] Build /vet-referred landing page with free trial day offer and claim form
 - [x] Add route for /vet-referred in App.tsx
-- [ ] Generate vet referral card design (4x6 print-ready)
-- [ ] Generate vet tip sheet design (8.5x11 print-ready)
-- [ ] Write vet outreach strategy with Kyle (in-person) and digital (you) role split
+- [x] Generate vet referral card design (4x6 print-ready)
+- [x] Generate vet tip sheet design (8.5x11 print-ready)
+- [x] Write vet outreach strategy with Kyle (in-person) and digital (you) role split
+- [x] Regenerate vet referral card with correct Metro Mutts logo (green scottie with city skyline cutout)
+- [x] Regenerate vet tip sheet with correct Metro Mutts logo (green scottie with city skyline cutout)
+- [x] Create side-by-side visual mockup of all vet referral collateral for strategy document
+- [x] Create realistic mockups of all 4 Tier 1 collateral items for strategy document
