@@ -53,3 +53,6 @@
 - [x] Regenerate vet tip sheet with correct Metro Mutts logo (green scottie with city skyline cutout)
 - [x] Create side-by-side visual mockup of all vet referral collateral for strategy document
 - [x] Create realistic mockups of all 4 Tier 1 collateral items for strategy document
+- [x] Update old facility image on Pricing page (replace realistic-indoor-play with v3)
+- [x] Update old facility image on Book a Visit page (replace realistic-indoor-play with v3)
+- [x] Update old facility image on Gallery page (replace realistic-indoor-play with v3)

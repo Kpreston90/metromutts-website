@@ -82,7 +82,7 @@ const images: GalleryImage[] = [
     span: "wide",
   },
   {
-    src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/realistic-indoor-play-ZvWc5A7LSn5PUgeFcAKee5.webp",
+    src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/vet-referred-facility-v3-DCNGQE4pnuuDpVkZkPVYMQ.webp",
     alt: "Spacious indoor play area with dogs and staff",
     category: "Facility",
   },

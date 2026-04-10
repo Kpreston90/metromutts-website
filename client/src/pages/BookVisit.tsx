@@ -29,7 +29,7 @@ const GINGR_URL =
   "https://metromutts.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=";
 
 const HERO_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/realistic-indoor-play-ZvWc5A7LSn5PUgeFcAKee5.webp";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/vet-referred-facility-v3-DCNGQE4pnuuDpVkZkPVYMQ.webp";
 
 const RECEPTION_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/reception-welcome-aBghJbxUirJ4BZnJwhtVtQ.webp";
