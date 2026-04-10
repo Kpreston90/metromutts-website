@@ -1,65 +1,24 @@
 /*
- * Metro Mutts Hero Section — Video Background
+ * Metro Mutts Hero Section — Static Photo Background
  * Brand: Green #48D597, Dark #345460
- * Full-width video hero with dark overlay, animated text, wave SVG divider
- * Similar to 9th Street Barking Lot / Dogtopia hero style
+ * Full-width photo hero with dark overlay, animated text, wave SVG divider
  */
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import { Link } from "wouter";
-import { useRef, useEffect, useState } from "react";
 
-const HERO_VIDEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/hero-video-final_41add44a.mp4";
-const HERO_POSTER = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/vet-referred-facility-v3-DCNGQE4pnuuDpVkZkPVYMQ.webp";
+const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/vet-referred-facility-v3-DCNGQE4pnuuDpVkZkPVYMQ.webp";
 
 export default function HeroSection() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    
-    // Ensure video plays on load
-    const playVideo = () => {
-      video.play().catch(() => {
-        // Autoplay blocked — poster image will show as fallback
-      });
-    };
-
-    if (video.readyState >= 3) {
-      setVideoLoaded(true);
-      playVideo();
-    } else {
-      video.addEventListener("canplay", () => {
-        setVideoLoaded(true);
-        playVideo();
-      }, { once: true });
-    }
-  }, []);
-
   return (
     <section className="relative overflow-hidden flex items-center">
-      {/* Video background */}
+      {/* Photo background */}
       <div className="absolute inset-0">
-        <video
-          ref={videoRef}
-          src={HERO_VIDEO}
-          poster={HERO_POSTER}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          className={`w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? "opacity-100" : "opacity-0"}`}
-        />
-        {/* Poster fallback while video loads */}
         <img
-          src={HERO_POSTER}
-          alt=""
-          aria-hidden="true"
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? "opacity-0" : "opacity-100"}`}
+          src={HERO_IMG}
+          alt="Metro Mutts indoor play area with dogs on green turf"
+          className="w-full h-full object-cover"
         />
         {/* Dark gradient overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#1a2e38]/90 via-[#345460]/75 to-[#345460]/50" />
