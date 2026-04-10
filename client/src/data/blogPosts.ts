@@ -113,7 +113,7 @@ Happy Friday, Tulsa. Go make some memories with your dog this weekend.
     author: "Metro Mutts Team",
     date: "2026-04-10",
     readTime: "7 min read",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/blog-weekend-checklist-tulsa-YAvQjogAtzFNZEQjzvgaWW.png",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/ig-friday-weekend-apr10-v4-BiLhs6t7vFgqfUdQRydfjp.png",
     tags: ["tulsa", "dog-friendly", "weekend", "parks", "patios", "activities", "dog parents"]
   },
   {

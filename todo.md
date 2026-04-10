@@ -42,4 +42,5 @@
 - [x] Update blog hero image to purplish-blue t-shirt version (v3)
 - [x] Create and publish Wag Wednesday Instagram post using same photo
 - [x] Add daily blog post for April 10 (Friday)
-- [ ] Create and publish Friday Instagram post matching blog theme
+- [x] Create and publish Friday Instagram post matching blog theme
+- [x] Update Friday blog post hero image to Tails and Ales patio photo (v4)
