@@ -95,6 +95,90 @@ And if you want to make it easy, we're here. Drop-offs start at 7 AM. Walk-ins w
     tags: ["storms", "anxiety", "tulsa", "weather", "daycare", "grooming", "stress", "spring"]
   },
   {
+    slug: "reading-dog-body-language-tulsa",
+    title: "Reading Dog Body Language: What Your Pup Is Really Telling You",
+    excerpt: "Tail wags don't always mean happy, and a yawn doesn't always mean tired. Here's how to decode your dog's body language like a pro.",
+    content: `
+Dogs are constantly communicating with us. The problem is, most of us aren't fluent in their language. We assume a wagging tail means happiness, a yawn means sleepiness, and a rolled-over belly always means "rub me." But dog body language is far more nuanced than that \u2014 and misreading it can lead to missed signals, misunderstandings, and even bites.
+
+Whether you're at the dog park, introducing your pup to a new friend, or just hanging out at home, understanding what your dog is really saying will make you a better, safer, and more connected pet parent.
+
+## The Tail: It's Not Just About Wagging
+
+A wagging tail is the most misread signal in the dog world. Not all wags are created equal.
+
+**A loose, full-body wag** \u2014 where the tail swings wide and the whole back end wiggles \u2014 is genuine happiness. This is the "I'm so glad to see you" wag, and it's unmistakable.
+
+**A stiff, high wag** \u2014 where the tail is held high and moves in short, rapid strokes \u2014 signals arousal and potential tension. This dog is alert and assessing the situation. It could tip toward excitement or aggression depending on what happens next.
+
+**A low, slow wag** \u2014 where the tail hangs below the spine and moves tentatively \u2014 indicates uncertainty or insecurity. The dog is unsure about the situation and is looking for reassurance.
+
+**A tucked tail** \u2014 pressed against the belly \u2014 is a clear sign of fear or submission. This dog is uncomfortable and wants the situation to change.
+
+## The Eyes: Windows to Their Emotional State
+
+**Soft, relaxed eyes** with a gentle gaze mean your dog is calm and content. This is the look you get during a good couch cuddle session.
+
+**Hard, fixed staring** is a warning sign. A dog who locks eyes with another dog or person with a rigid, unblinking gaze is issuing a challenge or feeling threatened. If you see this at the dog park, it's time to intervene before things escalate.
+
+**Whale eye** \u2014 where you can see the whites of your dog's eyes in a crescent shape \u2014 means they're stressed or anxious. You'll often see this when a dog is guarding a resource (food, toy, bed) or when they're uncomfortable being touched or approached.
+
+**Squinting or blinking** is actually a calming signal. Dogs blink slowly at each other (and at us) to communicate peaceful intentions. If your dog slow-blinks at you, they're saying "I trust you."
+
+## The Ears: Tuned In to Emotion
+
+Ear position varies by breed (floppy-eared dogs are harder to read than erect-eared ones), but the general principles apply.
+
+**Forward-facing ears** indicate interest and alertness. Your dog has heard or seen something that has their attention.
+
+**Ears pulled back and flat** against the head signal fear, anxiety, or submission. Combined with a tucked tail and lowered body, this dog is saying "I'm not a threat, please don't hurt me."
+
+**Ears that keep shifting** \u2014 rotating like satellite dishes \u2014 mean your dog is processing a lot of information and trying to figure out what's going on.
+
+## The Mouth: More Than Just Barking
+
+**A relaxed, slightly open mouth** with a lolling tongue is the classic "happy dog" face. This is a dog at ease.
+
+**Lip licking when there's no food around** is a stress signal. Dogs lick their lips to self-soothe when they're anxious or uncomfortable. If your dog starts lip-licking during a greeting or at the vet, they're telling you they're not okay.
+
+**Yawning when they're not tired** is another calming signal. Dogs yawn to diffuse tension \u2014 both their own and others'. A dog who yawns during a tense interaction is trying to de-escalate.
+
+**A closed mouth with tight lips** pulled forward indicates tension and focus. This is often a precursor to a growl or snap. Respect this signal.
+
+**Showing teeth** can mean different things depending on context. A "submissive grin" \u2014 where the lips pull back to show front teeth, often with squinty eyes and a wiggly body \u2014 is actually friendly. But teeth bared with a wrinkled muzzle, hard eyes, and a stiff body is a clear warning.
+
+## Full Body Posture: The Big Picture
+
+**Play bow** \u2014 front end down, rear end up \u2014 is the universal dog invitation to play. It's one of the clearest and most joyful signals in the dog world.
+
+**Weight shifted forward** (leaning toward something) indicates interest or assertiveness. Depending on the context, this could be curiosity or a challenge.
+
+**Weight shifted backward** (leaning away) means the dog wants distance. They're unsure or uncomfortable and may be preparing to retreat.
+
+**Freezing** \u2014 a sudden, complete stillness \u2014 is one of the most important signals to recognize. A dog who suddenly goes rigid is making a decision about what to do next, and the options often include fight or flight. If you see a dog freeze during play or a greeting, calmly separate them.
+
+**Rolling over** doesn't always mean "belly rub please." In a social context, it can be a submissive gesture or a way to defuse tension. If a dog rolls over with a tense body, tucked tail, and averted eyes, they're asking to be left alone \u2014 not petted.
+
+## Why This Matters at Daycare
+
+At Metro Mutts, our staff reads dog body language all day, every day. It's how we keep play groups safe and fun. We watch for stress signals, redirect over-aroused dogs, and separate pups who need a break before things escalate. Understanding these signals is the difference between a great day of play and a preventable incident.
+
+When you pick up your dog from daycare and we tell you "they had a great day," it's because we were watching their body language the entire time \u2014 and everything said "happy."
+
+## Practice at Home
+
+Start paying attention to your dog's body language during everyday moments. Watch their ears when the doorbell rings. Notice their tail position when they meet a new dog on a walk. Look at their eyes when you reach for their food bowl. The more you observe, the more fluent you'll become \u2014 and the stronger your bond will be.
+
+Your dog is talking to you every single day. It's time to start listening.
+    `.trim(),
+    category: "Dog Care",
+    author: "Metro Mutts Team",
+    date: "2026-04-15",
+    readTime: "7 min read",
+    image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&q=80",
+    tags: ["body language", "dog behavior", "communication", "dog park", "tulsa", "safety"],
+  },
+  {
     slug: "ultimate-weekend-checklist-dog-parents-tulsa",
     title: "The Ultimate Weekend Checklist for Dog Parents in Tulsa",
     excerpt: "Friday is here and you're already wondering: what are we doing this weekend? From off-leash parks to dog-friendly patios and breweries, here's your complete guide to making the most of your weekend with your pup in Tulsa.",
