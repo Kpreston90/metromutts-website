@@ -58,3 +58,4 @@
 - [x] Update old facility image on Gallery page (replace realistic-indoor-play with v3)
 - [x] Swap homepage hero background with new v3 facility photo
 - [x] Remove old hero loop video, use v3 facility photo as static hero background
+- [x] Create blog post for April 20: "Your Dog After Storm Week: How to Help Them Reset"

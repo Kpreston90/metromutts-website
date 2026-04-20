@@ -19,6 +19,82 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "your-dog-after-storm-week-how-to-help-them-reset",
+    title: "Your Dog After Storm Week: How to Help Them Reset",
+    excerpt: "Tulsa just survived tornadoes, hail, and days of severe weather. Your dog felt all of it. Now that the sun is finally out, here's how to help them shake off the stress and get back to normal.",
+    content: `
+If you're in Tulsa, you just survived one of the roughest weather weeks of the year. A confirmed tornado on Tuesday, more severe storms Friday, hail, wind, sirens — the whole package. And while you were tracking radar and moving to the closet, your dog was right there with you, picking up on every bit of that stress.
+
+Here's the thing most people don't realize: dogs don't just "get over" storm week. The anxiety lingers. And now that the sun is finally out and the skies are clear, today is the perfect day to help your pup decompress and get back to normal.
+
+## How Storm Stress Shows Up in Dogs
+
+You might think your dog handled the storms just fine because they didn't destroy anything or bark all night. But storm anxiety doesn't always look dramatic. Here are the subtle signs your dog is still carrying stress from last week:
+
+**Clinginess.** If your dog has been following you from room to room more than usual, or won't let you out of their sight, they're still on edge. Storms teach dogs that scary things can happen without warning, and they cope by staying close to their safe person.
+
+**Restlessness.** Pacing, inability to settle, getting up and lying down repeatedly — these are all signs of residual anxiety. Your dog's nervous system got activated during the storms and hasn't fully come back down yet.
+
+**Changes in appetite.** Some dogs eat less when they're stressed. Others eat more. If your dog's eating patterns shifted this past week and haven't returned to normal, stress is likely the cause.
+
+**Increased startle response.** A dog that jumps at a door closing, a car backfiring, or even a loud TV after storm week is showing a heightened startle response. Their threshold for "alarming sounds" has been lowered by days of thunder and sirens.
+
+**Panting or yawning when it's not hot.** Both are calming signals dogs use when they're anxious. If your dog is panting indoors in a cool room or yawning repeatedly when they're not tired, they're self-soothing.
+
+## Why Today Matters
+
+Today's forecast is exactly what your dog needs: sunny, 78 degrees, light breeze, zero percent chance of storms. After nearly a week of pressure changes, thunder, and dark skies, a calm, beautiful day is the reset button.
+
+But here's the key — your dog won't reset on their own just because the weather is nice. They need active help burning off that stored stress energy. Think of it like this: the storms wound them up, and now you need to help them unwind.
+
+## Five Ways to Help Your Dog Reset Today
+
+**Get them moving.** Physical exercise is the single best stress reliever for dogs. A long walk, a trip to the dog park, or a full day of daycare play will do more for your dog's mental state than anything else. The goal is to tire them out physically so their nervous system can finally relax.
+
+**Provide social interaction.** Dogs are social animals, and positive interactions with other dogs and people help counteract the isolation and tension of storm week. If your dog spent the last few days huddled in a closet or crate, getting them around other dogs in a safe, supervised environment is exactly what they need.
+
+**Reestablish routine.** Storms disrupt everything — walk schedules, feeding times, sleep patterns. Dogs thrive on predictability, and getting back to a consistent routine as quickly as possible signals to your dog that things are normal again. Same walk time, same feeding time, same bedtime.
+
+**Give them a bath or grooming session.** This might sound unrelated, but grooming is genuinely calming for most dogs. The physical touch, the warm water, the one-on-one attention — it's like a spa day reset. Plus, if your dog got wet or muddy during the storms, a proper bath removes all that buildup and helps their skin and coat recover.
+
+**Create calm at home tonight.** After an active day, set your dog up for a restful evening. A frozen Kong stuffed with peanut butter, a quiet room, maybe some soft music. Let them sleep hard tonight. That deep, exhausted sleep after a full day of activity is when the real recovery happens.
+
+## The Daycare + Grooming Combo
+
+If you really want to give your dog the full post-storm reset, here's what we'd recommend: drop them off at Metro Mutts this morning for a full day of daycare. They'll spend the day running, playing, and socializing with other dogs in our climate-controlled facility — burning off all that pent-up storm energy in the best way possible.
+
+Then add a grooming session before pickup. A bath, brush-out, and nail trim sends them home feeling (and smelling) like a brand new dog. By tonight, you'll have a calm, clean, exhausted pup who's finally ready to put storm week behind them.
+
+It's the reset they need and the break you deserve after the week we all just had.
+
+## Looking Ahead
+
+Oklahoma weather being what it is, this won't be the last storm week of the season. Here are a few things you can do now to prepare your dog for next time:
+
+Create a safe space they can retreat to during storms — a crate with a blanket over it, an interior closet, or a bathroom without windows. Let them choose where they feel safest and make that spot comfortable.
+
+Consider a Thundershirt or anxiety wrap. The gentle pressure can help some dogs stay calmer during storms. Introduce it on calm days first so they associate it with comfort, not just scary weather.
+
+Talk to your vet about anxiety options if your dog's storm fear is severe. There are safe, effective medications that can take the edge off during the worst storms without sedating your dog.
+
+And keep daycare in your routine. Dogs who are regularly exercised, socialized, and mentally stimulated handle stress better across the board — including storm stress. A well-exercised dog has a lower baseline anxiety level, which means they bounce back faster when storms do hit.
+
+## The Sun Is Out, Tulsa
+
+After the week we just had, today feels like a gift. Don't waste it. Get your dog outside, get them moving, and help them shake off the stress. They've been waiting for a day like this.
+
+And if you want to make it easy, we're here. Drop-offs start at 7 AM. Walk-ins welcome.
+
+539-867-3841 | metromutts.com
+    `.trim(),
+    category: "Dog Care",
+    author: "Metro Mutts Team",
+    date: "2026-04-20",
+    readTime: "6 min read",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/blog-storm-week-reset-apr20-JpWxhBS7peZjeDwURbtKrX.webp",
+    tags: ["storms", "anxiety", "tulsa", "weather", "daycare", "grooming", "stress", "spring"]
+  },
+  {
     slug: "ultimate-weekend-checklist-dog-parents-tulsa",
     title: "The Ultimate Weekend Checklist for Dog Parents in Tulsa",
     excerpt: "Friday is here and you're already wondering: what are we doing this weekend? From off-leash parks to dog-friendly patios and breweries, here's your complete guide to making the most of your weekend with your pup in Tulsa.",
