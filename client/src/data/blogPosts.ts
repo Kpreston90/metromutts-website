@@ -9,7 +9,7 @@ export interface BlogPost {
   title: string;
   excerpt: string;
   content: string;
-  category: "Dog Care" | "Daycare Tips" | "Health & Safety" | "Tulsa Pet Life" | "Grooming" | "Boarding";
+  category: "Dog Care" | "Daycare Tips" | "Health & Safety" | "Tulsa Pet Life" | "Grooming" | "Boarding" | "Training";
   author: string;
   date: string; // ISO date string
   readTime: string;
@@ -18,6 +18,59 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "training-tip-tuesday-teaching-a-rock-solid-leave-it",
+    title: "Training Tip Tuesday: Teaching a Rock-Solid \"Leave It\"",
+    excerpt: "Whether it's a chicken bone on the sidewalk or the cat's dinner on the counter, a reliable 'leave it' is one of the most important cues your dog can learn. Here's the step-by-step progression.",
+    content: `
+Happy Tuesday, friends! Welcome back to Training Tip Tuesday, where we break down one practical skill you can work on with your dog this week \u2014 no clicker-training PhD required.
+
+This week's tip is one of our absolute favorites because it's genuinely useful from day one: **"Leave it."** Whether it's a chicken bone on the sidewalk, a tempting pile of mulch, or the cat's dinner on the counter, a reliable "leave it" is one of the most important cues your dog can learn. And spring, when sidewalks suddenly fill up with dropped food, mystery crumbs, and interesting smells, is the perfect time to sharpen it.
+
+## Why "Leave It" Matters
+
+"Leave it" isn't just about manners \u2014 it's a safety cue. It tells your dog: don't pick that up, don't engage with that, look at me instead. A dog who disengages on cue is a dog who can't eat the thing that makes them sick, chase the squirrel into traffic, or lunge at the jogger rounding the corner. It's a skill that pays dividends for life.
+
+## The Basic Progression
+
+Start at home, somewhere quiet and boring. You'll need two types of treats: something fine (your dog's regular kibble works great) and something great (small pieces of chicken, cheese, or a high-value training treat).
+
+**Step 1: The closed fist.** Put a piece of kibble in your closed hand and offer it to your dog. They'll sniff, lick, maybe nibble. Wait. The moment they back off \u2014 even for a second \u2014 mark it with a "yes!" and reward from your other hand with the better treat. You're teaching them: ignoring this thing makes a better thing appear.
+
+**Step 2: Add the cue.** Once they're backing off reliably, start saying "leave it" just before you offer your fist. Same reward pattern. Repeat until the cue predicts the behavior.
+
+**Step 3: Open hand.** Now do it with an open palm. If they go for the treat, simply close your hand. If they hold back, mark and reward from the other hand. This step takes patience \u2014 don't rush it.
+
+**Step 4: On the floor.** Put the treat on the floor and cover it with your hand or foot if needed. Work up to leaving it uncovered.
+
+**Step 5: Real life.** Practice on walks with a dropped piece of kibble on the sidewalk. Then graduate to real temptations \u2014 a discarded napkin, a crumb trail near the coffee shop.
+
+## Tips from Our Trainers
+
+**Reward the disengagement, not the sniff.** The behavior you're paying for is looking away from the item and back at you. That's the gold.
+
+**Always reward with something better.** If you say "leave it" and take away a chicken wing, you can't hand back a boring kibble. Your dog will do the math, and they will not be impressed.
+
+**Keep sessions short.** Three to five minutes a few times a day beats one long grinding session.
+
+**Don't test too hard, too fast.** If you move to a distraction your dog isn't ready for, you're setting them up to fail. Back up a step and build confidence.
+
+## Your Homework This Week
+
+Two short sessions a day, in two different rooms of your house. By Friday, try it on one walk \u2014 with something easy, like a leaf on the sidewalk. Let us know how it goes!
+
+Stop by the store if you want treat recommendations for training \u2014 we've got a whole wall of options, and we love helping match treats to the job. And if you're working on something specific and feeling stuck, ask us. Chances are, one of us has been there.
+
+See you next Tuesday,
+The Metro Mutts Team
+    `.trim(),
+    category: "Training",
+    author: "Metro Mutts Team",
+    date: "2026-04-21",
+    readTime: "4 min read",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/relaxed-lab-daycare-5z5SfFzRwv2PjYFooWQhJ4.webp",
+    tags: ["training", "leave it", "dog training", "training tip tuesday", "positive reinforcement", "spring", "tulsa"]
+  },
   {
     slug: "your-dog-after-storm-week-how-to-help-them-reset",
     title: "Your Dog After Storm Week: How to Help Them Reset",
