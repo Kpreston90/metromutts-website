@@ -59,3 +59,4 @@
 - [x] Swap homepage hero background with new v3 facility photo
 - [x] Remove old hero loop video, use v3 facility photo as static hero background
 - [x] Create blog post for April 20: "Your Dog After Storm Week: How to Help Them Reset"
+- [x] Replace AI-generated boarding photo with realistic image matching actual boarding suites

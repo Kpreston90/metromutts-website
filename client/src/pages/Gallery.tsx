@@ -39,7 +39,7 @@ const images: GalleryImage[] = [
     span: "wide",
   },
   {
-    src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/gallery-boarding-suite-NGgLa8N2gBsHjTEPTDyyGJ.webp",
+    src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/boarding-suites-realistic-3pqn4KTRprXLFrJuY7zrDx.webp",
     alt: "Golden retriever relaxing in a cozy boarding suite",
     category: "Boarding",
     span: "tall",
@@ -71,8 +71,8 @@ const images: GalleryImage[] = [
     category: "Daycare",
   },
   {
-    src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/new-boarding-v2-CwC54XGXncXGgfsW4r5qkv.webp",
-    alt: "Dog settling into a comfortable boarding space",
+    src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/boarding-suites-realistic-3pqn4KTRprXLFrJuY7zrDx.webp",
+    alt: "Spacious boarding suites with cozy beds at Metro Mutts",
     category: "Boarding",
   },
   {
