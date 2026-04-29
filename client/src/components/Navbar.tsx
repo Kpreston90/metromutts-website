@@ -273,6 +273,14 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
+            <a
+              href="tel:5398673841"
+              className="flex items-center gap-1.5 text-sm font-medium text-[#345460]/70 hover:text-[#48D597] transition-colors mr-1"
+              onClick={() => trackPhoneCall("navbar_header")}
+            >
+              <Phone className="w-4 h-4" />
+              539-867-3841
+            </a>
             <Button
               variant="outline"
               className="border-[#48D597] text-[#48D597] hover:bg-[#48D597]/10 font-semibold"
@@ -294,13 +302,23 @@ export default function Navbar() {
             </Button>
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
-            onClick={() => setMobileOpen(!mobileOpen)}
-          >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile actions */}
+          <div className="lg:hidden flex items-center gap-1">
+            <a
+              href="tel:5398673841"
+              className="p-2 rounded-lg hover:bg-[#48D597]/10 transition-colors text-[#345460]"
+              aria-label="Call Metro Mutts"
+              onClick={() => trackPhoneCall("navbar_mobile_header")}
+            >
+              <Phone className="w-5 h-5" />
+            </a>
+            <button
+              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              onClick={() => setMobileOpen(!mobileOpen)}
+            >
+              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile menu */}

@@ -60,6 +60,6 @@
 - [x] Remove old hero loop video, use v3 facility photo as static hero background
 - [x] Create blog post for April 20: "Your Dog After Storm Week: How to Help Them Reset"
 - [x] Replace AI-generated boarding photo with realistic image matching actual boarding suites
-- [ ] Add clickable phone number with icon to site header/navbar
+- [x] Add clickable phone number with icon to site header/navbar
 - [x] Smart booking modal (Option C) - routes users by service, handles new vs existing customers, captures leads
 - [x] Fix booking modal not firing on mobile devices
