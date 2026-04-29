@@ -83,3 +83,6 @@
 - [x] Connect Gingr availability to Limited Spots Toast and booking modal
 - [x] Add live availability badge to Hero Section (real-time from Gingr)
 - [x] Add sticky availability bar to Daycare, Grooming, and Boarding service pages
+- [x] Update fallback display numbers to 33 daycare, 0 grooming, 12 boarding
+- [x] Fix "reservations is not iterable" error in Gingr API response handling
+- [x] Update gingr.test.ts to match new fallback values

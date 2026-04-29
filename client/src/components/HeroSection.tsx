@@ -153,7 +153,7 @@ function HeroAvailabilityBadge() {
   const summary = getSummary();
 
   // Show actual capacity as fallback when API hasn't loaded
-  const displayText = summary || "40 daycare \u00B7 6 grooming \u00B7 19 boarding spots open today";
+  const displayText = summary || "33 daycare \u00B7 12 boarding spots open today";
 
   return (
     <motion.div

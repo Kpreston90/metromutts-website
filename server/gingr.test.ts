@@ -34,9 +34,16 @@ describe("Gingr API Integration", () => {
     expect(result).toHaveProperty("daycare");
     expect(result).toHaveProperty("boarding");
     expect(result).toHaveProperty("grooming");
+    // Fallback uses current realistic numbers
     expect(result.daycare.capacity).toBe(40);
+    expect(result.daycare.spotsLeft).toBe(33);
+    expect(result.daycare.booked).toBe(7);
     expect(result.boarding.capacity).toBe(19);
+    expect(result.boarding.spotsLeft).toBe(12);
+    expect(result.boarding.booked).toBe(7);
     expect(result.grooming.capacity).toBe(6);
+    expect(result.grooming.spotsLeft).toBe(0);
+    expect(result.grooming.booked).toBe(6);
     expect(result.lastUpdated).toBeDefined();
   });
 
