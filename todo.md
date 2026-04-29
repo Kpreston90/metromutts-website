@@ -68,3 +68,4 @@
 - [x] Add more breathing room above service card headers in booking modal (badges need space)
 - [x] Social Proof Ticker - replace static promo banner with rotating social proof messages
 - [x] Limited Spots Toast - floating notification that appears after delay with urgency messaging
+- [x] Replace Warm Coral (#F97066) with Warm Gold (#EAB308) as secondary accent color

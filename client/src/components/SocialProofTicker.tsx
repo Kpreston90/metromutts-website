@@ -19,12 +19,12 @@ const messages: TickerMessage[] = [
     text: "Bella just booked her 3rd week of daycare",
   },
   {
-    icon: <Star className="w-3.5 h-3.5 text-[#F97066] fill-[#F97066]" />,
+    icon: <Star className="w-3.5 h-3.5 text-[#EAB308] fill-[#EAB308]" />,
     text: "New 5-star review:",
     highlight: '"My dog has never been happier!"',
   },
   {
-    icon: <Heart className="w-3.5 h-3.5 text-[#F97066]" />,
+    icon: <Heart className="w-3.5 h-3.5 text-[#EAB308]" />,
     text: "14 happy pups playing right now",
   },
   {
@@ -33,11 +33,11 @@ const messages: TickerMessage[] = [
     highlight: "Book today →",
   },
   {
-    icon: <Sparkles className="w-3.5 h-3.5 text-[#F97066]" />,
+    icon: <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />,
     text: "Jacque just finished a gorgeous doodle groom",
   },
   {
-    icon: <Star className="w-3.5 h-3.5 text-[#F97066] fill-[#F97066]" />,
+    icon: <Star className="w-3.5 h-3.5 text-[#EAB308] fill-[#EAB308]" />,
     text: "4.9★ on Google",
     highlight: "96 five-star reviews",
   },
@@ -89,7 +89,7 @@ export default function SocialProofTicker() {
         {current.highlight && (
           <>
             {" "}
-            <strong className={isBookable ? "text-[#F97066]" : "text-[#48D597]"}>
+            <strong className={isBookable ? "text-[#EAB308]" : "text-[#48D597]"}>
               {current.highlight}
             </strong>
           </>
@@ -138,7 +138,7 @@ export function SocialProofTickerMobile() {
             {current.highlight && (
               <>
                 {" "}
-                <strong className={isBookable ? "text-[#F97066]" : "text-[#48D597]"}>
+                <strong className={isBookable ? "text-[#EAB308]" : "text-[#48D597]"}>
                   {current.highlight}
                 </strong>
               </>

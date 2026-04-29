@@ -277,7 +277,7 @@ export default function Grooming() {
                 >
                   {i === 1 && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <span className="px-3 py-1 rounded-full bg-[#F97066] text-white text-xs font-bold">
+                      <span className="px-3 py-1 rounded-full bg-[#EAB308] text-white text-xs font-bold">
                         Most Popular
                       </span>
                     </div>
@@ -454,7 +454,7 @@ export default function Grooming() {
                   {Array.from({ length: t.rating }).map((_, j) => (
                     <Star
                       key={j}
-                      className="w-4 h-4 text-[#F97066]"
+                      className="w-4 h-4 text-[#EAB308]"
                       fill="currentColor"
                     />
                   ))}

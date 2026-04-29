@@ -52,7 +52,7 @@ const steps = [
     description:
       "Tell us about your pup — breed, age, weight, temperament, and any special needs. Upload vaccination records while you're at it.",
     detail: "Have your vet records handy",
-    color: "bg-[#F97066]/10 text-[#F97066]",
+    color: "bg-[#EAB308]/10 text-[#EAB308]",
   },
   {
     number: "03",

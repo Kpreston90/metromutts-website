@@ -286,8 +286,8 @@ function CustomerTypeStep({ service }: { service: Service }) {
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-[#F97066]/10 flex items-center justify-center group-hover:bg-[#F97066]/20 transition-colors">
-              <Sparkles className="w-6 h-6 text-[#F97066]" />
+            <div className="w-12 h-12 rounded-xl bg-[#EAB308]/10 flex items-center justify-center group-hover:bg-[#EAB308]/20 transition-colors">
+              <Sparkles className="w-6 h-6 text-[#EAB308]" />
             </div>
             <div>
               <h3 className="font-bold text-[#345460] mb-0.5">
@@ -298,16 +298,16 @@ function CustomerTypeStep({ service }: { service: Service }) {
               </p>
             </div>
           </div>
-          <ArrowRight className="w-5 h-5 text-[#345460]/30 group-hover:text-[#F97066] transition-colors" />
+          <ArrowRight className="w-5 h-5 text-[#345460]/30 group-hover:text-[#EAB308] transition-colors" />
         </div>
       </a>
 
       {/* First day free callout */}
       {service === "daycare" && (
-        <div className="bg-[#F97066]/5 border border-[#F97066]/20 rounded-xl p-4 flex items-center gap-3">
-          <Dog className="w-5 h-5 text-[#F97066] shrink-0" />
+        <div className="bg-[#EAB308]/5 border border-[#EAB308]/20 rounded-xl p-4 flex items-center gap-3">
+          <Dog className="w-5 h-5 text-[#EAB308] shrink-0" />
           <p className="text-sm text-[#345460]/70">
-            <span className="font-bold text-[#F97066]">First day is FREE</span>{" "}
+            <span className="font-bold text-[#EAB308]">First day is FREE</span>{" "}
             for all new daycare pups! Just sign up and schedule a meet & greet.
           </p>
         </div>

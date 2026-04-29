@@ -385,7 +385,7 @@ export default function Boarding() {
                   {Array.from({ length: t.rating }).map((_, j) => (
                     <Star
                       key={j}
-                      className="w-4 h-4 text-[#F97066]"
+                      className="w-4 h-4 text-[#EAB308]"
                       fill="currentColor"
                     />
                   ))}

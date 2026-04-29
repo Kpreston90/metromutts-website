@@ -85,14 +85,14 @@ export default function LimitedSpotsToast() {
         >
           <div className="bg-white rounded-2xl shadow-2xl shadow-black/15 border border-gray-100 overflow-hidden">
             {/* Coral accent top bar */}
-            <div className="h-1 bg-gradient-to-r from-[#F97066] to-[#F97066]/60" />
+            <div className="h-1 bg-gradient-to-r from-[#EAB308] to-[#EAB308]/60" />
 
             <div className="p-5">
               {/* Header */}
               <div className="flex items-start justify-between gap-3 mb-3">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-[#F97066]/10 flex items-center justify-center shrink-0">
-                    <Clock className="w-4 h-4 text-[#F97066]" />
+                  <div className="w-8 h-8 rounded-lg bg-[#EAB308]/10 flex items-center justify-center shrink-0">
+                    <Clock className="w-4 h-4 text-[#EAB308]" />
                   </div>
                   <p className="text-sm font-bold text-[#345460]">
                     Spots filling up
@@ -110,7 +110,7 @@ export default function LimitedSpotsToast() {
               {/* Message */}
               <p className="text-sm text-[#345460]/70 mb-4 leading-relaxed">
                 Only{" "}
-                <span className="font-bold text-[#F97066]">
+                <span className="font-bold text-[#EAB308]">
                   {message.spots} {message.service} spot
                   {message.spots > 1 ? "s" : ""}
                 </span>{" "}
