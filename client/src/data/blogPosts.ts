@@ -19,6 +19,103 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "enrichment-beyond-the-walk-7-ways-to-tire-out-your-dogs-brain",
+    title: "Enrichment Beyond the Walk: 7 Ways to Tire Out Your Dog's Brain",
+    excerpt: "You walked your dog this morning. Maybe even twice. And yet here they are at 2 p.m., staring at you with those eyes that say 'I'm bored and I'm about to make it your problem.' Here's the fix.",
+    content: `
+You walked your dog this morning. Maybe even twice. And yet here they are at 2 p.m., staring at you with those eyes that say \"I'm bored and I'm about to make it your problem.\" Sound familiar?
+
+Here's the thing most dog parents don't realize: physical exercise alone isn't enough. A tired body doesn't always mean a tired mind, and it's the mental energy that drives most of the behaviors we complain about \u2014 the chewing, the barking, the counter-surfing, the sock-stealing, the general chaos.
+
+Think about it this way: you could run on a treadmill for an hour and still come home and binge a crossword puzzle. Your brain needs its own workout. Dogs are exactly the same. The good news? Mental enrichment is easier than you think, and most of it doesn't require you to leave your living room.
+
+## What Is Enrichment, Exactly?
+
+Enrichment is anything that engages your dog's brain and lets them use their natural instincts \u2014 sniffing, foraging, problem-solving, exploring. It's the difference between your dog existing in your house and your dog thriving in it.
+
+A dog who gets regular mental stimulation is calmer, more confident, less destructive, and easier to train. It's not a luxury. It's a basic need that most pet parents accidentally skip because they think a walk covers it.
+
+## 1. The Sniff Walk (Not a Regular Walk)
+
+You probably already walk your dog. But are you letting them actually sniff? Most of us treat walks like a cardio session \u2014 keep moving, stay on pace, don't stop. But for your dog, the walk isn't about the miles. It's about the smells.
+
+A \"sniff walk\" means you let your dog lead with their nose. They stop to investigate a fire hydrant for 45 seconds? Let them. They want to sniff every blade of grass on that one patch of lawn? Go for it. You're not going anywhere fast, and that's the point.
+
+Fifteen minutes of dedicated sniffing tires a dog's brain more than a 30-minute power walk. Their nose is processing thousands of data points \u2014 who was here, when, what they ate, how they were feeling. It's like reading the neighborhood newspaper, and it's deeply satisfying for them.
+
+**Try this:** Pick one walk this week where you have zero agenda. Let your dog choose the route and stop whenever they want. Watch how relaxed they are afterward.
+
+## 2. Frozen Kongs and Lick Mats
+
+If you're not using frozen Kongs yet, this is your sign. A Kong stuffed with peanut butter (xylitol-free), mashed banana, plain yogurt, or wet dog food and frozen overnight will keep most dogs busy for 20-40 minutes. That's 20-40 minutes of focused, calm licking \u2014 which is actually a self-soothing behavior that lowers cortisol levels.
+
+Lick mats work on the same principle. Smear them with pumpkin puree, cream cheese, or baby food (check ingredients \u2014 no onion or garlic), freeze them, and hand them over. The repetitive licking motion is meditative for dogs. It's basically canine yoga.
+
+**Pro tip:** We carry a bunch of different Kong sizes and lick mats at the Metro Mutts store. If you're not sure which size or style to get, just ask \u2014 we'll match you up based on your dog's size and chewing style.
+
+## 3. Puzzle Feeders (Ditch the Bowl)
+
+Here's a radical idea: stop feeding your dog from a bowl. Your dog's ancestors spent hours every day working for their food \u2014 tracking, hunting, foraging. Then we domesticated them and started handing them a full meal in a stainless steel dish that takes 90 seconds to inhale. No wonder they're bored.
+
+Puzzle feeders make your dog work for their kibble. Start simple \u2014 a snuffle mat (a fabric mat with hiding spots for kibble) is a great entry point. Then graduate to puzzle toys with sliding compartments, flip lids, and spinning discs. There are levels of difficulty, so you can scale up as your dog gets smarter.
+
+Scatter feeding is the zero-cost version: just toss a handful of kibble across the yard or living room floor and let them hunt for it. It takes five seconds of your time and turns a 90-second meal into a 10-minute foraging session.
+
+**Try this:** Tomorrow morning, scatter your dog's breakfast across the backyard instead of putting it in a bowl. Watch them light up.
+
+## 4. Hide and Seek
+
+This one is stupidly simple and dogs lose their minds over it. Have someone hold your dog (or tell them to stay if they've got a solid stay). Go hide somewhere in the house. Then call them. The first few times, make it easy \u2014 behind the couch, in the next room. As they get better, go upstairs, hide in the closet, get behind the shower curtain.
+
+When they find you, make it a party. Treats, praise, excitement. You're tapping into their natural search-and-find instincts, and the reward of finding their favorite person makes it incredibly reinforcing.
+
+This is also a sneaky way to practice recall. Your dog is learning that coming when called leads to something amazing \u2014 finding you.
+
+## 5. The Muffin Tin Game
+
+Put treats in a few cups of a muffin tin and cover all the cups with tennis balls. Your dog has to figure out which cups have treats and how to remove the balls to get them. It's simple, it's cheap (you already own a muffin tin), and it's surprisingly challenging for most dogs.
+
+Once they master the basic version, make it harder: put treats in fewer cups so they have to search more, or use different objects to cover the cups.
+
+## 6. Training Sessions (Yes, Training Is Enrichment)
+
+Training isn't just about teaching commands \u2014 it's one of the best forms of mental enrichment there is. Five minutes of focused training (new tricks, shaping behaviors, impulse control games) will tire your dog out more than you'd expect.
+
+Some ideas beyond the basics:
+
+- **Touch:** Teach your dog to boop their nose to your palm on cue. Then use it to guide them onto platforms, through obstacles, or into position.
+- **Find it:** Hide a treat under one of three cups and let them figure out which one. Classic shell game.
+- **Middle:** Teach them to stand between your legs on cue. Useful, impressive, and it builds body awareness.
+- **Back up:** Teach them to walk backward. It's harder than it sounds and requires real concentration.
+
+Keep sessions to 3-5 minutes. End on a win. And use high-value treats \u2014 this is brain work, and it deserves good pay.
+
+## 7. Daycare: The Ultimate Enrichment Package
+
+We saved this one for last because it's honestly the most complete form of enrichment your dog can get. A full day at daycare combines physical exercise, social interaction, mental stimulation, and novel experiences \u2014 all the things that make a dog's brain happy.
+
+At Metro Mutts, your dog isn't just \"hanging out.\" They're navigating social dynamics with other dogs, reading body language, making play decisions, responding to staff cues, exploring different play areas, and processing a constant stream of new sights, sounds, and smells. That's a full-brain workout that no puzzle feeder can replicate.
+
+There's a reason daycare dogs come home and pass out on the couch. It's not just physical tiredness \u2014 it's the deep, satisfying exhaustion that comes from a brain that actually got to work all day.
+
+## The Bottom Line
+
+If your dog is driving you crazy at home despite getting \"enough\" exercise, the answer probably isn't more walks. It's more enrichment. Start with one or two ideas from this list and see what happens. Most people notice a difference within a few days \u2014 a calmer dog, less destructive behavior, and a lot more couch napping.
+
+And if you want the easy button? Drop them off at Metro Mutts. We'll handle the enrichment, the exercise, and the socialization. You pick up a happy, exhausted dog at the end of the day. Everybody wins.
+
+Stop by the store for puzzle feeders, Kongs, lick mats, and training treats \u2014 we'll help you pick the right stuff for your dog. And if you haven't tried daycare yet, your first day is free. Just saying.
+
+539-867-3841 | metromutts.com
+    `.trim(),
+    category: "Dog Care",
+    author: "Metro Mutts Team",
+    date: "2026-04-29",
+    readTime: "7 min read",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/enrichment-blog-hero-SCnLuB3HV9wkgtFsrHEMtw.webp",
+    tags: ["enrichment", "mental stimulation", "puzzle feeders", "kong", "dog care", "daycare", "tulsa", "dog enrichment"]
+  },
+  {
     slug: "training-tip-tuesday-teaching-a-rock-solid-leave-it",
     title: "Training Tip Tuesday: Teaching a Rock-Solid \"Leave It\"",
     excerpt: "Whether it's a chicken bone on the sidewalk or the cat's dinner on the counter, a reliable 'leave it' is one of the most important cues your dog can learn. Here's the step-by-step progression.",
