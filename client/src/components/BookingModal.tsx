@@ -215,8 +215,13 @@ function ServiceStep({
           <button
             key={service.id}
             onClick={() => onSelect(service.id)}
-            className="group relative text-left p-5 rounded-xl border border-gray-100 hover:border-[#48D597] hover:shadow-lg hover:shadow-[#48D597]/10 transition-all duration-200 hover:-translate-y-0.5"
+            className="group relative text-left pt-8 pb-5 px-5 rounded-xl border border-gray-100 hover:border-[#48D597] hover:shadow-lg hover:shadow-[#48D597]/10 transition-all duration-200 hover:-translate-y-0.5"
           >
+            {service.highlight && (
+              <span className="absolute top-2.5 right-3 text-[10px] font-bold text-[#48D597] bg-[#48D597]/10 px-2 py-0.5 rounded-full">
+                {service.highlight}
+              </span>
+            )}
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 rounded-lg bg-[#48D597]/10 flex items-center justify-center shrink-0 group-hover:bg-[#48D597]/20 transition-colors">
                 <Icon className="w-5 h-5 text-[#48D597]" />
@@ -230,11 +235,6 @@ function ServiceStep({
                 </p>
               </div>
             </div>
-            {service.highlight && (
-              <span className="absolute top-2 right-2 text-[10px] font-bold text-[#48D597] bg-[#48D597]/10 px-2 py-0.5 rounded-full">
-                {service.highlight}
-              </span>
-            )}
           </button>
         );
       })}

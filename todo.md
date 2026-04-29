@@ -65,3 +65,4 @@
 - [x] Fix booking modal not firing on mobile devices
 - [x] Fix page not scrolling to top on reload/navigation
 - [x] Implement Warm Coral (#F97066) as secondary accent color across the site
+- [x] Add more breathing room above service card headers in booking modal (badges need space)
