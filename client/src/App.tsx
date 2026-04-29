@@ -4,6 +4,7 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { BookingModalProvider } from "./contexts/BookingModalContext";
 import Home from "./pages/Home";
 import Pricing from "./pages/Pricing";
 import BookVisit from "./pages/BookVisit";
@@ -50,8 +51,10 @@ function App() {
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
-          <Toaster />
-          <Router />
+          <BookingModalProvider>
+            <Toaster />
+            <Router />
+          </BookingModalProvider>
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

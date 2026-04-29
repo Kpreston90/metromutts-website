@@ -9,6 +9,7 @@ import { Link, useParams } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getPostBySlug, getRecentPosts } from "@/data/blogPosts";
+import { useBookingModal } from "@/contexts/BookingModalContext";
 import {
   Clock,
   ArrowLeft,
@@ -112,6 +113,7 @@ function renderContent(content: string) {
 }
 
 export default function BlogPost() {
+  const { openBookingModal } = useBookingModal();
   const params = useParams<{ slug: string }>();
   const post = getPostBySlug(params.slug || "");
 
@@ -282,13 +284,13 @@ export default function BlogPost() {
               See our facility in person and meet the team. Your pup's new
               favorite place is waiting.
             </p>
-            <Link
-              href="/book"
+            <button
+              onClick={openBookingModal}
               className="inline-flex items-center gap-2 bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold px-8 py-3.5 rounded-xl shadow-xl shadow-black/15 transition-all hover:-translate-y-0.5"
             >
               Book a Free Visit
               <ArrowRight className="w-5 h-5" />
-            </Link>
+            </button>
           </div>
         </section>
       </main>

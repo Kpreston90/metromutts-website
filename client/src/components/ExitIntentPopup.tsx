@@ -11,6 +11,7 @@ import { Link } from "wouter";
 import { X, ArrowRight, Phone, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackPhoneCall } from "@/lib/analytics";
+import { useBookingModal } from "@/contexts/BookingModalContext";
 
 const DISMISS_KEY = "mm-exit-popup-dismissed";
 const DISMISS_DAYS = 7;
@@ -28,6 +29,7 @@ function PawIcon({ className = "" }: { className?: string }) {
 }
 
 export default function ExitIntentPopup() {
+  const { openBookingModal } = useBookingModal();
   const [show, setShow] = useState(false);
   const [hasTriggered, setHasTriggered] = useState(false);
 
@@ -143,13 +145,10 @@ export default function ExitIntentPopup() {
                   <Button
                     size="lg"
                     className="w-full bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold text-base h-13 shadow-lg shadow-[#48D597]/20"
-                    asChild
-                    onClick={dismiss}
+                    onClick={() => { dismiss(); openBookingModal(); }}
                   >
-                    <Link href="/book">
-                      Claim Your Free Day
-                      <ArrowRight className="w-5 h-5 ml-1" />
-                    </Link>
+                    Claim Your Free Day
+                    <ArrowRight className="w-5 h-5 ml-1" />
                   </Button>
 
                   <a

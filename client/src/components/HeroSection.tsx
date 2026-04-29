@@ -7,10 +7,12 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import { Link } from "wouter";
+import { useBookingModal } from "@/contexts/BookingModalContext";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/vet-referred-facility-v3-DCNGQE4pnuuDpVkZkPVYMQ.webp";
 
 export default function HeroSection() {
+  const { openBookingModal } = useBookingModal();
   return (
     <section className="relative overflow-hidden flex items-center">
       {/* Photo background */}
@@ -69,12 +71,10 @@ export default function HeroSection() {
             <Button
               size="lg"
               className="bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold text-base px-8 h-13 shadow-xl shadow-[#48D597]/25 transition-all hover:shadow-2xl hover:shadow-[#48D597]/30 hover:-translate-y-0.5"
-              asChild
+              onClick={openBookingModal}
             >
-              <Link href="/book">
-                Book a Free Visit
-                <ArrowRight className="w-5 h-5 ml-1" />
-              </Link>
+              Book a Free Visit
+              <ArrowRight className="w-5 h-5 ml-1" />
             </Button>
             <Button
               size="lg"

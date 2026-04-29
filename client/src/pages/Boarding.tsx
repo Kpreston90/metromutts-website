@@ -26,6 +26,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { trackPhoneCall, trackCTA } from "@/lib/analytics";
 import { useSectionTracking } from "@/hooks/usePageTracking";
+import { useBookingModal } from "@/contexts/BookingModalContext";
 
 const HERO_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/boarding-suites-staff-water_b9c9cf4a.png";
@@ -97,6 +98,7 @@ const testimonials = [
 ];
 
 export default function Boarding() {
+  const { openBookingModal } = useBookingModal();
   useSectionTracking(["boarding-hero", "boarding-included", "boarding-facility", "boarding-schedule", "boarding-testimonials", "boarding-pricing", "boarding-cta"]);
   return (
     <div className="min-h-screen bg-[oklch(0.98_0.003_90)]">
@@ -486,13 +488,13 @@ export default function Boarding() {
                 <Phone className="w-5 h-5" />
                 539-867-3841
               </a>
-              <Link
-                href="/book"
+              <button
+                onClick={openBookingModal}
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-white/25 text-white font-semibold text-lg hover:bg-white/10 transition-all"
               >
                 Schedule a Tour
                 <ArrowRight className="w-5 h-5" />
-              </Link>
+              </button>
             </div>
             <p className="mt-6 text-white/30 text-sm">
               1219 E 13th St, Tulsa, OK 74120 · Open Mon–Fri 7am–6pm, Sat–Sun 9am–5pm

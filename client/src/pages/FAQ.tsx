@@ -25,6 +25,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { trackPhoneCall } from "@/lib/analytics";
+import { useBookingModal } from "@/contexts/BookingModalContext";
 
 interface FAQItem {
   question: string;
@@ -244,6 +245,7 @@ function FAQAccordion({ item, isOpen, onToggle }: { item: FAQItem; isOpen: boole
 }
 
 export default function FAQ() {
+  const { openBookingModal } = useBookingModal();
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
 
   const toggleItem = (key: string) => {
@@ -403,12 +405,10 @@ export default function FAQ() {
                 <Button
                   size="lg"
                   className="bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold text-base px-8 h-13 shadow-xl shadow-[#48D597]/25"
-                  asChild
+                  onClick={openBookingModal}
                 >
-                  <Link href="/book">
-                    Book a Free Visit
-                    <ArrowRight className="w-5 h-5 ml-1" />
-                  </Link>
+                  Book a Free Visit
+                  <ArrowRight className="w-5 h-5 ml-1" />
                 </Button>
                 <Button
                   size="lg"

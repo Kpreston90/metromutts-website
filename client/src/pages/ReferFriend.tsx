@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
+import { useBookingModal } from "@/contexts/BookingModalContext";
 import {
   Gift,
   Users,
@@ -129,6 +130,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 export default function ReferFriend() {
+  const { openBookingModal } = useBookingModal();
   const [copied, setCopied] = useState(false);
   const copyLink = async () => {
     try {
@@ -451,12 +453,10 @@ export default function ReferFriend() {
                 size="lg"
                 variant="outline"
                 className="border-white/30 text-white hover:bg-white/10 font-semibold text-base px-8 h-13 bg-transparent"
-                asChild
+                onClick={openBookingModal}
               >
-                <Link href="/book">
-                  Book a Visit
-                  <ArrowRight className="w-5 h-5 ml-1" />
-                </Link>
+                Book a Visit
+                <ArrowRight className="w-5 h-5 ml-1" />
               </Button>
             </div>
           </motion.div>

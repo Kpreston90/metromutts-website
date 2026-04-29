@@ -10,6 +10,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { blogPosts, getAllCategories } from "@/data/blogPosts";
 import { Clock, ArrowRight, BookOpen, Search } from "lucide-react";
+import { useBookingModal } from "@/contexts/BookingModalContext";
 
 const categories = ["All", ...getAllCategories()];
 
@@ -19,6 +20,7 @@ const fadeUp = {
 };
 
 export default function Blog() {
+  const { openBookingModal } = useBookingModal();
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -230,13 +232,13 @@ export default function Blog() {
             <p className="text-white/60 text-lg mb-8 max-w-lg mx-auto">
               Book a free tour and see why Tulsa dog owners trust Metro Mutts.
             </p>
-            <Link
-              href="/book"
+            <button
+              onClick={openBookingModal}
               className="inline-flex items-center gap-2 bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold px-8 py-3.5 rounded-xl shadow-xl shadow-black/15 transition-all hover:-translate-y-0.5"
             >
               Book a Visit
               <ArrowRight className="w-5 h-5" />
-            </Link>
+            </button>
           </div>
         </section>
       </main>

@@ -23,6 +23,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { trackPhoneCall, trackCTA } from "@/lib/analytics";
 import { useSectionTracking } from "@/hooks/usePageTracking";
+import { useBookingModal } from "@/contexts/BookingModalContext";
 
 const HERO_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/services-hero-v2_cd3ef501.png";
@@ -144,6 +145,7 @@ const highlights = [
 ];
 
 export default function Services() {
+  const { openBookingModal } = useBookingModal();
   useSectionTracking([
     "services-hero",
     "services-overview",
@@ -509,13 +511,13 @@ export default function Services() {
                 <Phone className="w-5 h-5" />
                 539-867-3841
               </a>
-              <Link
-                href="/book"
+              <button
+                onClick={openBookingModal}
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-white/25 text-white font-semibold text-lg hover:bg-white/10 transition-all"
               >
                 Book a Free Visit
                 <ArrowRight className="w-5 h-5" />
-              </Link>
+              </button>
             </div>
             <p className="mt-6 text-white/30 text-sm">
               1219 E 13th St, Tulsa, OK 74120 · Open Mon–Fri 7am–6pm, Sat–Sun

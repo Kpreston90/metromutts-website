@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
+import { useBookingModal } from "@/contexts/BookingModalContext";
 import {
   Sun,
   Moon,
@@ -129,6 +130,7 @@ const sections = [
 ];
 
 export default function Pricing() {
+  const { openBookingModal } = useBookingModal();
   const [daycareSub, setDaycareSub] = useState<"full" | "half">("full");
   const [showAllPackages, setShowAllPackages] = useState(false);
   const [activeSection, setActiveSection] = useState("daycare");
@@ -948,12 +950,10 @@ export default function Pricing() {
                 <Button
                   size="lg"
                   className="bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold text-base px-8 h-13 shadow-xl shadow-black/15"
-                  asChild
+                  onClick={openBookingModal}
                 >
-                  <Link href="/book">
-                    Book a Visit
-                    <ArrowRight className="w-5 h-5 ml-1" />
-                  </Link>
+                  Book a Visit
+                  <ArrowRight className="w-5 h-5 ml-1" />
                 </Button>
                 <Button
                   size="lg"

@@ -7,6 +7,7 @@
 import { Facebook, Instagram } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { toast } from "sonner";
+import { useBookingModal } from "@/contexts/BookingModalContext";
 
 const LOGO_WHITE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/mm-logo-white_a0eef0bd.png";
 
@@ -33,8 +34,20 @@ const footerLinks = {
   ],
 };
 
-function FooterLink({ label, href }: { label: string; href: string }) {
+function FooterLink({ label, href, onClick }: { label: string; href: string; onClick?: () => void }) {
   const [location] = useLocation();
+
+  // Handle custom onClick (e.g., booking modal)
+  if (onClick) {
+    return (
+      <button
+        onClick={onClick}
+        className="text-sm text-white/60 hover:text-[#48D597] transition-colors"
+      >
+        {label}
+      </button>
+    );
+  }
 
   // Handle homepage anchor links (e.g., "/#about")
   if (href.startsWith("/#")) {
@@ -72,6 +85,7 @@ function FooterLink({ label, href }: { label: string; href: string }) {
 }
 
 export default function Footer() {
+  const { openBookingModal } = useBookingModal();
   return (
     <footer className="bg-[#345460] text-white">
       <div className="container py-16 lg:py-20">
@@ -119,7 +133,11 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <FooterLink label={link.label} href={link.href} />
+                    <FooterLink
+                      label={link.label}
+                      href={link.href}
+                      onClick={link.href === "/book" ? openBookingModal : undefined}
+                    />
                   </li>
                 ))}
               </ul>

@@ -24,6 +24,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { trackPhoneCall, trackCTA } from "@/lib/analytics";
+import { useBookingModal } from "@/contexts/BookingModalContext";
 
 /* ── CDN image URLs ─────────────────────────────────────── */
 const IMAGES = {
@@ -422,6 +423,7 @@ function TourNav() {
 
 /* ── Main Tour Page ─────────────────────────────────────── */
 export default function Tour() {
+  const { openBookingModal } = useBookingModal();
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
@@ -482,12 +484,10 @@ export default function Tour() {
             <Button
               size="lg"
               className="bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold text-base px-8 h-13 shadow-lg shadow-[#48D597]/20"
-              asChild
+              onClick={openBookingModal}
             >
-              <Link href="/book">
-                Book a Free In-Person Tour
-                <ArrowRight className="w-5 h-5 ml-1" />
-              </Link>
+              Book a Free In-Person Tour
+              <ArrowRight className="w-5 h-5 ml-1" />
             </Button>
             <Button
               size="lg"
@@ -647,13 +647,10 @@ export default function Tour() {
               <Button
                 size="lg"
                 className="bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold text-base px-8 h-13 shadow-lg shadow-[#48D597]/20"
-                asChild
-                onClick={() => trackCTA("tour_bottom_cta")}
+                onClick={() => { trackCTA("tour_bottom_cta"); openBookingModal(); }}
               >
-                <Link href="/book">
-                  Book a Free Visit
-                  <ArrowRight className="w-5 h-5 ml-1" />
-                </Link>
+                Book a Free Visit
+                <ArrowRight className="w-5 h-5 ml-1" />
               </Button>
               <Button
                 size="lg"

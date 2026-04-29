@@ -10,6 +10,7 @@ import { Menu, X, Phone, MapPin, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import { trackPhoneCall, trackNavClick } from "@/lib/analytics";
+import { useBookingModal } from "@/contexts/BookingModalContext";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/mm-logo-dark_455bad7b.png";
 
@@ -92,6 +93,7 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [promoDismissed, setPromoDismissed] = useState(true);
   const [location] = useLocation();
+  const { openBookingModal } = useBookingModal();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -151,12 +153,12 @@ export default function Navbar() {
                 First day <strong className="text-[#48D597]">FREE</strong> for new pups
               </span>
               <span className="text-white/25 mx-0.5">·</span>
-              <Link
-                href="/book"
+              <button
+                onClick={openBookingModal}
                 className="text-xs font-bold tracking-wider uppercase text-[#48D597] hover:text-white transition-colors"
               >
                 Claim →
-              </Link>
+              </button>
               <button
                 onClick={dismissPromo}
                 className="ml-1 p-0.5 rounded-full text-white/30 hover:text-white hover:bg-white/10 transition-all"
@@ -184,12 +186,12 @@ export default function Navbar() {
               <PawIcon className="w-3.5 h-3.5 text-[#48D597] shrink-0" />
               <span className="text-[11px] leading-tight">
                 <strong className="text-[#48D597]">FREE</strong> first day for new pups!{" "}
-                <Link
-                  href="/book"
+                <button
+                  onClick={openBookingModal}
                   className="font-bold text-[#48D597] underline underline-offset-2"
                 >
                   Claim&nbsp;→
-                </Link>
+                </button>
               </span>
             </div>
           </div>
@@ -286,11 +288,9 @@ export default function Navbar() {
             </Button>
             <Button
               className="bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold shadow-lg shadow-[#48D597]/20"
-              asChild
+              onClick={() => openBookingModal()}
             >
-              <Link href="/book">
-                Book a Visit
-              </Link>
+              Book a Visit
             </Button>
           </div>
 
@@ -356,11 +356,9 @@ export default function Navbar() {
               <div className="pt-3 flex flex-col gap-2">
                 <Button
                   className="w-full bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold"
-                  asChild
+                  onClick={() => { setMobileOpen(false); openBookingModal(); }}
                 >
-                  <Link href="/book" onClick={() => setMobileOpen(false)}>
-                    Book a Visit
-                  </Link>
+                  Book a Visit
                 </Button>
                 <a href="tel:5398673841" className="flex items-center justify-center gap-2 py-2 text-sm font-medium text-[#345460]/70" onClick={() => trackPhoneCall("navbar_mobile")}>
                   <Phone className="w-4 h-4" /> 539-867-3841

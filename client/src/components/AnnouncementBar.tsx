@@ -6,6 +6,7 @@
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { Link } from "wouter";
+import { useBookingModal } from "@/contexts/BookingModalContext";
 
 const STORAGE_KEY = "mm-promo-dismissed";
 const PROMO_ID = "spring-2026";
@@ -28,6 +29,7 @@ function PawIcon({ className = "" }: { className?: string }) {
 }
 
 export default function AnnouncementBar() {
+  const { openBookingModal } = useBookingModal();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -61,12 +63,12 @@ export default function AnnouncementBar() {
             <strong className="text-[#48D597]">FREE</strong> for new pups
           </span>
           <span className="text-white/30">|</span>
-          <Link
-            href="/book"
+          <button
+            onClick={openBookingModal}
             className="text-xs font-bold tracking-wider uppercase text-[#48D597] hover:text-white transition-colors"
           >
             Claim Offer &rarr;
-          </Link>
+          </button>
         </div>
 
         {/* Mobile: compact stacked layout */}
@@ -74,12 +76,12 @@ export default function AnnouncementBar() {
           <PawIcon className="w-3.5 h-3.5 text-[#48D597] shrink-0" />
           <span className="text-[11px] leading-tight">
             <strong className="text-[#48D597]">FREE</strong> first day for new pups!{" "}
-            <Link
-              href="/book"
+            <button
+              onClick={openBookingModal}
               className="font-bold text-[#48D597] underline underline-offset-2"
             >
               Claim&nbsp;&rarr;
-            </Link>
+            </button>
           </span>
         </div>
       </div>

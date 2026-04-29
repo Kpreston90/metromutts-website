@@ -8,8 +8,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
 import { Link } from "wouter";
 import { trackPhoneCall, trackCTA } from "@/lib/analytics";
+import { useBookingModal } from "@/contexts/BookingModalContext";
 
 export default function CTASection() {
+  const { openBookingModal } = useBookingModal();
   return (
     <section className="relative overflow-hidden">
       <div className="bg-gradient-to-br from-[#345460] via-[#3a5f6d] to-[#345460] py-20 lg:py-24">
@@ -54,12 +56,10 @@ export default function CTASection() {
               <Button
                 size="lg"
                 className="bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold text-base px-8 h-13 shadow-xl shadow-black/15 transition-all hover:-translate-y-0.5"
-                asChild
+                onClick={openBookingModal}
               >
-                <Link href="/book">
-                  Schedule a Free Tour
-                  <ArrowRight className="w-5 h-5 ml-1" />
-                </Link>
+                Schedule a Free Tour
+                <ArrowRight className="w-5 h-5 ml-1" />
               </Button>
               <Button
                 size="lg"

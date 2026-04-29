@@ -9,6 +9,7 @@ import { X, ChevronLeft, ChevronRight, Camera } from "lucide-react";
 import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useBookingModal } from "@/contexts/BookingModalContext";
 
 const categories = ["All", "Daycare", "Boarding", "Grooming", "Outdoor", "Facility"] as const;
 type Category = (typeof categories)[number];
@@ -89,6 +90,7 @@ const images: GalleryImage[] = [
 ];
 
 export default function Gallery() {
+  const { openBookingModal } = useBookingModal();
   const [filter, setFilter] = useState<Category>("All");
   const [lightbox, setLightbox] = useState<number | null>(null);
 
@@ -228,12 +230,12 @@ export default function Gallery() {
           <p className="text-white/60 mb-8 max-w-md mx-auto">
             Schedule a free tour and let your pup check out the play areas firsthand.
           </p>
-          <Link
-            href="/book"
+          <button
+            onClick={openBookingModal}
             className="inline-flex items-center gap-2 px-8 py-4 bg-[#48D597] text-white font-bold rounded-full hover:bg-[#3bc485] transition-colors shadow-lg shadow-[#48D597]/25"
           >
             Book a Free Visit
-          </Link>
+          </button>
         </div>
       </section>
 

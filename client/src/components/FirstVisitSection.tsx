@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, Phone, CalendarCheck, ClipboardCheck, Users, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useBookingModal } from "@/contexts/BookingModalContext";
 import { trackPhoneCall } from "@/lib/analytics";
 
 const steps = [
@@ -42,6 +43,7 @@ const steps = [
 ];
 
 export default function FirstVisitSection() {
+  const { openBookingModal } = useBookingModal();
   return (
     <section className="pt-8 pb-8 lg:pt-10 lg:pb-10 bg-white relative overflow-hidden">
       {/* Subtle background accent */}
@@ -135,12 +137,10 @@ export default function FirstVisitSection() {
           <Button
             size="lg"
             className="bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold text-base px-8 h-13 shadow-lg shadow-[#48D597]/20"
-            asChild
+            onClick={openBookingModal}
           >
-            <Link href="/book">
-              Schedule Your Free Day
-              <ArrowRight className="w-5 h-5 ml-1" />
-            </Link>
+            Schedule Your Free Day
+            <ArrowRight className="w-5 h-5 ml-1" />
           </Button>
           <Button
             size="lg"
