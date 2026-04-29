@@ -152,8 +152,8 @@ function HeroAvailabilityBadge() {
 
   const summary = getSummary();
 
-  // Show a static fallback if API hasn't loaded yet
-  const displayText = summary || "Spots available today \u2014 book your free visit";
+  // Show actual capacity as fallback when API hasn't loaded
+  const displayText = summary || "40 daycare \u00B7 6 grooming \u00B7 19 boarding spots open today";
 
   return (
     <motion.div

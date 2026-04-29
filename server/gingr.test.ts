@@ -34,9 +34,9 @@ describe("Gingr API Integration", () => {
     expect(result).toHaveProperty("daycare");
     expect(result).toHaveProperty("boarding");
     expect(result).toHaveProperty("grooming");
-    expect(result.daycare.capacity).toBe(50);
-    expect(result.boarding.capacity).toBe(20);
-    expect(result.grooming.capacity).toBe(8);
+    expect(result.daycare.capacity).toBe(40);
+    expect(result.boarding.capacity).toBe(19);
+    expect(result.grooming.capacity).toBe(6);
     expect(result.lastUpdated).toBeDefined();
   });
 
@@ -58,11 +58,11 @@ describe("Gingr API Integration", () => {
     const result = await getAvailability("2026-04-30");
 
     expect(result.daycare.booked).toBe(2);
-    expect(result.daycare.spotsLeft).toBe(48);
+    expect(result.daycare.spotsLeft).toBe(38);
     expect(result.boarding.booked).toBe(1);
-    expect(result.boarding.spotsLeft).toBe(19);
+    expect(result.boarding.spotsLeft).toBe(18);
     expect(result.grooming.booked).toBe(2);
-    expect(result.grooming.spotsLeft).toBe(6);
+    expect(result.grooming.spotsLeft).toBe(4);
   });
 
   it("getTodayAndTomorrowAvailability returns both days", async () => {

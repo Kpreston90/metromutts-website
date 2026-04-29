@@ -35,6 +35,12 @@ export default function ServiceAvailabilityBar({ service }: ServiceAvailabilityB
     boarding: "Boarding",
   };
 
+  const serviceCapacity: Record<ServiceType, number> = {
+    daycare: 40,
+    grooming: 6,
+    boarding: 19,
+  };
+
   // Determine urgency level
   const getUrgencyLevel = (spotsLeft: number) => {
     if (spotsLeft <= 2) return "critical";
@@ -75,7 +81,7 @@ export default function ServiceAvailabilityBar({ service }: ServiceAvailabilityB
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#48D597]"></span>
             </span>
             <span className="text-sm font-medium text-[#345460]">
-              {serviceLabels[service]} spots available today
+              {serviceCapacity[service]} {serviceLabels[service].toLowerCase()} spots open today
             </span>
           </div>
           <button

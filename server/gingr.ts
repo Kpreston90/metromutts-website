@@ -43,11 +43,11 @@ export interface AvailabilityData {
   lastUpdated: string;
 }
 
-// Default capacities — these should be updated to match actual facility limits
+// Actual Metro Mutts facility capacities
 const CAPACITY = {
-  daycare: 50, // max dogs per day
-  boarding: 20, // max overnight suites
-  grooming: 8, // max grooming appointments per day
+  daycare: 40, // max dogs per day
+  boarding: 19, // max overnight suites
+  grooming: 6, // max grooming appointments per day
 };
 
 /**
