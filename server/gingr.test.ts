@@ -42,8 +42,8 @@ describe("Gingr API Integration", () => {
     expect(result.boarding.spotsLeft).toBe(12);
     expect(result.boarding.booked).toBe(7);
     expect(result.grooming.capacity).toBe(6);
-    expect(result.grooming.spotsLeft).toBe(0);
-    expect(result.grooming.booked).toBe(6);
+    expect(result.grooming.spotsLeft).toBe(1);
+    expect(result.grooming.booked).toBe(5);
     expect(result.lastUpdated).toBeDefined();
   });
 

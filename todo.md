@@ -86,3 +86,10 @@
 - [x] Update fallback display numbers to 33 daycare, 0 grooming, 12 boarding
 - [x] Fix "reservations is not iterable" error in Gingr API response handling
 - [x] Update gingr.test.ts to match new fallback values
+- [x] Update grooming fallback from 0 to 1 spot left
+- [x] Build promo code system (database schema, server procedures, booking modal UI, admin panel)
+- [x] Promo code: database schema with codes, offers, expiration, usage limits
+- [x] Promo code: tRPC procedures for CRUD and redemption/validation
+- [x] Promo code: entry field in booking modal flow
+- [x] Promo code: admin panel for creating/managing codes and viewing redemptions
+- [x] Promo code: tests for validation and redemption logic

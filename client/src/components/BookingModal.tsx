@@ -2,6 +2,7 @@
  * Metro Mutts — Smart Booking Modal (Option C)
  * Routes users by service type, handles new vs existing customers,
  * captures email leads before redirecting to Gingr.
+ * Includes promo code validation & redemption flow.
  * Brand: Green #48D597, Dark #345460, Cream #FFFFEC
  */
 import { useState } from "react";
@@ -20,6 +21,9 @@ import {
   ExternalLink,
   Sparkles,
   CheckCircle2,
+  Tag,
+  Loader2,
+  Gift,
 } from "lucide-react";
 
 const GINGR_LOGIN =
@@ -32,7 +36,7 @@ interface BookingModalProps {
   onClose: () => void;
 }
 
-type Step = "service" | "customer-type" | "redirect";
+type Step = "service" | "customer-type" | "promo-redeem" | "redirect";
 type Service = "daycare" | "grooming" | "boarding" | "store";
 
 const services = [
@@ -69,6 +73,13 @@ const services = [
 export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   const [step, setStep] = useState<Step>("service");
   const [selectedService, setSelectedService] = useState<Service | null>(null);
+  const [promoValidation, setPromoValidation] = useState<{
+    valid: boolean;
+    description?: string;
+    discountType?: string;
+    discountValue?: number;
+  } | null>(null);
+  const [promoCode, setPromoCode] = useState("");
 
   const handleClose = () => {
     onClose();
@@ -76,6 +87,8 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
     setTimeout(() => {
       setStep("service");
       setSelectedService(null);
+      setPromoValidation(null);
+      setPromoCode("");
     }, 300);
   };
 
@@ -93,9 +106,24 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
     if (step === "customer-type") {
       setStep("service");
       setSelectedService(null);
+      setPromoValidation(null);
+      setPromoCode("");
+    } else if (step === "promo-redeem") {
+      setStep("customer-type");
     } else if (step === "redirect") {
       setStep("customer-type");
     }
+  };
+
+  const handlePromoValidated = (validation: {
+    valid: boolean;
+    description?: string;
+    discountType?: string;
+    discountValue?: number;
+  }, code: string) => {
+    setPromoValidation(validation);
+    setPromoCode(code);
+    setStep("promo-redeem");
   };
 
   return (
@@ -121,11 +149,11 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
             className="fixed inset-0 z-[101] flex items-center justify-center p-4"
           >
             <div
-              className="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden relative"
+              className="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden relative max-h-[90vh] flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className="bg-[#345460] px-6 py-5 flex items-center justify-between">
+              <div className="bg-[#345460] px-6 py-5 flex items-center justify-between shrink-0">
                 <div className="flex items-center gap-3">
                   {step !== "service" && (
                     <button
@@ -139,12 +167,14 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     <h2 className="text-white font-bold text-lg">
                       {step === "service" && "What can we help with?"}
                       {step === "customer-type" && "Have you been here before?"}
+                      {step === "promo-redeem" && "Claim Your Offer"}
                       {step === "redirect" && getRedirectTitle(selectedService)}
                     </h2>
                     <p className="text-white/60 text-sm">
                       {step === "service" && "Choose a service to get started"}
                       {step === "customer-type" &&
                         "This helps us send you to the right place"}
+                      {step === "promo-redeem" && "Enter your details to redeem"}
                       {step === "redirect" && "You're almost there!"}
                     </p>
                   </div>
@@ -158,7 +188,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               </div>
 
               {/* Content */}
-              <div className="p-6">
+              <div className="p-6 overflow-y-auto">
                 <AnimatePresence mode="wait">
                   {step === "service" && (
                     <ServiceStep
@@ -170,6 +200,16 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     <CustomerTypeStep
                       key="customer-type"
                       service={selectedService!}
+                      onPromoValidated={handlePromoValidated}
+                    />
+                  )}
+                  {step === "promo-redeem" && (
+                    <PromoRedeemStep
+                      key="promo-redeem"
+                      service={selectedService!}
+                      promoCode={promoCode}
+                      promoValidation={promoValidation!}
+                      onSuccess={handleClose}
                     />
                   )}
                   {step === "redirect" && selectedService === "store" && (
@@ -179,7 +219,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               </div>
 
               {/* Footer */}
-              <div className="px-6 py-4 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
+              <div className="px-6 py-4 bg-gray-50 border-t border-gray-100 flex items-center justify-between shrink-0">
                 <a
                   href="tel:5398673841"
                   className="text-[#345460]/60 hover:text-[#345460] text-sm flex items-center gap-1.5 transition-colors"
@@ -271,8 +311,53 @@ function ServiceStep({
   );
 }
 
-/* ─── Step 2: New vs Existing Customer ─── */
-function CustomerTypeStep({ service }: { service: Service }) {
+/* ─── Step 2: New vs Existing Customer + Promo Code ─── */
+function CustomerTypeStep({
+  service,
+  onPromoValidated,
+}: {
+  service: Service;
+  onPromoValidated: (validation: {
+    valid: boolean;
+    description?: string;
+    discountType?: string;
+    discountValue?: number;
+  }, code: string) => void;
+}) {
+  const [showPromoInput, setShowPromoInput] = useState(false);
+  const [promoInput, setPromoInput] = useState("");
+  const [promoError, setPromoError] = useState<string | null>(null);
+  const [isValidating, setIsValidating] = useState(false);
+
+  const validateMutation = trpc.promo.validate.useQuery(
+    { code: promoInput.trim(), serviceType: service as "daycare" | "boarding" | "grooming" },
+    { enabled: false }
+  );
+
+  const handleValidatePromo = async () => {
+    if (!promoInput.trim()) return;
+    setPromoError(null);
+    setIsValidating(true);
+
+    try {
+      const result = await validateMutation.refetch();
+      if (result.data?.valid) {
+        onPromoValidated({
+          valid: true,
+          description: result.data.description,
+          discountType: result.data.discountType,
+          discountValue: result.data.discountValue,
+        }, promoInput.trim());
+      } else {
+        setPromoError(result.data?.error || "Invalid promo code");
+      }
+    } catch {
+      setPromoError("Unable to validate code. Please try again.");
+    } finally {
+      setIsValidating(false);
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -10 }}
@@ -331,7 +416,53 @@ function CustomerTypeStep({ service }: { service: Service }) {
         </div>
       </a>
 
-      {/* First day free callout */}
+      {/* Promo Code Section */}
+      <div className="border-t border-gray-100 pt-4">
+        {!showPromoInput ? (
+          <button
+            onClick={() => setShowPromoInput(true)}
+            className="flex items-center gap-2 text-sm text-[#345460]/60 hover:text-[#48D597] transition-colors"
+          >
+            <Tag className="w-4 h-4" />
+            Have a promo code?
+          </button>
+        ) : (
+          <div className="space-y-2">
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={promoInput}
+                onChange={(e) => {
+                  setPromoInput(e.target.value.toUpperCase());
+                  setPromoError(null);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") handleValidatePromo();
+                }}
+                placeholder="Enter code (e.g., FIRSTNIGHT)"
+                className="flex-1 px-4 py-2.5 rounded-lg border border-gray-200 text-sm text-[#345460] placeholder:text-[#345460]/40 focus:outline-none focus:ring-2 focus:ring-[#48D597]/50 focus:border-[#48D597] uppercase"
+                autoFocus
+              />
+              <Button
+                onClick={handleValidatePromo}
+                disabled={!promoInput.trim() || isValidating}
+                className="bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-semibold px-4"
+              >
+                {isValidating ? (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                ) : (
+                  "Apply"
+                )}
+              </Button>
+            </div>
+            {promoError && (
+              <p className="text-xs text-red-500 pl-1">{promoError}</p>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Service-specific callouts */}
       {service === "daycare" && (
         <div className="bg-[#FB923C]/5 border border-[#FB923C]/20 rounded-xl p-4 flex items-center gap-3">
           <Dog className="w-5 h-5 text-[#FB923C] shrink-0" />
@@ -363,6 +494,205 @@ function CustomerTypeStep({ service }: { service: Service }) {
           </p>
         </div>
       )}
+    </motion.div>
+  );
+}
+
+/* ─── Step 3: Promo Code Redemption Form ─── */
+function PromoRedeemStep({
+  service,
+  promoCode,
+  promoValidation,
+  onSuccess,
+}: {
+  service: Service;
+  promoCode: string;
+  promoValidation: {
+    valid: boolean;
+    description?: string;
+    discountType?: string;
+    discountValue?: number;
+  };
+  onSuccess: () => void;
+}) {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [redeemError, setRedeemError] = useState<string | null>(null);
+  const [redeemed, setRedeemed] = useState(false);
+
+  const redeemMutation = trpc.promo.redeem.useMutation();
+
+  const getOfferLabel = () => {
+    if (!promoValidation) return "";
+    const { discountType, discountValue } = promoValidation;
+    if (discountType === "free_night") return `${discountValue} Free Night${(discountValue || 1) > 1 ? "s" : ""}`;
+    if (discountType === "percentage") return `${discountValue}% Off`;
+    if (discountType === "fixed_amount") return `$${discountValue} Off`;
+    return promoValidation.description || "Special Offer";
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim() || !email.trim()) return;
+
+    setIsSubmitting(true);
+    setRedeemError(null);
+
+    try {
+      const result = await redeemMutation.mutateAsync({
+        code: promoCode,
+        customerName: name.trim(),
+        customerEmail: email.trim().toLowerCase(),
+        customerPhone: phone.trim() || undefined,
+        serviceType: service as "daycare" | "boarding" | "grooming",
+      });
+
+      if (result.success) {
+        setRedeemed(true);
+      } else {
+        setRedeemError(result.error || "Unable to redeem code. Please try again.");
+      }
+    } catch {
+      setRedeemError("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  if (redeemed) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.3 }}
+        className="text-center py-6 space-y-4"
+      >
+        <div className="w-16 h-16 rounded-full bg-[#48D597]/10 flex items-center justify-center mx-auto">
+          <Gift className="w-8 h-8 text-[#48D597]" />
+        </div>
+        <div>
+          <h3 className="text-xl font-bold text-[#345460] mb-1">Offer Claimed!</h3>
+          <p className="text-[#345460]/60 text-sm">
+            Your <span className="font-semibold text-[#48D597]">{getOfferLabel()}</span> has been saved.
+          </p>
+        </div>
+        <div className="bg-[#48D597]/5 border border-[#48D597]/20 rounded-xl p-4 text-sm text-[#345460]/70">
+          <p className="font-medium text-[#345460] mb-1">What's next?</p>
+          <p>
+            Book your {service} through our portal and mention code{" "}
+            <span className="font-bold text-[#48D597]">{promoCode}</span> at check-in. Our team will apply your discount!
+          </p>
+        </div>
+        <div className="flex gap-3 pt-2">
+          <Button
+            className="flex-1 bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold h-11"
+            asChild
+          >
+            <a href={GINGR_SIGNUP} target="_blank" rel="noopener noreferrer">
+              Book Now <ExternalLink className="w-4 h-4 ml-2" />
+            </a>
+          </Button>
+          <Button
+            variant="outline"
+            className="flex-1 border-[#345460]/20 text-[#345460] font-semibold h-11"
+            onClick={onSuccess}
+          >
+            Done
+          </Button>
+        </div>
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -10 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 10 }}
+      transition={{ duration: 0.2 }}
+      className="space-y-4"
+    >
+      {/* Offer preview */}
+      <div className="bg-gradient-to-r from-[#48D597]/10 to-[#FB923C]/10 border border-[#48D597]/20 rounded-xl p-4 flex items-center gap-3">
+        <div className="w-10 h-10 rounded-lg bg-[#48D597]/20 flex items-center justify-center shrink-0">
+          <Tag className="w-5 h-5 text-[#48D597]" />
+        </div>
+        <div>
+          <p className="font-bold text-[#345460] text-sm">{getOfferLabel()}</p>
+          <p className="text-xs text-[#345460]/60">{promoValidation.description}</p>
+          <p className="text-[10px] text-[#48D597] font-semibold mt-0.5">Code: {promoCode}</p>
+        </div>
+      </div>
+
+      {/* Redemption form */}
+      <form onSubmit={handleSubmit} className="space-y-3">
+        <div>
+          <label className="text-xs font-medium text-[#345460]/70 mb-1 block">
+            Your Name *
+          </label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="First & last name"
+            required
+            className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm text-[#345460] placeholder:text-[#345460]/40 focus:outline-none focus:ring-2 focus:ring-[#48D597]/50 focus:border-[#48D597]"
+          />
+        </div>
+        <div>
+          <label className="text-xs font-medium text-[#345460]/70 mb-1 block">
+            Email *
+          </label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="your@email.com"
+            required
+            className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm text-[#345460] placeholder:text-[#345460]/40 focus:outline-none focus:ring-2 focus:ring-[#48D597]/50 focus:border-[#48D597]"
+          />
+        </div>
+        <div>
+          <label className="text-xs font-medium text-[#345460]/70 mb-1 block">
+            Phone (optional)
+          </label>
+          <input
+            type="tel"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder="(555) 123-4567"
+            className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm text-[#345460] placeholder:text-[#345460]/40 focus:outline-none focus:ring-2 focus:ring-[#48D597]/50 focus:border-[#48D597]"
+          />
+        </div>
+
+        {redeemError && (
+          <p className="text-xs text-red-500 pl-1">{redeemError}</p>
+        )}
+
+        <Button
+          type="submit"
+          disabled={!name.trim() || !email.trim() || isSubmitting}
+          className="w-full bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold h-11 mt-2"
+        >
+          {isSubmitting ? (
+            <>
+              <Loader2 className="w-4 h-4 animate-spin mr-2" />
+              Claiming...
+            </>
+          ) : (
+            <>
+              <Gift className="w-4 h-4 mr-2" />
+              Claim Offer
+            </>
+          )}
+        </Button>
+      </form>
+
+      <p className="text-[10px] text-[#345460]/40 text-center">
+        We'll save your offer. Book through Gingr and mention the code at check-in.
+      </p>
     </motion.div>
   );
 }

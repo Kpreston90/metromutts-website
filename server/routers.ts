@@ -1,8 +1,21 @@
 import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
-import { publicProcedure, router } from "./_core/trpc";
+import { publicProcedure, router, adminProcedure } from "./_core/trpc";
 import { getTodayAndTomorrowAvailability, getAvailability } from "./gingr";
+import { notifyOwner } from "./_core/notification";
+import {
+  getAllPromoCodes,
+  getPromoCodeByCode,
+  createPromoCode,
+  updatePromoCode,
+  deletePromoCode,
+  validatePromoCode,
+  redeemPromoCode,
+  getRedemptions,
+  updateRedemptionStatus,
+  hasCustomerRedeemedCode,
+} from "./db";
 import { z } from "zod";
 
 export const appRouter = router({
@@ -34,6 +47,183 @@ export const appRouter = router({
       .input(z.object({ date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/) }))
       .query(async ({ input }) => {
         return getAvailability(input.date);
+      }),
+  }),
+
+  promo: router({
+    /**
+     * Validate a promo code (public) — customers enter a code and see if it's valid
+     */
+    validate: publicProcedure
+      .input(z.object({
+        code: z.string().min(1).max(50),
+        serviceType: z.enum(["daycare", "boarding", "grooming"]),
+      }))
+      .query(async ({ input }) => {
+        const result = await validatePromoCode(input.code, input.serviceType);
+        if (!result.valid) {
+          return { valid: false as const, error: result.error };
+        }
+        return {
+          valid: true as const,
+          description: result.promo!.description,
+          discountType: result.promo!.discountType,
+          discountValue: result.promo!.discountValue,
+          newCustomersOnly: result.promo!.newCustomersOnly === "true",
+        };
+      }),
+
+    /**
+     * Redeem a promo code (public) — customer submits their info to claim the offer
+     */
+    redeem: publicProcedure
+      .input(z.object({
+        code: z.string().min(1).max(50),
+        customerName: z.string().min(1).max(255),
+        customerEmail: z.string().email().max(320),
+        customerPhone: z.string().max(20).optional(),
+        serviceType: z.enum(["daycare", "boarding", "grooming"]),
+      }))
+      .mutation(async ({ input }) => {
+        // Validate the code first
+        const validation = await validatePromoCode(input.code, input.serviceType);
+        if (!validation.valid) {
+          return { success: false as const, error: validation.error };
+        }
+
+        const promo = validation.promo!;
+
+        // Check if customer already redeemed this code
+        const alreadyRedeemed = await hasCustomerRedeemedCode(promo.id, input.customerEmail);
+        if (alreadyRedeemed) {
+          return { success: false as const, error: "You have already used this promo code" };
+        }
+
+        // Record the redemption
+        await redeemPromoCode({
+          promoCodeId: promo.id,
+          customerName: input.customerName,
+          customerEmail: input.customerEmail,
+          customerPhone: input.customerPhone,
+          serviceType: input.serviceType,
+        });
+
+        // Notify owner about the redemption
+        await notifyOwner({
+          title: `Promo Code Redeemed: ${promo.code}`,
+          content: `${input.customerName} (${input.customerEmail}) redeemed promo code "${promo.code}" for ${input.serviceType}. Offer: ${promo.description}. Please apply the discount manually in Gingr when they check in.`,
+        }).catch(() => {}); // Don't fail if notification fails
+
+        return {
+          success: true as const,
+          description: promo.description,
+          discountType: promo.discountType,
+          discountValue: promo.discountValue,
+        };
+      }),
+
+    // ===== Admin procedures =====
+
+    /**
+     * List all promo codes (admin)
+     */
+    list: adminProcedure.query(async () => {
+      return getAllPromoCodes();
+    }),
+
+    /**
+     * Create a new promo code (admin)
+     */
+    create: adminProcedure
+      .input(z.object({
+        code: z.string().min(1).max(50),
+        description: z.string().min(1),
+        serviceType: z.enum(["daycare", "boarding", "grooming", "all"]),
+        discountType: z.enum(["percentage", "fixed_amount", "free_night"]),
+        discountValue: z.number().int().min(1),
+        maxRedemptions: z.number().int().min(1).nullable().optional(),
+        newCustomersOnly: z.boolean().optional(),
+        startsAt: z.date().nullable().optional(),
+        expiresAt: z.date().nullable().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        return createPromoCode({
+          code: input.code,
+          description: input.description,
+          serviceType: input.serviceType,
+          discountType: input.discountType,
+          discountValue: input.discountValue,
+          maxRedemptions: input.maxRedemptions ?? null,
+          newCustomersOnly: input.newCustomersOnly ? "true" : "false",
+          startsAt: input.startsAt ?? null,
+          expiresAt: input.expiresAt ?? null,
+        });
+      }),
+
+    /**
+     * Update a promo code (admin)
+     */
+    update: adminProcedure
+      .input(z.object({
+        id: z.number().int(),
+        code: z.string().min(1).max(50).optional(),
+        description: z.string().min(1).optional(),
+        serviceType: z.enum(["daycare", "boarding", "grooming", "all"]).optional(),
+        discountType: z.enum(["percentage", "fixed_amount", "free_night"]).optional(),
+        discountValue: z.number().int().min(1).optional(),
+        maxRedemptions: z.number().int().min(1).nullable().optional(),
+        isActive: z.boolean().optional(),
+        newCustomersOnly: z.boolean().optional(),
+        startsAt: z.date().nullable().optional(),
+        expiresAt: z.date().nullable().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { id, ...data } = input;
+        const updateData: Record<string, unknown> = {};
+        if (data.code !== undefined) updateData.code = data.code;
+        if (data.description !== undefined) updateData.description = data.description;
+        if (data.serviceType !== undefined) updateData.serviceType = data.serviceType;
+        if (data.discountType !== undefined) updateData.discountType = data.discountType;
+        if (data.discountValue !== undefined) updateData.discountValue = data.discountValue;
+        if (data.maxRedemptions !== undefined) updateData.maxRedemptions = data.maxRedemptions;
+        if (data.isActive !== undefined) updateData.isActive = data.isActive ? "true" : "false";
+        if (data.newCustomersOnly !== undefined) updateData.newCustomersOnly = data.newCustomersOnly ? "true" : "false";
+        if (data.startsAt !== undefined) updateData.startsAt = data.startsAt;
+        if (data.expiresAt !== undefined) updateData.expiresAt = data.expiresAt;
+        return updatePromoCode(id, updateData as any);
+      }),
+
+    /**
+     * Delete a promo code (admin)
+     */
+    delete: adminProcedure
+      .input(z.object({ id: z.number().int() }))
+      .mutation(async ({ input }) => {
+        await deletePromoCode(input.id);
+        return { success: true };
+      }),
+
+    /**
+     * Get redemptions (admin) — optionally filtered by promo code ID
+     */
+    redemptions: adminProcedure
+      .input(z.object({ promoCodeId: z.number().int().optional() }).optional())
+      .query(async ({ input }) => {
+        return getRedemptions(input?.promoCodeId);
+      }),
+
+    /**
+     * Update redemption status (admin)
+     */
+    updateRedemption: adminProcedure
+      .input(z.object({
+        id: z.number().int(),
+        status: z.enum(["pending", "confirmed", "expired"]),
+        notes: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        await updateRedemptionStatus(input.id, input.status, input.notes);
+        return { success: true };
       }),
   }),
 });

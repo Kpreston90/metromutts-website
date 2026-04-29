@@ -8,6 +8,13 @@
       "when": 1775498963053,
       "tag": "0000_flashy_warstar",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1777500558247,
+      "tag": "0001_blushing_jocasta",
+      "breakpoints": true
     }
   ]
 }

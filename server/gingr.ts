@@ -175,7 +175,7 @@ export async function getAvailability(date: string): Promise<AvailabilityData> {
       date,
       daycare: { booked: 7, capacity: CAPACITY.daycare, spotsLeft: 33 },
       boarding: { booked: 7, capacity: CAPACITY.boarding, spotsLeft: 12 },
-      grooming: { booked: 6, capacity: CAPACITY.grooming, spotsLeft: 0 },
+      grooming: { booked: 5, capacity: CAPACITY.grooming, spotsLeft: 1 },
       lastUpdated: new Date().toISOString(),
     };
   }
