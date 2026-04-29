@@ -9,4 +9,5 @@ export const ENV = {
   forgeApiKey: process.env.BUILT_IN_FORGE_API_KEY ?? "",
   gingrApiKey: process.env.GINGR_API_KEY ?? "",
   gingrBaseUrl: process.env.GINGR_BASE_URL ?? "",
+  resendApiKey: process.env.RESEND_API_KEY ?? "",
 };

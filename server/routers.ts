@@ -4,6 +4,7 @@ import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router, adminProcedure } from "./_core/trpc";
 import { getTodayAndTomorrowAvailability, getAvailability } from "./gingr";
 import { notifyOwner } from "./_core/notification";
+import { sendPromoRedemptionEmail } from "./email";
 import {
   getAllPromoCodes,
   getPromoCodeByCode,
@@ -108,11 +109,23 @@ export const appRouter = router({
           serviceType: input.serviceType,
         });
 
-        // Notify owner about the redemption
+        // Notify owner about the redemption (push notification)
         await notifyOwner({
           title: `Promo Code Redeemed: ${promo.code}`,
           content: `${input.customerName} (${input.customerEmail}) redeemed promo code "${promo.code}" for ${input.serviceType}. Offer: ${promo.description}. Please apply the discount manually in Gingr when they check in.`,
         }).catch(() => {}); // Don't fail if notification fails
+
+        // Send email to front desk with full details
+        await sendPromoRedemptionEmail({
+          customerName: input.customerName,
+          customerEmail: input.customerEmail,
+          customerPhone: input.customerPhone,
+          serviceType: input.serviceType,
+          promoCode: promo.code,
+          promoDescription: promo.description,
+          discountType: promo.discountType,
+          discountValue: promo.discountValue,
+        }).catch(() => {}); // Don't fail if email fails
 
         return {
           success: true as const,
