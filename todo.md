@@ -93,3 +93,4 @@
 - [x] Promo code: entry field in booking modal flow
 - [x] Promo code: admin panel for creating/managing codes and viewing redemptions
 - [x] Promo code: tests for validation and redemption logic
+- [x] Fix TypeError: Invalid URL on deployed site (metromutts.com/admin/promos)
