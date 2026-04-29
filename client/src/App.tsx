@@ -4,6 +4,7 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import ScrollToTop from "./components/ScrollToTop";
 import { BookingModalProvider } from "./contexts/BookingModalContext";
 import Home from "./pages/Home";
 import Pricing from "./pages/Pricing";
@@ -52,6 +53,7 @@ function App() {
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <BookingModalProvider>
+            <ScrollToTop />
             <Toaster />
             <Router />
           </BookingModalProvider>
