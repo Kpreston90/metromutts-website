@@ -94,3 +94,4 @@
 - [x] Promo code: admin panel for creating/managing codes and viewing redemptions
 - [x] Promo code: tests for validation and redemption logic
 - [x] Fix TypeError: Invalid URL on deployed site (metromutts.com/admin/promos)
+- [x] Fix Gingr API parsing: handle object-keyed response format and object-typed reservation_type_name

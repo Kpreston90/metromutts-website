@@ -109,12 +109,19 @@ export async function getReservations(
 
   const data = await res.json();
 
-  // Gingr API may return an object with a data/reservations property, or directly an array
+  // Gingr API returns: { error: false, data: { "id": {...}, "id": {...} } }
+  // where data is an object keyed by reservation ID, not an array
   if (Array.isArray(data)) {
     return data;
   }
-  if (data && Array.isArray(data.data)) {
-    return data.data;
+  if (data && data.data) {
+    // data.data is an object keyed by reservation ID — convert to array
+    if (Array.isArray(data.data)) {
+      return data.data;
+    }
+    if (typeof data.data === 'object') {
+      return Object.values(data.data) as Reservation[];
+    }
   }
   if (data && Array.isArray(data.reservations)) {
     return data.reservations;
@@ -138,13 +145,19 @@ export async function getAvailability(date: string): Promise<AvailabilityData> {
     let boardingCount = 0;
     let groomingCount = 0;
 
+
     for (const res of reservations) {
-      const typeName = (res.reservation_type_name || "").toLowerCase();
+      // Skip cancelled reservations
+      if ((res as any).cancelled_date) continue;
+
+      // reservation_type_name can be a string OR an object { id, type }
+      const rawType = res.reservation_type_name || (res as any).reservation_type || "";
+      const typeName = (typeof rawType === 'object' && rawType !== null ? (rawType as any).type || "" : String(rawType)).toLowerCase().trim();
       if (typeName.includes("daycare") || typeName.includes("day care")) {
         daycareCount++;
       } else if (typeName.includes("board") || typeName.includes("overnight") || typeName.includes("lodge")) {
         boardingCount++;
-      } else if (typeName.includes("groom") || typeName.includes("bath") || typeName.includes("spa")) {
+      } else if (typeName.includes("groom") || typeName.includes("bath") || typeName.includes("spa") || typeName.includes("nail")) {
         groomingCount++;
       }
     }

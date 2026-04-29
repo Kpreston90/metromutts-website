@@ -72,6 +72,61 @@ describe("Gingr API Integration", () => {
     expect(result.grooming.spotsLeft).toBe(4);
   });
 
+  it("handles object-keyed data response from Gingr (real format)", async () => {
+    // Gingr returns { error: false, data: { "6553": {...}, "6575": {...} } }
+    const objectKeyedResponse = {
+      error: false,
+      data: {
+        "6553": {
+          reservation_id: "6553",
+          reservation_type_id: 574389,
+          reservation_type_name: { id: "574389", type: "Boarding " },
+          start_date: "2026-04-28T07:00:00-05:00",
+          end_date: "2026-05-03T10:00:00-05:00",
+          cancelled_date: null,
+        },
+        "6697": {
+          reservation_id: "6697",
+          reservation_type_id: 574501,
+          reservation_type_name: { id: "574501", type: "Spa Services" },
+          start_date: "2026-04-29T08:30:00-05:00",
+          end_date: "2026-04-29T18:00:00-05:00",
+          cancelled_date: null,
+        },
+        "6700": {
+          reservation_id: "6700",
+          reservation_type_id: 574400,
+          reservation_type_name: { id: "574400", type: "Daycare" },
+          start_date: "2026-04-29T07:00:00-05:00",
+          end_date: "2026-04-29T18:00:00-05:00",
+          cancelled_date: null,
+        },
+        "6701": {
+          reservation_id: "6701",
+          reservation_type_id: 574389,
+          reservation_type_name: { id: "574389", type: "Boarding " },
+          start_date: "2026-04-29T07:00:00-05:00",
+          end_date: "2026-04-30T18:00:00-05:00",
+          cancelled_date: "2026-04-28T10:00:00-05:00",
+        },
+      },
+    };
+
+    global.fetch = vi.fn().mockResolvedValue({
+      ok: true,
+      json: () => Promise.resolve(objectKeyedResponse),
+    });
+
+    const { getAvailability } = await import("./gingr");
+    const result = await getAvailability("2026-04-29");
+
+    // Should count: 1 boarding (6553), 1 spa/grooming (6697), 1 daycare (6700)
+    // Should skip: 6701 (cancelled)
+    expect(result.boarding.booked).toBe(1);
+    expect(result.grooming.booked).toBe(1);
+    expect(result.daycare.booked).toBe(1);
+  });
+
   it("getTodayAndTomorrowAvailability returns both days", async () => {
     global.fetch = vi.fn().mockResolvedValue({
       ok: true,
