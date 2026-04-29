@@ -66,3 +66,5 @@
 - [x] Fix page not scrolling to top on reload/navigation
 - [x] Implement Warm Coral (#F97066) as secondary accent color across the site
 - [x] Add more breathing room above service card headers in booking modal (badges need space)
+- [x] Social Proof Ticker - replace static promo banner with rotating social proof messages
+- [x] Limited Spots Toast - floating notification that appears after delay with urgency messaging

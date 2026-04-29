@@ -11,11 +11,11 @@ import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import { trackPhoneCall, trackNavClick } from "@/lib/analytics";
 import { useBookingModal } from "@/contexts/BookingModalContext";
+import SocialProofTicker, { SocialProofTickerMobile } from "@/components/SocialProofTicker";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/mm-logo-dark_455bad7b.png";
 
-const STORAGE_KEY = "mm-promo-dismissed";
-const PROMO_ID = "spring-2026";
+
 
 const navLinks = [
   {
@@ -91,7 +91,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [promoDismissed, setPromoDismissed] = useState(true);
+
   const [location] = useLocation();
   const { openBookingModal } = useBookingModal();
 
@@ -101,12 +101,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    const dismissed = localStorage.getItem(STORAGE_KEY);
-    if (dismissed !== PROMO_ID) {
-      setPromoDismissed(false);
-    }
-  }, []);
+
 
   // Handle hash scrolling when arriving on homepage from another page
   useEffect(() => {
@@ -118,10 +113,7 @@ export default function Navbar() {
     }
   }, [location]);
 
-  const dismissPromo = () => {
-    setPromoDismissed(true);
-    localStorage.setItem(STORAGE_KEY, PROMO_ID);
-  };
+
 
   const isActiveLink = (href: string) => {
     if (href.startsWith("/#")) return false;
@@ -145,29 +137,10 @@ export default function Navbar() {
             </span>
           </div>
 
-          {/* Center: Promo (dismissible) */}
-          {!promoDismissed && (
-            <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2">
-              <PawIcon className="w-3.5 h-3.5 text-[#48D597]" />
-              <span className="text-xs tracking-wide">
-                First day <strong className="text-[#F97066]">FREE</strong> for new pups
-              </span>
-              <span className="text-white/25 mx-0.5">·</span>
-              <button
-                onClick={openBookingModal}
-                className="text-xs font-bold tracking-wider uppercase text-[#F97066] hover:text-white transition-colors"
-              >
-                Claim →
-              </button>
-              <button
-                onClick={dismissPromo}
-                className="ml-1 p-0.5 rounded-full text-white/30 hover:text-white hover:bg-white/10 transition-all"
-                aria-label="Dismiss promotion"
-              >
-                <X className="w-3 h-3" />
-              </button>
-            </div>
-          )}
+          {/* Center: Social Proof Ticker */}
+          <div className="absolute left-1/2 -translate-x-1/2">
+            <SocialProofTicker />
+          </div>
 
           {/* Right: Utility links */}
           <div className="flex items-center gap-4">
@@ -178,32 +151,8 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* ─── Mobile Promo Strip ─── */}
-      {!promoDismissed && (
-        <div className="lg:hidden relative bg-[#345460] text-white/90">
-          <div className="flex items-center justify-center py-2 px-10">
-            <div className="flex items-center gap-2 text-center">
-              <PawIcon className="w-3.5 h-3.5 text-[#48D597] shrink-0" />
-              <span className="text-[11px] leading-tight">
-                <strong className="text-[#F97066]">FREE</strong> first day for new pups!{" "}
-                <button
-                  onClick={openBookingModal}
-                  className="font-bold text-[#F97066] underline underline-offset-2"
-                >
-                  Claim&nbsp;→
-                </button>
-              </span>
-            </div>
-          </div>
-          <button
-            onClick={dismissPromo}
-            className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full text-white/40 hover:text-white hover:bg-white/10 transition-all"
-            aria-label="Dismiss promotion"
-          >
-            <X className="w-3.5 h-3.5" />
-          </button>
-        </div>
-      )}
+      {/* ─── Mobile Social Proof Strip ─── */}
+      <SocialProofTickerMobile />
 
       {/* ─── Main Navigation ─── */}
       <header

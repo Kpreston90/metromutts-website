@@ -6,6 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import ScrollToTop from "./components/ScrollToTop";
 import { BookingModalProvider } from "./contexts/BookingModalContext";
+import LimitedSpotsToast from "./components/LimitedSpotsToast";
 import Home from "./pages/Home";
 import Pricing from "./pages/Pricing";
 import BookVisit from "./pages/BookVisit";
@@ -55,6 +56,7 @@ function App() {
           <BookingModalProvider>
             <ScrollToTop />
             <Toaster />
+            <LimitedSpotsToast />
             <Router />
           </BookingModalProvider>
         </TooltipProvider>
