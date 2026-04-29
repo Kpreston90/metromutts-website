@@ -24,6 +24,7 @@ import {
   TreePine,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import ServiceAvailabilityBar from "@/components/ServiceAvailabilityBar";
 import Footer from "@/components/Footer";
 import { trackPhoneCall, trackCTA } from "@/lib/analytics";
 import { useSectionTracking } from "@/hooks/usePageTracking";
@@ -114,6 +115,7 @@ export default function Daycare() {
   return (
     <div className="min-h-screen bg-[oklch(0.98_0.003_90)]">
       <Navbar />
+      <ServiceAvailabilityBar service="daycare" />
 
       {/* Hero */}
       <section

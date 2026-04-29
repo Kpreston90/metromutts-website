@@ -81,3 +81,5 @@
 - [x] Write 1,500+ word SEO blog post targeting "best dog boarding Tulsa"
 - [x] Integrate Gingr API for real-time availability data
 - [x] Connect Gingr availability to Limited Spots Toast and booking modal
+- [x] Add live availability badge to Hero Section (real-time from Gingr)
+- [x] Add sticky availability bar to Daycare, Grooming, and Boarding service pages

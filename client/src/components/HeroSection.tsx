@@ -5,9 +5,10 @@
  */
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
 import { useBookingModal } from "@/contexts/BookingModalContext";
+import { trpc } from "@/lib/trpc";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663503607069/K74BFWniuFWtXDKrDiRtHb/vet-referred-facility-v3-DCNGQE4pnuuDpVkZkPVYMQ.webp";
 
@@ -86,6 +87,9 @@ export default function HeroSection() {
             </Button>
           </motion.div>
 
+          {/* Live availability badge */}
+          <HeroAvailabilityBadge />
+
           {/* Trust badges */}
           <motion.div
             className="flex flex-wrap items-center gap-6 mt-10 pt-8 border-t border-white/15"
@@ -124,5 +128,49 @@ export default function HeroSection() {
         </svg>
       </div>
     </section>
+  );
+}
+
+/* ─── Live Availability Badge ─── */
+function HeroAvailabilityBadge() {
+  const { data: availability } = trpc.availability.todayAndTomorrow.useQuery(
+    undefined,
+    { staleTime: 5 * 60 * 1000, retry: 1 }
+  );
+
+  // Build a summary string from real data
+  const getSummary = () => {
+    if (!availability) return null;
+    const { today } = availability;
+    const parts: string[] = [];
+    if (today.daycare.spotsLeft > 0) parts.push(`${today.daycare.spotsLeft} daycare`);
+    if (today.grooming.spotsLeft > 0) parts.push(`${today.grooming.spotsLeft} grooming`);
+    if (today.boarding.spotsLeft > 0) parts.push(`${today.boarding.spotsLeft} boarding`);
+    if (parts.length === 0) return null;
+    return parts.join(" \u00B7 ") + " spots open today";
+  };
+
+  const summary = getSummary();
+
+  // Show a static fallback if API hasn't loaded yet
+  const displayText = summary || "Spots available today \u2014 book your free visit";
+
+  return (
+    <motion.div
+      className="mt-6"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.6 }}
+    >
+      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
+        <span className="relative flex h-2.5 w-2.5">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#48D597] opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#48D597]"></span>
+        </span>
+        <span className="text-white/90 text-sm font-medium">
+          {displayText}
+        </span>
+      </div>
+    </motion.div>
   );
 }

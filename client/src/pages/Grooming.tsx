@@ -20,6 +20,7 @@ import {
   Shield,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import ServiceAvailabilityBar from "@/components/ServiceAvailabilityBar";
 import PageSEO from "@/components/PageSEO";
 import SEOFaqSection from "@/components/SEOFaqSection";
 import Footer from "@/components/Footer";
@@ -94,6 +95,7 @@ export default function Grooming() {
         canonical="https://www.metromutts.com/grooming"
       />
       <Navbar />
+      <ServiceAvailabilityBar service="grooming" />
 
       {/* Hero */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">

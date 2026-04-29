@@ -23,6 +23,7 @@ import {
   Bed,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import ServiceAvailabilityBar from "@/components/ServiceAvailabilityBar";
 import PageSEO from "@/components/PageSEO";
 import SEOFaqSection from "@/components/SEOFaqSection";
 import Footer from "@/components/Footer";
@@ -110,6 +111,7 @@ export default function Boarding() {
         canonical="https://www.metromutts.com/boarding"
       />
       <Navbar />
+      <ServiceAvailabilityBar service="boarding" />
 
       {/* Hero */}
       <section id="boarding-hero" className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
