@@ -79,3 +79,5 @@
 - [x] Finalize accent color as Soft Peach (#FB923C)
 - [x] Create directory listings guide (Yelp, Nextdoor, BringFido, TulsaPets, etc.)
 - [x] Write 1,500+ word SEO blog post targeting "best dog boarding Tulsa"
+- [x] Integrate Gingr API for real-time availability data
+- [x] Connect Gingr availability to Limited Spots Toast and booking modal

@@ -1,13 +1,14 @@
 /**
  * Limited Spots Toast
- * Floating notification that slides in from the bottom-right after a delay
- * Creates urgency with day-aware messaging about limited availability
- * Dismisses after 8 seconds or on user click
+ * Floating notification that slides in from the bottom-right after a delay.
+ * Fetches real-time availability from the Gingr API via tRPC.
+ * Falls back to day-aware static messaging if API is unavailable.
  */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { X, Clock, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useBookingModal } from "@/contexts/BookingModalContext";
+import { trpc } from "@/lib/trpc";
 
 const STORAGE_KEY = "mm-toast-last-shown";
 const SHOW_DELAY_MS = 6000; // Show after 6 seconds on page
@@ -20,8 +21,8 @@ interface SpotMessage {
   timeframe: string;
 }
 
-function getUrgencyMessage(): SpotMessage {
-  const day = new Date().getDay(); // 0=Sun, 1=Mon...
+function getFallbackMessage(): SpotMessage {
+  const day = new Date().getDay();
   const messages: SpotMessage[] = [
     { service: "grooming", spots: 2, timeframe: "this Saturday" },
     { service: "daycare", spots: 4, timeframe: "this week" },
@@ -30,18 +31,60 @@ function getUrgencyMessage(): SpotMessage {
     { service: "daycare", spots: 5, timeframe: "Monday" },
   ];
 
-  // Pick based on day of week for variety
-  if (day === 0 || day === 6) return messages[2]; // Weekend → boarding
-  if (day === 4 || day === 5) return messages[0]; // Thu/Fri → grooming Saturday
-  if (day === 1) return messages[4]; // Monday → daycare this week
-  if (day === 3) return messages[3]; // Wed → grooming tomorrow
-  return messages[1]; // Tue → daycare
+  if (day === 0 || day === 6) return messages[2];
+  if (day === 4 || day === 5) return messages[0];
+  if (day === 1) return messages[4];
+  if (day === 3) return messages[3];
+  return messages[1];
 }
 
 export default function LimitedSpotsToast() {
   const [visible, setVisible] = useState(false);
   const { openBookingModal } = useBookingModal();
-  const message = getUrgencyMessage();
+
+  // Fetch real availability from Gingr API
+  const { data: availability } = trpc.availability.todayAndTomorrow.useQuery(
+    undefined,
+    { staleTime: 5 * 60 * 1000, retry: 1 } // Cache for 5 min, only retry once
+  );
+
+  // Derive the most urgent message from real data or fall back to static
+  const message: SpotMessage = useMemo(() => {
+    if (!availability) return getFallbackMessage();
+
+    const { today, tomorrow } = availability;
+
+    // Find the service with the fewest spots left (most urgent)
+    const options: SpotMessage[] = [];
+
+    if (today.grooming.spotsLeft <= 3 && today.grooming.spotsLeft > 0) {
+      options.push({ service: "grooming", spots: today.grooming.spotsLeft, timeframe: "today" });
+    }
+    if (tomorrow.grooming.spotsLeft <= 3 && tomorrow.grooming.spotsLeft > 0) {
+      options.push({ service: "grooming", spots: tomorrow.grooming.spotsLeft, timeframe: "tomorrow" });
+    }
+    if (today.daycare.spotsLeft <= 8 && today.daycare.spotsLeft > 0) {
+      options.push({ service: "daycare", spots: today.daycare.spotsLeft, timeframe: "today" });
+    }
+    if (tomorrow.daycare.spotsLeft <= 8 && tomorrow.daycare.spotsLeft > 0) {
+      options.push({ service: "daycare", spots: tomorrow.daycare.spotsLeft, timeframe: "tomorrow" });
+    }
+    if (today.boarding.spotsLeft <= 5 && today.boarding.spotsLeft > 0) {
+      options.push({ service: "boarding", spots: today.boarding.spotsLeft, timeframe: "tonight" });
+    }
+    if (tomorrow.boarding.spotsLeft <= 5 && tomorrow.boarding.spotsLeft > 0) {
+      options.push({ service: "boarding", spots: tomorrow.boarding.spotsLeft, timeframe: "tomorrow night" });
+    }
+
+    // Pick the most urgent (fewest spots)
+    if (options.length > 0) {
+      options.sort((a, b) => a.spots - b.spots);
+      return options[0];
+    }
+
+    // If nothing is low, fall back to static messaging
+    return getFallbackMessage();
+  }, [availability]);
 
   useEffect(() => {
     // Check cooldown
@@ -84,7 +127,7 @@ export default function LimitedSpotsToast() {
           className="fixed bottom-6 right-6 z-[60] max-w-sm"
         >
           <div className="bg-white rounded-2xl shadow-2xl shadow-black/15 border border-gray-100 overflow-hidden">
-            {/* Coral accent top bar */}
+            {/* Peach accent top bar */}
             <div className="h-1 bg-gradient-to-r from-[#FB923C] to-[#FB923C]/60" />
 
             <div className="p-5">

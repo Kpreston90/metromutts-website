@@ -5,6 +5,7 @@
  * Brand: Green #48D597, Dark #345460, Cream #FFFFEC
  */
 import { useState } from "react";
+import { trpc } from "@/lib/trpc";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
@@ -201,6 +202,28 @@ function ServiceStep({
 }: {
   onSelect: (service: Service) => void;
 }) {
+  // Fetch real-time availability
+  const { data: availability } = trpc.availability.todayAndTomorrow.useQuery(
+    undefined,
+    { staleTime: 5 * 60 * 1000, retry: 1 }
+  );
+
+  // Build availability badges
+  const getAvailabilityBadge = (serviceId: Service): string | null => {
+    if (!availability) return null;
+    const today = availability.today;
+    if (serviceId === "daycare" && today.daycare.spotsLeft <= 10) {
+      return `${today.daycare.spotsLeft} spots left today`;
+    }
+    if (serviceId === "grooming" && today.grooming.spotsLeft <= 4) {
+      return `${today.grooming.spotsLeft} spots left today`;
+    }
+    if (serviceId === "boarding" && today.boarding.spotsLeft <= 6) {
+      return `${today.boarding.spotsLeft} suites available`;
+    }
+    return null;
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -10 }}
@@ -211,6 +234,7 @@ function ServiceStep({
     >
       {services.map((service) => {
         const Icon = service.icon;
+        const availBadge = getAvailabilityBadge(service.id);
         return (
           <button
             key={service.id}
@@ -233,6 +257,11 @@ function ServiceStep({
                 <p className="text-[#345460]/50 text-xs leading-relaxed">
                   {service.subtitle}
                 </p>
+                {availBadge && (
+                  <p className="text-[10px] font-semibold text-[#FB923C] mt-1">
+                    {availBadge}
+                  </p>
+                )}
               </div>
             </div>
           </button>
