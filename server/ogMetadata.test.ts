@@ -104,7 +104,7 @@ describe("injectOgMeta", () => {
     const meta = getOgMetaForPath("/services");
     const result = injectOgMeta(sampleHtml, meta);
 
-    expect(result).toContain('name="twitter:title" content="Services');
+    expect(result).toContain('name="twitter:title" content="Dog Boarding, Grooming');
     expect(result).toContain('name="twitter:image" content="https://d2xsxph8kpxj0f');
   });
 
@@ -112,13 +112,13 @@ describe("injectOgMeta", () => {
     const meta = getOgMetaForPath("/boarding");
     const result = injectOgMeta(sampleHtml, meta);
 
-    expect(result).toContain("<title>Overnight Boarding");
+    expect(result).toContain("<title>Dog Boarding in Tulsa");
   });
 
   it("replaces the meta description", () => {
     const meta = getOgMetaForPath("/grooming");
     const result = injectOgMeta(sampleHtml, meta);
 
-    expect(result).toContain('name="description" content="Professional grooming');
+    expect(result).toContain('name="description" content="Professional dog grooming');
   });
 });

@@ -5,6 +5,7 @@
  * Plus Jakarta Sans typography, wave dividers, animated sections
  */
 import Navbar from "@/components/Navbar";
+import PageSEO from "@/components/PageSEO";
 import HeroSection from "@/components/HeroSection";
 import WhyChooseSection from "@/components/WhyChooseSection";
 import ServicesSection from "@/components/ServicesSection";
@@ -21,6 +22,11 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
+      <PageSEO
+        title="Metro Mutts | Dog Boarding, Grooming & Daycare in Tulsa, OK"
+        description="Metro Mutts offers luxury dog boarding, professional grooming, and supervised daycare in Tulsa, Oklahoma. 4,000+ sq ft facility with indoor play areas. First day free! Call 539-867-3841."
+        canonical="https://www.metromutts.com"
+      />
       <Navbar />
       <main>
         <HeroSection />

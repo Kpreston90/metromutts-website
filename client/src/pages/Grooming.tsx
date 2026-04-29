@@ -20,6 +20,8 @@ import {
   Shield,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import PageSEO from "@/components/PageSEO";
+import SEOFaqSection from "@/components/SEOFaqSection";
 import Footer from "@/components/Footer";
 import { trackPhoneCall, trackCTA } from "@/lib/analytics";
 import { useSectionTracking } from "@/hooks/usePageTracking";
@@ -86,6 +88,11 @@ export default function Grooming() {
   useSectionTracking(["grooming-hero", "grooming-meet", "grooming-services", "grooming-gallery", "grooming-reviews", "grooming-cta"]);
   return (
     <div className="min-h-screen bg-[oklch(0.98_0.003_90)]">
+      <PageSEO
+        title="Dog Grooming in Tulsa, OK | Professional Styling | Metro Mutts"
+        description="Professional dog grooming in Tulsa by certified stylist Jacque. Full-service baths, breed-specific haircuts, nail trims, de-shedding, and spa add-ons. All breeds welcome. Book today."
+        canonical="https://www.metromutts.com/grooming"
+      />
       <Navbar />
 
       {/* Hero */}
@@ -108,8 +115,9 @@ export default function Grooming() {
               Dog Grooming in Tulsa
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08] mb-5">
-              Expert Grooming,{" "}
-              <span className="text-[#48D597]">Happy Pups</span>
+              Dog Grooming in{" "}
+              <span className="text-[#48D597]">Tulsa, OK</span>
+              {" "}— Expert Cuts, Happy Pups
             </h1>
             <p className="text-lg text-white/65 max-w-xl mb-8 leading-relaxed">
               Professional dog grooming by Jacque — from bath & brush to full
@@ -509,6 +517,43 @@ export default function Grooming() {
           </motion.div>
         </div>
       </section>
+
+      {/* SEO FAQ Section */}
+      <SEOFaqSection
+        title="Dog Grooming in Tulsa — Frequently Asked Questions"
+        subtitle="Common questions about professional dog grooming at Metro Mutts"
+        schemaId="grooming-faq"
+        faqs={[
+          {
+            question: "How much does dog grooming cost in Tulsa?",
+            answer: "Dog grooming at Metro Mutts starts at $30 for a bath & brush. Full-service grooming (bath, haircut, nails, ears) starts at $55 and varies by breed, size, and coat condition. We provide a personalized quote during your pup's first visit. Call 539-867-3841 for pricing."
+          },
+          {
+            question: "What dog grooming services do you offer?",
+            answer: "We offer full-service dog grooming including baths, breed-specific haircuts, nail trimming, ear cleaning, de-shedding treatments, teeth brushing, and spa add-ons like blueberry facials and paw balm. Our groomer Jacque specializes in doodles, poodles, and all breed-specific styles."
+          },
+          {
+            question: "Do I need an appointment for dog grooming?",
+            answer: "Yes, grooming is by appointment only to ensure each pup gets dedicated one-on-one time with our groomer Jacque. We recommend booking 1-2 weeks in advance, especially for weekend slots. Call 539-867-3841 or book through our online portal."
+          },
+          {
+            question: "How often should I get my dog groomed?",
+            answer: "Most dogs benefit from professional grooming every 4-8 weeks depending on breed and coat type. Dogs with longer coats (doodles, poodles, shih tzus) typically need grooming every 4-6 weeks. Short-coated breeds can go 6-8 weeks between visits. Jacque can recommend a schedule during your first appointment."
+          },
+          {
+            question: "Do you groom doodles and poodles in Tulsa?",
+            answer: "Yes! Doodle and poodle grooming is one of our specialties. Jacque is experienced with all doodle varieties (Goldendoodles, Labradoodles, Bernedoodles) and poodle clips. We handle everything from puppy's first groom to maintaining complex breed-specific styles."
+          },
+          {
+            question: "What should I expect during my dog's first grooming appointment?",
+            answer: "For first-time visits, we schedule extra time for a consultation. Jacque will assess your dog's coat condition, discuss your preferred style, and ensure your pup is comfortable. We go at your dog's pace — no rushing, no stress. Puppies should be at least 12 weeks old with up-to-date vaccinations."
+          },
+          {
+            question: "Can I get my dog groomed while they're at daycare or boarding?",
+            answer: "Absolutely! Many of our clients combine services. You can add grooming to any daycare or boarding stay so your pup comes home clean, styled, and happy. Just let us know when you book and we'll coordinate the schedule."
+          }
+        ]}
+      />
 
       <Footer />
     </div>

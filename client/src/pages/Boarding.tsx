@@ -23,6 +23,8 @@ import {
   Bed,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import PageSEO from "@/components/PageSEO";
+import SEOFaqSection from "@/components/SEOFaqSection";
 import Footer from "@/components/Footer";
 import { trackPhoneCall, trackCTA } from "@/lib/analytics";
 import { useSectionTracking } from "@/hooks/usePageTracking";
@@ -102,6 +104,11 @@ export default function Boarding() {
   useSectionTracking(["boarding-hero", "boarding-included", "boarding-facility", "boarding-schedule", "boarding-testimonials", "boarding-pricing", "boarding-cta"]);
   return (
     <div className="min-h-screen bg-[oklch(0.98_0.003_90)]">
+      <PageSEO
+        title="Dog Boarding in Tulsa, OK | Luxury Overnight Suites | Metro Mutts"
+        description="Best dog boarding in Tulsa, Oklahoma. Spacious private suites with climate control, daily supervised play, evening walks, and overnight staff. Book your pup's stay today."
+        canonical="https://www.metromutts.com/boarding"
+      />
       <Navbar />
 
       {/* Hero */}
@@ -124,10 +131,10 @@ export default function Boarding() {
               Dog Boarding in Tulsa
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08] mb-5">
-              Your Dog's{" "}
-              <span className="text-[#48D597]">Home Away</span>
+              Dog Boarding in{" "}
+              <span className="text-[#48D597]">Tulsa, OK</span>
               <br />
-              From Home
+              — Your Dog's Home Away From Home
             </h1>
             <p className="text-lg text-white/65 max-w-xl mb-8 leading-relaxed">
               Spacious suites, daily playtime, and round-the-clock care — because
@@ -502,6 +509,43 @@ export default function Boarding() {
           </motion.div>
         </div>
       </section>
+
+      {/* SEO FAQ Section */}
+      <SEOFaqSection
+        title="Dog Boarding in Tulsa — Frequently Asked Questions"
+        subtitle="Everything you need to know about boarding your dog at Metro Mutts"
+        schemaId="boarding-faq"
+        faqs={[
+          {
+            question: "How much does dog boarding cost in Tulsa?",
+            answer: "Dog boarding at Metro Mutts starts at $50 per night for a private suite. Multi-night stays and multi-dog families receive discounts. Every boarding stay includes daily supervised group play, meals on your schedule, evening walks, and overnight staff check-ins — no hidden fees."
+          },
+          {
+            question: "What is included in overnight dog boarding at Metro Mutts?",
+            answer: "Every boarding stay includes a private climate-controlled suite with cozy bedding, daily group play sessions, individual attention, meals served on your schedule, evening potty walks, and overnight staff monitoring. We also offer add-ons like grooming, extra play sessions, and webcam access."
+          },
+          {
+            question: "What vaccinations are required for dog boarding?",
+            answer: "All dogs must be current on Rabies, DHPP (Distemper), and Bordetella (kennel cough) vaccinations. We also require a negative fecal test within the past 12 months. Puppies must have completed their full vaccination series. We verify records before every stay to keep all pups safe."
+          },
+          {
+            question: "Can I board my dog if they have never been to Metro Mutts before?",
+            answer: "Yes! We recommend scheduling a free daycare trial day first so your dog can get comfortable with our facility, staff, and other pups. This helps reduce stress during their first overnight stay. Call 539-867-3841 to schedule your pup's meet-and-greet."
+          },
+          {
+            question: "What makes Metro Mutts different from other dog boarding in Tulsa?",
+            answer: "Metro Mutts is Tulsa's newest purpose-built dog care facility with 4,000+ sq ft of indoor and outdoor space. Unlike traditional kennels, our dogs aren't crated all day — they enjoy supervised group play, enrichment activities, and personalized attention. We're family-run by the team behind OKC's most waitlisted dog care spot."
+          },
+          {
+            question: "Do you offer boarding for large dogs in Tulsa?",
+            answer: "Absolutely! We welcome dogs of all sizes. Our spacious suites comfortably accommodate large and giant breeds. During play sessions, dogs are grouped by size and temperament to ensure safe, enjoyable interactions for everyone."
+          },
+          {
+            question: "What are your dog boarding hours for drop-off and pick-up?",
+            answer: "Drop-off is available Monday through Friday from 6:30 AM to 7:00 PM, Saturday 8:00 AM to 5:00 PM, and Sunday 10:00 AM to 4:00 PM. We're flexible with scheduling — just let us know your travel plans and we'll work with you."
+          }
+        ]}
+      />
 
       <Footer />
     </div>
