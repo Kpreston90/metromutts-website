@@ -414,7 +414,7 @@ export default function Services() {
                     {Array.from({ length: t.rating }).map((_, j) => (
                       <Star
                         key={j}
-                        className="w-4 h-4 text-amber-400"
+                        className="w-4 h-4 text-[#F97066]"
                         fill="currentColor"
                       />
                     ))}
@@ -463,10 +463,10 @@ export default function Services() {
                 {[1, 2, 3, 4].map((i) => (
                   <Star
                     key={i}
-                    className="w-3.5 h-3.5 text-amber-400 fill-amber-400"
+                    className="w-3.5 h-3.5 text-[#F97066] fill-[#F97066]"
                   />
                 ))}
-                <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400 opacity-70" />
+                <Star className="w-3.5 h-3.5 text-[#F97066] fill-[#F97066] opacity-70" />
               </div>
               <span className="text-xs text-[#345460]/50">
                 96 reviews on Google

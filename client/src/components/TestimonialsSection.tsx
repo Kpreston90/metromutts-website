@@ -134,7 +134,7 @@ export default function TestimonialsSection() {
             {/* Stars */}
             <div className="flex gap-1 mb-6">
               {Array.from({ length: t.rating }).map((_, i) => (
-                <Star key={i} className="w-5 h-5 text-amber-400 fill-amber-400" />
+                <Star key={i} className="w-5 h-5 text-[#F97066] fill-[#F97066]" />
               ))}
             </div>
 
@@ -210,9 +210,9 @@ export default function TestimonialsSection() {
               <span className="text-sm font-semibold text-[#345460]">4.9</span>
               <div className="flex gap-0.5">
                 {[1, 2, 3, 4].map((i) => (
-                  <Star key={i} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                  <Star key={i} className="w-3.5 h-3.5 text-[#F97066] fill-[#F97066]" />
                 ))}
-                <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400 opacity-70" />
+                <Star className="w-3.5 h-3.5 text-[#F97066] fill-[#F97066] opacity-70" />
               </div>
               <a href="https://www.google.com/maps/search/Metro+Mutts+1219+E+13th+St+Tulsa+OK" target="_blank" rel="noopener noreferrer" className="text-xs text-[#345460]/50 hover:text-[#48D597] transition-colors">96 reviews on Google</a>
             </div>

@@ -387,7 +387,7 @@ export default function Daycare() {
                     {Array.from({ length: t.rating }).map((_, j) => (
                       <Star
                         key={j}
-                        className="w-4 h-4 text-amber-400"
+                        className="w-4 h-4 text-[#F97066]"
                         fill="currentColor"
                       />
                     ))}
@@ -480,7 +480,7 @@ export default function Daycare() {
                   }`}
                 >
                   {plan.highlight && (
-                    <span className="inline-block px-3 py-1 rounded-full bg-[#48D597] text-white text-xs font-bold mb-4 uppercase tracking-wider">
+                    <span className="inline-block px-3 py-1 rounded-full bg-[#F97066] text-white text-xs font-bold mb-4 uppercase tracking-wider">
                       Most Popular
                     </span>
                   )}

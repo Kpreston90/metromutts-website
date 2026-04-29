@@ -150,12 +150,12 @@ export default function Navbar() {
             <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2">
               <PawIcon className="w-3.5 h-3.5 text-[#48D597]" />
               <span className="text-xs tracking-wide">
-                First day <strong className="text-[#48D597]">FREE</strong> for new pups
+                First day <strong className="text-[#F97066]">FREE</strong> for new pups
               </span>
               <span className="text-white/25 mx-0.5">·</span>
               <button
                 onClick={openBookingModal}
-                className="text-xs font-bold tracking-wider uppercase text-[#48D597] hover:text-white transition-colors"
+                className="text-xs font-bold tracking-wider uppercase text-[#F97066] hover:text-white transition-colors"
               >
                 Claim →
               </button>
@@ -185,10 +185,10 @@ export default function Navbar() {
             <div className="flex items-center gap-2 text-center">
               <PawIcon className="w-3.5 h-3.5 text-[#48D597] shrink-0" />
               <span className="text-[11px] leading-tight">
-                <strong className="text-[#48D597]">FREE</strong> first day for new pups!{" "}
+                <strong className="text-[#F97066]">FREE</strong> first day for new pups!{" "}
                 <button
                   onClick={openBookingModal}
-                  className="font-bold text-[#48D597] underline underline-offset-2"
+                  className="font-bold text-[#F97066] underline underline-offset-2"
                 >
                   Claim&nbsp;→
                 </button>

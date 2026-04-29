@@ -423,7 +423,7 @@ export default function Pricing() {
                       }`}
                     >
                       {pkg.popular && (
-                        <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#345460] text-[#48D597] text-[10px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider">
+                        <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#F97066] text-white text-[10px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider">
                           Best Value
                         </span>
                       )}
@@ -711,7 +711,7 @@ export default function Pricing() {
               {/* Full Grooming — highlighted */}
               <div className="bg-white rounded-2xl border-2 border-[#48D597] p-7 shadow-lg shadow-[#48D597]/10 relative">
                 <div className="absolute -top-3 left-6">
-                  <span className="bg-[#48D597] text-[#345460] text-xs font-bold px-3 py-1 rounded-full">
+                  <span className="bg-[#F97066] text-white text-xs font-bold px-3 py-1 rounded-full">
                     Most Popular
                   </span>
                 </div>

@@ -64,3 +64,4 @@
 - [x] Smart booking modal (Option C) - routes users by service, handles new vs existing customers, captures leads
 - [x] Fix booking modal not firing on mobile devices
 - [x] Fix page not scrolling to top on reload/navigation
+- [x] Implement Warm Coral (#F97066) as secondary accent color across the site
