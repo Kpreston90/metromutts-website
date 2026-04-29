@@ -75,3 +75,7 @@
 - [x] SEO: Add sitemap.xml and robots.txt
 - [x] SEO: Optimize on-page content (headings, keyword density, internal linking, alt text)
 - [x] SEO: Add SEO-rich content sections to Boarding and Grooming pages
+- [x] Finalize accent color as Soft Peach (#FB923C)
+- [x] Finalize accent color as Soft Peach (#FB923C)
+- [ ] Create directory listings guide (Yelp, Nextdoor, BringFido, TulsaPets, etc.)
+- [ ] Write 1,500+ word SEO blog post targeting "best dog boarding Tulsa"

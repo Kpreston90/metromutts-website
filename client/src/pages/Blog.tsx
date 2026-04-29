@@ -90,7 +90,7 @@ export default function Blog() {
                         className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 rounded-full bg-[#EAB308] text-white text-xs font-bold uppercase tracking-wider">
+                        <span className="px-3 py-1 rounded-full bg-[#FB923C] text-white text-xs font-bold uppercase tracking-wider">
                           Latest
                         </span>
                       </div>
