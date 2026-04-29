@@ -356,7 +356,7 @@ export default function Navbar() {
               <div className="pt-3 flex flex-col gap-2">
                 <Button
                   className="w-full bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold"
-                  onClick={() => { setMobileOpen(false); openBookingModal(); }}
+                  onClick={() => { openBookingModal(); setTimeout(() => setMobileOpen(false), 50); }}
                 >
                   Book a Visit
                 </Button>
