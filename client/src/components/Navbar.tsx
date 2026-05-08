@@ -230,19 +230,16 @@ export default function Navbar() {
               <Phone className="w-4 h-4" />
               539-867-3841
             </a>
-            <Button
-              variant="outline"
-              className="border-[#48D597] text-[#48D597] hover:bg-[#48D597]/10 font-semibold"
-              onClick={() => {
-                if (location !== "/") {
-                  window.location.href = "/#contact";
-                } else {
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
-            >
-              Find Us
-            </Button>
+            <Link href="/get-started">
+              <Button
+                variant="outline"
+                className="border-[#FB923C] text-[#FB923C] hover:bg-[#FB923C]/10 font-semibold"
+                onClick={() => trackNavClick("get_started_desktop")}
+              >
+                <PawIcon className="w-4 h-4 mr-1" />
+                Get Started
+              </Button>
+            </Link>
             <Button
               className="bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold shadow-lg shadow-[#48D597]/20"
               onClick={() => openBookingModal()}
@@ -321,6 +318,15 @@ export default function Navbar() {
                 </Link>
               </div>
               <div className="pt-3 flex flex-col gap-2">
+                <Link href="/get-started" onClick={() => setMobileOpen(false)}>
+                  <Button
+                    variant="outline"
+                    className="w-full border-[#FB923C] text-[#FB923C] hover:bg-[#FB923C]/10 font-bold"
+                  >
+                    <PawIcon className="w-4 h-4 mr-1" />
+                    Get Started — New Customers
+                  </Button>
+                </Link>
                 <Button
                   className="w-full bg-[#48D597] hover:bg-[#3bc085] text-[#345460] font-bold"
                   onClick={() => { openBookingModal(); setTimeout(() => setMobileOpen(false), 50); }}
