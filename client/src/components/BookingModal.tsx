@@ -393,10 +393,12 @@ function CustomerTypeStep({
 
       {/* New Customer */}
       <a
-        href={GINGR_SIGNUP}
-        target="_blank"
-        rel="noopener noreferrer"
+        href="/get-started"
         className="group block p-5 rounded-xl border border-gray-100 hover:border-[#48D597] hover:shadow-lg hover:shadow-[#48D597]/10 transition-all duration-200 hover:-translate-y-0.5"
+        onClick={(e) => {
+          e.preventDefault();
+          window.location.href = "/get-started";
+        }}
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -408,7 +410,7 @@ function CustomerTypeStep({
                 I'm new here!
               </h3>
               <p className="text-[#345460]/50 text-sm">
-                Create an account to get started
+                See how to get started
               </p>
             </div>
           </div>

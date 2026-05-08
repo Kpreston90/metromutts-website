@@ -96,3 +96,4 @@
 - [x] Fix TypeError: Invalid URL on deployed site (metromutts.com/admin/promos)
 - [x] Fix Gingr API parsing: handle object-keyed response format and object-typed reservation_type_name
 - [x] Automated email to front desk when a promo code is redeemed (customer name, phone, email, service, promo details)
+- [x] Build dedicated "Get Started" booking landing page for new customers (Gingr sign-up flow, temperament test explanation, service prerequisites)

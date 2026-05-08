@@ -150,9 +150,16 @@ export async function getAvailability(date: string): Promise<AvailabilityData> {
       // Skip cancelled reservations
       if ((res as any).cancelled_date) continue;
 
-      // reservation_type_name can be a string OR an object { id, type }
+      // reservation_type_name can be a string OR an object { id, type } OR other structures
       const rawType = res.reservation_type_name || (res as any).reservation_type || "";
-      const typeName = (typeof rawType === 'object' && rawType !== null ? (rawType as any).type || "" : String(rawType)).toLowerCase().trim();
+      let typeName = "";
+      if (typeof rawType === 'string') {
+        typeName = rawType.toLowerCase().trim();
+      } else if (typeof rawType === 'object' && rawType !== null) {
+        typeName = String((rawType as any).type || (rawType as any).name || "").toLowerCase().trim();
+      } else {
+        typeName = String(rawType || "").toLowerCase().trim();
+      }
       if (typeName.includes("daycare") || typeName.includes("day care")) {
         daycareCount++;
       } else if (typeName.includes("board") || typeName.includes("overnight") || typeName.includes("lodge")) {
